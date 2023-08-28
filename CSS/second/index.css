@@ -2,7 +2,7 @@
 
 body {
     height: 100vh;
-    background-image: linear-gradient(to bottom right, rgb(2, 78, 158),rgb(126, 216, 243), rgb(2, 99, 78));
+    background-image: linear-gradient(to bottom right, #546BB9,#55A7BD, #54D0AC);
     font-family: 'Poppins', sans-serif;
     color: white;
     padding: 25px;
@@ -10,12 +10,19 @@ body {
 
 h1, h5, h4 {
     text-align: center;
+    letter-spacing: 3px;
+    margin: 0px;
+
 }
 
 h5, h4, h6 {
     letter-spacing: 3px;
-    margin: 10PX;
-    /* background-color: green; */
+    font-weight: 600;
+    margin: 0PX;
+}
+
+.light_font {
+    font-weight: 100;
 }
 
 .compass_direction {
@@ -26,22 +33,23 @@ h5, h4, h6 {
 }
 
 .main_div {
-    /* background-color: red; */
     width: fit-content;
-    margin: auto;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
 .report {
     display: flex;
-    gap: 10px;
+    gap: 25px;
     flex-wrap: wrap;
     justify-content:center;
 }
 
 .report_detail {
-    background-image: linear-gradient(to bottom right, aliceblue, rgb(3, 110, 57));
     border-radius: 10px;
-    padding:0px 20px;
+    padding: 20px;
 
 }
 
@@ -50,17 +58,29 @@ h5, h4, h6 {
     padding-bottom: 10px;
 }
 
+.dotted_line {
+  white-space: nowrap; 
+  width: 50px; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 #local_report {
-    /* margin: 20px; */
+    background-image: linear-gradient(to bottom right, #5376AE, #5295B0);
 
 }
 
 #forecast_report {
-    /* margin-left: 20px; */
+    background-image: linear-gradient(to bottom right, #4180a5, #5497B1);
+}
+
+#forecast_report h6 {
+    margin: 5px 0px;
 }
 
 .d1 {
     display: flex;
+    gap: 10px;
 }
 
 .compass_symbol {
@@ -70,15 +90,14 @@ h5, h4, h6 {
 .local_report_detail {
     display: flex;
     flex-direction: column;
-    justify-content: right;
+    justify-content: space-between;
 }
 
 
 .daywise_report {
-    width: 100%;
-    background-image: linear-gradient(to bottom right, aliceblue, rgb(3, 110, 57));
+    padding: 20px;
+    background-image: linear-gradient(to bottom right, #538BB0, #53ADAD);
     border-radius: 10px;
-    margin-top: 15PX;
     display: flex;
     justify-content:space-around
 }
@@ -88,7 +107,8 @@ h5, h4, h6 {
 }
 
 .daywise_report div {
-    /* width: 20%; */
+    width: 20%;
+    padding: 5px;
 }
 
 
