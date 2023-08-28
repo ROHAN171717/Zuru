@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css"/>
+    <title>Survey Form</title>
+    
+</head>
+<body>
+    <h1 class="heading1">Survey Form</h1>
+
+    <div class="d1">
+        <p>Let us know how we can improve freeCodeCamp</p>
+
+        <form>
+
+            <div class="main_div">
+                <div class="label_div">
+                    <label><sup>*</sup>Name:</label>
+                    <label><sup>*</sup>Email:</label>
+                    <label><sup>*</sup>Age:</label>
+                    <label>Which option best describes your current role?</label>
+                    <label><sup>*</sup>How likely is that you would recommend<br>
+                    freeCodeCamp to a friend?</label>
+                    <label id="label_dropdown">What do you like most in FCC:</label>
+                    <label>Things that should be improved in the future<br>
+                    (Check all that apply):</label>
+                </div>
+    
+                <div class="input_div">
+                    <input type="text" id="simple_input" placeholder="Enter your name" required/>
+                    <input type="text" id="simple_input" placeholder="Enter your name" required/>
+                    <input type="number" id="simple_input" placeholder="Age" min="0" required/>
+
+                    <select id="dropdown">
+                        <option>Student</option>
+                        <option>ABC</option>
+                        <option>XYZ</option>
+                    </select>
+
+                    <input type="radio" name="definitely" value="definitely"/>
+                    <label>Definitely</label><br>
+
+                    <input type="radio" name="maybe" value="maybe"/>
+                    <label>Maybe</label><br>
+
+                    <input type="radio" id="radio_button" name="notsure" value="not sure"/>
+                    <label>Not sure</label><br>
+
+                    <select id="dropdown">
+                        <option>Select an option</option>
+                        <option>ABC</option>
+                        <option>XYZ</option>
+                    </select>
+
+                    <input type="checkbox" id="checkbox" name="frontend" value="frontend projects">
+                    <label>Front-end Projects</label><br>
+
+                    <input type="checkbox" name="backend" value="backend projects">
+                    <label>Back-end Projects</label><br>
+
+                    <input type="checkbox" name="dataVisualization" value="data visualization">
+                    <label>Data Visualization</label>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

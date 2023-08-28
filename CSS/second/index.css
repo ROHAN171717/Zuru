@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+body {
+    height: 100vh;
+    background-image: linear-gradient(to bottom right, rgb(2, 78, 158),rgb(126, 216, 243), rgb(2, 99, 78));
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    padding: 25px;
+}
+
+h1, h5, h4 {
+    text-align: center;
+}
+
+h5, h4, h6 {
+    letter-spacing: 3px;
+    margin: 10PX;
+    /* background-color: green; */
+}
+
+.compass_direction {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_div {
+    /* background-color: red; */
+    width: fit-content;
+    margin: auto;
+}
+
+.report {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+
+.report_detail {
+    background-image: linear-gradient(to bottom right, aliceblue, rgb(3, 110, 57));
+    border-radius: 10px;
+    padding:0px 20px;
+
+}
+
+.report_detail h5:first-child {
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
+}
+
+#local_report {
+    /* margin: 20px; */
+
+}
+
+#forecast_report {
+    /* margin-left: 20px; */
+}
+
+.d1 {
+    display: flex;
+}
+
+.compass_symbol {
+    font-size: x-large;
+}
+
+.local_report_detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
+
+.daywise_report {
+    width: 100%;
+    background-image: linear-gradient(to bottom right, aliceblue, rgb(3, 110, 57));
+    border-radius: 10px;
+    margin-top: 15PX;
+    display: flex;
+    justify-content:space-around
+}
+
+.daywise_report div:not(:last-child) {
+    border-right: 2px solid white;
+}
+
+.daywise_report div {
+    /* width: 20%; */
+}
+
+
