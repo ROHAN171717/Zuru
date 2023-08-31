@@ -77,9 +77,10 @@ body {
 .section_detail {
     font-weight: 300;
     font-size:large;
+    color: gray;
 }
 
-.video_button {
+.video_button  {
     margin-top: 30px;
     padding: 15px 30px;
     font-size: large;
@@ -197,7 +198,7 @@ body {
 
     .main_grid_container {
         display: grid;
-        grid-template-rows:10vh 7vh auto 10vh;
+        grid-template-rows:10vh auto auto 10vh;
     }
 
     .main_section {
@@ -250,19 +251,10 @@ body {
 
     .nav > .nav-btn {
         display: inline-block;
-        position: absolute;
-        right: 0px;
-        top: 0px;
-        margin-right: 30px;
       }
       .nav > .nav-btn > label {
         display: inline-block;
-        width: 50px;
-        height: 50px;
-        padding: 13px;
-      }
-      .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
-        /* background-color: rgba(0, 0, 0, 0.3); */
+        margin-top: 15px;
       }
       .nav > .nav-btn > label > span {
         display: block;
@@ -271,16 +263,11 @@ body {
         border-top: 2px solid black;
       }
       .nav > .nav-links {
-        position: absolute;
         display: block;
-        /* width: 100%; */
         width: calc(100% - 60px);
-        /* transition: all 0.3s ease-in; */
         overflow-y: hidden;
         background-color: rgb(151, 149, 149);
-
         top: 50px;
-        
       }
       .nav > .nav-links > a {
         display: block;
@@ -289,10 +276,7 @@ body {
       }
       .nav > #nav-check:not(:checked) ~ .nav-links {
         height: 0px;
-      }
-
-      .nav > #nav-check:not(:checked) ~ .nav {
-        height: 700px;
+        /* margin-bottom: 10px; */
       }
 }
 
