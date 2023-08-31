@@ -13,7 +13,6 @@ body {
 .main_grid_container {
     display: grid;
     grid-template-rows:10vh 80vh 10vh;
-    /* padding: 20px; */
 }
 
 .main_grid_container > div {
@@ -81,8 +80,10 @@ body {
 }
 
 .video_button  {
+    display: flex;
+    align-items: center;
     margin-top: 30px;
-    padding: 15px 30px;
+    padding: 5px 15px;
     font-size: large;
     border: 1px solid gray;
     background-color: white;
@@ -109,7 +110,6 @@ body {
     display: none;
     height: fit-content;
     width: 100%;
-    /* background-color: #4d4d4d; */
     position: relative;
   }
   
@@ -130,15 +130,12 @@ body {
     color: #efefef;
   }
   
-  .nav > .nav-links > a:hover {
-    /* background-color: rgba(0, 0, 0, 0.3); */
-  }
-  
   .nav > #nav-check {
     display: none;
   }
 
 @media screen and (max-width: 1680px) {
+    
     .started_button {
         padding: 10px 10px;
         border-radius: 20px;
@@ -150,39 +147,55 @@ body {
     }
 }
 
-@media screen and (max-width: 1150px) {
-    .started_button {
-        padding: 5px;
-        font-size: medium;
-        border-radius: 15px;
+@media screen and (max-width: 1160px) {
+
+    .navbar {
+        grid-template-columns: 20% auto 20%;
     }
+
+    .navbar div {
+        margin: 1px;
+        
+    }
+
+    .started_button {
+        display: flex;
+        margin-left: auto;
+    }
+
 }
 
 @media screen and (max-width: 1000px) {
+    .s2 img {
+        object-fit: cover;
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+
+    .section_heading {
+        font-weight: 900;
+        font-size:35px;
+    }
+
     .s2 img {
         object-fit: cover;
         width: 400px;
     }
 }
 
-@media screen and (max-width: 960px) {
-    .navbar {
-        background-color: white;
-        display: grid;
-        grid-template-columns: 15% 70% 15%;
-        align-items: center;
-    }
-
-    .section_heading {
-        font-weight: 900;
-        font-size:35px;
-    }
-}
-
 @media screen and (max-width: 800px) {
+
+    .navbar a {
+        margin: 0px 10px;
+        font-weight: 500;
+        font-size: large;
+    }
+    
     .s2 img {
         object-fit: cover;
-        width: 300px;
+        width: 350px;
     }
 
     .footer {
@@ -229,6 +242,11 @@ body {
         margin-bottom: 30px;
     }
 
+    .video_button {
+        margin: auto;
+        margin-top: 30px;
+    }
+
     .nav {
         display: block;
         height: 100%;
@@ -250,7 +268,9 @@ body {
     }
 
     .nav > .nav-btn {
-        display: inline-block;
+        display: flex;
+        justify-content: flex-end;
+
       }
       .nav > .nav-btn > label {
         display: inline-block;
@@ -276,7 +296,6 @@ body {
       }
       .nav > #nav-check:not(:checked) ~ .nav-links {
         height: 0px;
-        /* margin-bottom: 10px; */
       }
 }
 
