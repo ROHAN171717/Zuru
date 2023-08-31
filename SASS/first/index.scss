@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-image: linear-gradient(to bottom right, #546BB9,#55A7BD, #54D0AC);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    padding: 25px;
+}
+
+h1, h5, h4 {
+    text-align: center;
+    letter-spacing: 3px;
+    margin: 0px;
+
+}
+
+h5, h4, h6 {
+    letter-spacing: 3px;
+    font-weight: 600;
+    margin: 0PX;
+}
+
+.light_font {
+    font-weight: 100;
+}
+
+.compass_direction {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_div {
+    width: 35vw;
+    min-width: fit-content;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.report {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+}
+
+.report_detail {
+    border-radius: 10px;
+    padding: 20px;
+
+}
+
+.report_detail {
+  h5:first-child {
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
+}
+}
+
+
+
+#local_report {
+    background-image: linear-gradient(to bottom right, #5376AE, #5295B0);
+    width: 45%;
+}
+
+#forecast_report {
+    background-image: linear-gradient(to bottom right, #4180a5, #5497B1);
+    width: 51%;
+
+}
+
+#forecast_report h6 {
+    margin: 5px 0px;
+}
+
+.d1 {
+    display: flex;
+    gap: 10px;
+    height: 142px;
+    justify-content: space-between;
+}
+
+
+
+.compass_symbol {
+    font-size: x-large;
+}
+
+.local_report_detail {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.daywise_report {
+    padding: 10px;
+    background-image: linear-gradient(to bottom right, #538BB0, #53ADAD);
+    border-radius: 10px;
+    display: flex;
+    justify-content:space-around
+}
+
+.daywise_report {
+  div:not(:last-child) {
+    border-right: 2px solid white;
+}
+}
+
+.daywise_report{
+  div {
+    width: 20%;
+    padding: 5px;
+}
+}
+
+.demo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dotted_line {
+    display: inline-block;
+    width: 90px; 
+    overflow: hidden;
+}
