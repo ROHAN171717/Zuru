@@ -2,7 +2,7 @@ let inputBox = document.getElementById("input-box");
 let listContainer = document.getElementById('list-container');
 let addButton = document.getElementById("add-button");
 
-addButton.addEventListener('click', function (e) {
+addButton.addEventListener('click', function(){
     addTask();
 })
 
@@ -17,25 +17,9 @@ function addTask() {
     saveData();
 }
 
-// listContainer.addEventListener('click', function (e) {
-//     let ele = e.target.tagName;
-//     if (ele === "INPUT") {
-//         if (e.target.checked === true) {
-//             e.target.parentElement.parentElement.classList.add("checked");
-//             console.log(e.target.parentElement.parentElement);
-//         } else if (e.target.checked === false) {
-//             e.target.parentElement.parentElement.classList.remove("checked");
-//         }
-//         saveData();
-//     } else if (ele === "SPAN") {
-//         e.target.parentElement.remove();
-//         saveData();
-//     }
-// })
-
 function saveData() {
     let arr = [];
-    let tasks = listContainer.getElementsByClassName('task');
+    let tasks = listContainer.getElementsByTagName('p');
     let checkbox = listContainer.getElementsByClassName('checkbox');
 
     for (let i = 0; i < tasks.length; i++) {
@@ -44,6 +28,7 @@ function saveData() {
         obj.checked = checkbox[i].checked;
         arr.push(obj);
     }
+    console.log(arr);
     localStorage.setItem("Tasks", JSON.stringify(arr));
 }
 
@@ -76,7 +61,6 @@ function createElements(text, checked) {
     div1.appendChild(input1);
 
     let para = document.createElement('p');
-    para.classList.add('task');
     para.innerText = text;
     if (input1.checked) {
         para.classList.add('checked')
@@ -89,7 +73,10 @@ function createElements(text, checked) {
     li.appendChild(div2);
     li.appendChild(crossIcon);
 
-    li.addEventListener('click', function () {
+    li.addEventListener('click', handleChecked)
+    input1.addEventListener('click', handleChecked)
+
+    function handleChecked() {
         if (input1.checked) {
             input1.checked = false;
             para.classList.remove('checked');
@@ -97,7 +84,9 @@ function createElements(text, checked) {
             input1.checked = true;
             para.classList.add('checked');
         }
-    })
+        saveData();
+    }
+
 
     crossIcon.addEventListener('click', function(e) {
         e.target.parentElement.remove();
