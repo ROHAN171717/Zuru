@@ -55,8 +55,6 @@ body {
     flex-direction: column;
     margin: 30px auto 0px;
     background-color: rgb(158, 224, 202);
-    /* border: 2px solid black; */
-    /* border-radius: 15px; */
     overflow: hidden;
 }
 
@@ -113,4 +111,5 @@ ul li span:hover {
 
 .checked{
     text-decoration: line-through;
+    text-decoration-thickness: 2px;
 }
