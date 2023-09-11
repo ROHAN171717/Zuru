@@ -1,32 +1,37 @@
 let inputBox = document.getElementById("input-box");
 let listContainer = document.getElementById('list-container');
+let addButton = document.getElementById("add-button");
+
+addButton.addEventListener('click', function (e) {
+    addTask();
+})
 
 function addTask() {
     if (inputBox.value.trim() === "") {
         alert("You must write something!");
     }
     else {
-        createElements(inputBox.value, "")
+        createElements(inputBox.value, false)
     }
     inputBox.value = "";
     saveData();
 }
 
-listContainer.addEventListener('click', function (e) {
-    let ele = e.target.tagName;
-    if (ele === "INPUT") {
-        if (e.target.checked === true) {
-            e.target.parentElement.parentElement.classList.add("checked");
-            console.log(e.target.parentElement.parentElement);
-        } else if (e.target.checked === false) {
-            e.target.parentElement.parentElement.classList.remove("checked");
-        }
-        saveData();
-    } else if (ele === "SPAN") {
-        e.target.parentElement.remove();
-        saveData();
-    }
-})
+// listContainer.addEventListener('click', function (e) {
+//     let ele = e.target.tagName;
+//     if (ele === "INPUT") {
+//         if (e.target.checked === true) {
+//             e.target.parentElement.parentElement.classList.add("checked");
+//             console.log(e.target.parentElement.parentElement);
+//         } else if (e.target.checked === false) {
+//             e.target.parentElement.parentElement.classList.remove("checked");
+//         }
+//         saveData();
+//     } else if (ele === "SPAN") {
+//         e.target.parentElement.remove();
+//         saveData();
+//     }
+// })
 
 function saveData() {
     let arr = [];
@@ -73,15 +78,31 @@ function createElements(text, checked) {
     let para = document.createElement('p');
     para.classList.add('task');
     para.innerText = text;
-    if(input1.checked){
+    if (input1.checked) {
         para.classList.add('checked')
     }
     div2.appendChild(para);
 
-    let span = document.createElement('span');
-    span.innerText = "\u00d7";
+    let crossIcon = document.createElement('span');
+    crossIcon.innerText = "\u00d7";
     li.appendChild(div1);
     li.appendChild(div2);
-    li.appendChild(span);
+    li.appendChild(crossIcon);
+
+    li.addEventListener('click', function () {
+        if (input1.checked) {
+            input1.checked = false;
+            para.classList.remove('checked');
+        } else {
+            input1.checked = true;
+            para.classList.add('checked');
+        }
+    })
+
+    crossIcon.addEventListener('click', function(e) {
+        e.target.parentElement.remove();
+        saveData();
+    })
+
     listContainer.appendChild(li);
 }
