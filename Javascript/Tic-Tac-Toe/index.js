@@ -14,8 +14,6 @@ let isGameActive = true;
    [6] [7] [8]
 */
 
-playerDisplay.
-
 const winningConditions = [
     [0,1,2],
     [3,4,5],
@@ -42,7 +40,7 @@ const changePlayer = () => {
     playerDisplay.classList.remove(`player${currentPlayer}`);
     currentPlayer = currentPlayer === 'X' ? '0' : 'X';
     playerDisplay.innerText = currentPlayer;
-    playerDisplay.classList.add(`player${currentPlayer}`); 
+    playerDisplay.classList.add(`player${currentPlayer}`);
 }
 
 const announce = (type) => {
@@ -57,7 +55,8 @@ const announce = (type) => {
             announcer.innerHTML = 'Tie';
     }
     announcer.classList.remove('hide');
-    playerDisplay.parentElement.classList.add('hide');
+    // playerDisplay.parentElement.classList.add('hide');
+    document.getElementsByClassName('turn')[0].classList.add('hide');
 }
 
 function handleResultValidation() {
@@ -78,7 +77,6 @@ function handleResultValidation() {
         }
     }
     if(roundWon){
-        console.log("won")
         announce(currentPlayer === "X" ? 'PLAYERX_WON' : 'PLAYER0_WON');
         isGameActive = false;
         return;
@@ -93,6 +91,7 @@ const userAction = (item,index) => {
         item.innerText = currentPlayer;
         item.classList.add(`player${currentPlayer}`);
         updateBoard(index);
+        console.log(board);
         handleResultValidation();
         changePlayer();
     }
