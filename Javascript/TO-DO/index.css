@@ -47,6 +47,7 @@ body {
     border: 2px solid orangered;
     border-radius: 20px;
     font-size: larger;
+    cursor: pointer;
 }
 
 .todo {
@@ -70,16 +71,13 @@ ul li {
 }
 
 ul li span {
-    position: absolute;
-    right: 0;
-    top: 5px;
+    /* position: absolute; */
     width: 40px;
     height: 40px;
     font-size: 22px;
     color: #555;
     line-height: 40px;
     text-align: center;
-    margin-right: 10px;
 }
 
 ul li span:hover {
@@ -102,7 +100,14 @@ ul li span:hover {
 
 .d2 {
     padding-left: 10px;
-    width: 100%;
+    width: 260px;
+    flex: 1;
+}
+
+.task {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .checkbox {
@@ -110,8 +115,7 @@ ul li span:hover {
     height: 48px;
 }
 
-.checked{
+.checked {
     text-decoration: line-through;
     text-decoration-thickness: 2px;
 }
-

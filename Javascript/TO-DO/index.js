@@ -2,9 +2,7 @@ let inputBox = document.getElementById("input-box");
 let listContainer = document.getElementById('list-container');
 let addButton = document.getElementById("add-button");
 
-addButton.addEventListener('click', function(){
-    addTask();
-})
+addButton.addEventListener('click', addTask)
 
 function addTask() {
     if (inputBox.value.trim() === "") {
@@ -19,7 +17,7 @@ function addTask() {
 
 function saveData() {
     let arr = [];
-    let tasks = listContainer.getElementsByTagName('p');
+    let tasks = listContainer.getElementsByClassName('task');
     let checkbox = listContainer.getElementsByClassName('checkbox');
 
     for (let i = 0; i < tasks.length; i++) {
@@ -28,7 +26,6 @@ function saveData() {
         obj.checked = checkbox[i].checked;
         arr.push(obj);
     }
-    console.log(arr);
     localStorage.setItem("Tasks", JSON.stringify(arr));
 }
 
@@ -38,11 +35,12 @@ function showTasks() {
     if (tasks) {
         arrayOfTasks = JSON.parse(tasks)
     }
-    arrayOfTasks.map((ele) => {
+    arrayOfTasks.forEach((ele) => {
         createElements(ele.task, ele.checked)
     })
 }
-showTasks();
+
+window.addEventListener('load', showTasks);
 
 function createElements(text, checked) {
     let li = document.createElement('li');
@@ -61,6 +59,7 @@ function createElements(text, checked) {
     div1.appendChild(input1);
 
     let para = document.createElement('p');
+    para.classList.add('task');
     para.innerText = text;
     if (input1.checked) {
         para.classList.add('checked')
@@ -73,22 +72,28 @@ function createElements(text, checked) {
     li.appendChild(div2);
     li.appendChild(crossIcon);
 
-    li.addEventListener('click', handleChecked)
-    input1.addEventListener('click', handleChecked)
-
-    function handleChecked() {
+    li.addEventListener('click', function(e) {
         if (input1.checked) {
-            input1.checked = false;
-            para.classList.remove('checked');
+            if (e.target.tagName === "INPUT") {
+                input1.checked = true;
+                para.classList.add('checked');
+            }else{
+                input1.checked = false;
+                para.classList.remove('checked');
+            }
         } else {
-            input1.checked = true;
-            para.classList.add('checked');
+            if (e.target.tagName === "INPUT") {
+                input1.checked = false;
+                para.classList.remove('checked');
+            }else{
+                input1.checked = true;
+                para.classList.add('checked');
+            }
         }
         saveData();
-    }
+    })
 
-
-    crossIcon.addEventListener('click', function(e) {
+    crossIcon.addEventListener('click', function (e) {
         e.target.parentElement.remove();
         saveData();
     })
