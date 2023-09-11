@@ -118,8 +118,8 @@ body {
 .nav .nav-links {
   width: -moz-fit-content;
   width: fit-content;
-  margin: auto;
   font-size: 18px;
+  margin: auto;
 }
 
 .nav .nav-links a {

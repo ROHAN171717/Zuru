@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background:linear-gradient(to bottom right, rgb(240, 82, 82),rgb(255, 73, 212));
+    height: 100vh;
+    padding-top: 150px;
+}
+
+.title {
+    color: rgb(75, 74, 74);
+}
+
+.container {
+    width: 100%;
+    max-width: 300px;
+    margin: 0px auto;
+    padding: 50px 0px;
+    background-color: rgb(252, 163, 178);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    padding: 0px 20px;
+    margin: 20px 0px;
+    gap: 5px;
+}
+
+.grid-container .item {
+    background-color: white;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.display {
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.hide {
+    display: none;
+}
+
+.reset-button {
+    background-color: rgb(255, 18, 97);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    margin-top: 10px;
+}
+
+.turn {
+    font-size: x-large;
+}
+
+.announcer {
+    background-color: rgb(134, 135, 132);
+    color: black;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+
+.playerX {
+    color: #f90404;
+    font-size: x-large;
+}
+
+.player0 {
+    color: #0a60f6;
+    font-size: x-large;
+}
