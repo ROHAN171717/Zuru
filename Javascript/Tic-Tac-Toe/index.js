@@ -59,14 +59,20 @@ const announce = (type) => {
     document.getElementsByClassName('turn')[0].classList.add('hide');
 }
 
-function handleResultValidation() {
+function handleResultValidation(index) {
     let roundWon = false;
-    for(let i = 0; i <= 7; i++) {
-        const winCondition = winningConditions[i];
+
+    let filteredWinningCondition = winningConditions.filter((item) => {
+        if (item.includes(index)) {
+            return item;
+        } 
+    });
+    
+    for(let i = 0; i < filteredWinningCondition.length; i++) {
+        const winCondition = filteredWinningCondition[i];
         const a = board[winCondition[0]];
         const b = board[winCondition[1]];
         const c = board[winCondition[2]];
-        console.log(a, b, c);
 
         if(a === "" || b === "" || c === ""){
             continue;
@@ -92,7 +98,7 @@ const userAction = (item,index) => {
         item.classList.add(`player${currentPlayer}`);
         updateBoard(index);
         console.log(board);
-        handleResultValidation();
+        handleResultValidation(index);
         changePlayer();
     }
 }

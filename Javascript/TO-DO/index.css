@@ -16,7 +16,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 500px;
+  max-width: 1000px;
   margin: 40px auto;
   background-color: rgb(158, 224, 202);
   padding: 20px 10px;
@@ -43,10 +43,16 @@ body {
 .button {
   width: 20%;
   height: 50px;
-  border: 2px solid orangered;
+  border: 2px solid black;
   border-radius: 20px;
   font-size: larger;
   cursor: pointer;
+}
+
+.button:hover{
+  background-color: rgb(94, 92, 92);
+  border: none;
+  color: white;
 }
 
 #edit-button {
@@ -89,13 +95,14 @@ ul li span:hover {
 }
 
 ul li i {
-  /* width: 40px; */
-  /* height: 40px; */
   font-size: 48px;
   color: #555;
-  margin-left: 10px;
-  /* line-height: 40px; */
-  /* text-align: center; */
+  width: 40px;
+  height: 40px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+
 }
 
 ul li i:hover {
@@ -118,7 +125,7 @@ ul li i:hover {
 
 .d2 {
   padding-left: 10px;
-  width: 260px;
+  width: 210px;
   flex: 1;
 }
 
@@ -131,6 +138,7 @@ ul li i:hover {
 .checkbox {
   width: 18px;
   height: 48px;
+  cursor: pointer;
 }
 
 .checked {
