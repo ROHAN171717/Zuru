@@ -51,7 +51,7 @@ const announce = (type) => {
         case 'PLAYERX_WON':
             announcer.innerHTML = 'Player <span class="playerX">X</span> Won';
             break;
-        case 'TIE':
+        default:
             announcer.innerHTML = 'Tie';
     }
     announcer.classList.remove('hide');
