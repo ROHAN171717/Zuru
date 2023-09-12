@@ -1,121 +1,139 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-    background-color: #ffc600;
+  background-color: #ffc600;
 }
 
 .heading {
-    text-align: center;
-    margin-bottom: 10px;
-
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .container {
-    width: 100%;
-    max-width: 500px;
-    margin: 40px auto;
-    background-color: rgb(158, 224, 202);
-    padding: 20px 10px;
-    border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  margin: 40px auto;
+  background-color: rgb(158, 224, 202);
+  padding: 20px 10px;
+  border-radius: 10px;
 }
 
 .row {
-    width: 100%;
-    display: flex;
-    gap: 40px;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #input-box {
-    width: 80%;
-    height: 50px;
-    border: 2px solid black;
-    border-radius: 20px;
-    padding: 0px 20px;
-    font-size: larger;
+  width: 80%;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 0px 20px;
+  font-size: larger;
 }
 
-#add-button {
-    width: 20%;
-    height: 50px;
-    border: 2px solid orangered;
-    border-radius: 20px;
-    font-size: larger;
-    cursor: pointer;
+.button {
+  width: 20%;
+  height: 50px;
+  border: 2px solid orangered;
+  border-radius: 20px;
+  font-size: larger;
+  cursor: pointer;
+}
+
+#edit-button {
+  display: none;
 }
 
 .todo {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    margin: 30px auto 0px;
-    background-color: rgb(158, 224, 202);
-    overflow: hidden;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin: 30px auto 0px;
+  background-color: rgb(158, 224, 202);
+  overflow: hidden;
 }
 
 ul li {
-    font-size: larger;
-    padding: 15px 20px;
-    border: 2px solid;
-    border-radius: 5px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 10px;
+  width: 100%;
+  font-size: larger;
+  padding: 15px 20px;
+  border: 2px solid;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
 }
 
 ul li span {
-    /* position: absolute; */
-    width: 40px;
-    height: 40px;
-    font-size: 22px;
-    color: #555;
-    line-height: 40px;
-    text-align: center;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  color: #555;
+  line-height: 40px;
+  text-align: center;
 }
 
 ul li span:hover {
-    background: #979797;
-    border-radius: 50%;
+  background: #979797;
+  border-radius: 50%;
+}
+
+ul li i {
+  /* width: 40px; */
+  /* height: 40px; */
+  font-size: 48px;
+  color: #555;
+  margin-left: 10px;
+  /* line-height: 40px; */
+  /* text-align: center; */
+}
+
+ul li i:hover {
+  background: #979797;
+  border-radius: 50%;
 }
 
 .item {
-    display: flex;
-    align-items: center;
-    height: 50px;
-    background-color: rgb(225, 250, 197);
-    font-size: larger;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  background-color: rgb(225, 250, 197);
+  font-size: larger;
 }
 
 .d1 {
-    border-right: 2px solid black;
-    padding-right: 10px;
+  border-right: 2px solid black;
+  padding-right: 20px;
 }
 
 .d2 {
-    padding-left: 10px;
-    width: 260px;
-    flex: 1;
+  padding-left: 10px;
+  width: 260px;
+  flex: 1;
 }
 
 .task {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .checkbox {
-    width: 18px;
-    height: 48px;
+  width: 18px;
+  height: 48px;
 }
 
 .checked {
-    text-decoration: line-through;
-    text-decoration-thickness: 2px;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
 }
