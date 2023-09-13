@@ -133,6 +133,5 @@ function createElements(text, checked, id) {
     editButton.style.display = "block";
     editId = id;
   });
-
   listContainer.appendChild(li);
 }
