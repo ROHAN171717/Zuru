@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="./Images/react-native-icon.png" />
+    <title>React Native · Learn once, write anywhere</title>
+  </head>
+  <body>
+    <div>
+      <nav class="navbar">
+        <div class="navbar_inner">
+          <button
+            aria-label="Toggle navigation bar"
+            aria-expanded="false"
+            class="navbar__toggle clean-btn"
+            type="button"
+          >
+            <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                stroke-width="2"
+                d="M4 7h22M4 15h22M4 23h22"
+              ></path>
+            </svg>
+
+            <div class="navbar-sidebar">
+              <div class="navbar-sidebar-items">
+                <div class="navbar-sidebar-brand">
+                  <div class="navbar-sidebar-brand_left">
+                    <img
+                      src="./Images/react-native-icon-white.png"
+                      class="react-native-icon"
+                      alt="react-native-icon"
+                      height="34px"
+                      width="38px"
+                    />
+                    <h3>React Native</h3>
+                    <img
+                      src="./Images/light-mode-icon.png"
+                      alt="light-mode-icon"
+                      width="35px"
+                      height="35px"
+                      style="margin-left: 20px"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="./Images/close-icon.png"
+                      width="30px"
+                      height="30px"
+                    />
+                  </div>
+                </div>
+
+                <div class="navbar-sidebar-links">
+                  <div class="navbar-sidebar-item sidebar_dropdown">
+                    <div class="sidebar_dropdown_title">
+                      <p>Development</p>
+                      <img
+                        src="./Images/forward-arrow-icon.png"
+                        width="17px"
+                        height="17px"
+                      />
+                    </div>
+                    <ul class="sidebar_dropdown_items">
+                      <li>Guides</li>
+                      <li>Components</li>
+                      <li>APIs</li>
+                      <li>Architecture</li>
+                    </ul>
+                  </div>
+                  <a href="#" class="navbar-sidebar-item">Contributing</a>
+                  <a href="#" class="navbar-sidebar-item">Community</a>
+                  <a href="#" class="navbar-sidebar-item">Showcase</a>
+                  <a href="#" class="navbar-sidebar-item">Blog</a>
+                  <a href="#" class="navbar-sidebar-item navbar-github-link"></a>
+                </div>
+              </div>
+            </div>
+          </button>
+
+          <div class="navbar_items">
+            <img
+              src="./Images/react-native-icon-white.png"
+              class="react-native-icon"
+              alt="react-native-icon"
+              height="34px"
+              width="38px"
+            />
+            <h3>React Native</h3>
+          </div>
+
+          <div class="navbar_items navbar_items--right">
+            <div class="navbar_item dropdown">
+              <div class="dropdown_title">
+                <p>Development</p>
+                <img
+                  src="./Images/drop-down-icon.png"
+                  width="17px"
+                  height="17px"
+                />
+              </div>
+              <ul class="dropdown_items">
+                <li>Guides</li>
+                <li>Components</li>
+                <li>APIs</li>
+                <li>Architecture</li>
+              </ul>
+            </div>
+            <a href="#" class="navbar_item">Contributing</a>
+            <a href="#" class="navbar_item">Community</a>
+            <a href="#" class="navbar_item">Showcase</a>
+            <a href="#" class="navbar_item">Blog</a>
+            <a href="#" class="navbar_item navbar-github-link"></a>
+            <a href="#" class="lightMode_icon">
+              <img
+                src="./Images/light-mode-icon.png"
+                alt="light-mode-icon"
+                width="35px"
+                height="35px"
+              />
+            </a>
+            <div class="searchBox">
+              <button type="button" class="searchButton">
+                <span>
+                  <img
+                    src="./Images/search-icon.png"
+                    width="20px"
+                    height="20px"
+                  />
+                  <span class="seach_placeholder">Search</span>
+                </span>
+                <span>
+                  <img
+                    src="./Images/ctrl-key-icon.png"
+                    width="30px"
+                    height="30px"
+                  />
+                  <img
+                    src="./Images/k-key-icon.png"
+                    width="30px"
+                    height="30px"
+                  />
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div>
+        <section class="headerHero">
+          <div class="social_links">
+            <a href="#" class="twitter-follow-button">
+              <div class="icon"></div>
+              Follow @reactnative
+            </a>
+            <div class="star">
+              <img
+                src="./Images/star-icon.png"
+                alt="star-icon"
+                width="15px"
+                height="15px"
+              />
+              <span>Star</span>
+            </div>
+          </div>
+
+          <div class=" section headerHero_content">
+            <div class="headerHero_left">
+              <h1 class="title">React Native</h1>
+              <p class="tagline">Learn once, write anywhere.</p>
+              <div class="buttons">
+                <a class="actionButton primary">Get started</a>
+                <a class="actionButton secondary">Learn the basics></a>
+              </div>
+            </div>
+
+            <div class="headerHero_right">
+              <img
+                src="./Images/react-native-icon-white.png"
+                alt="react-native-icon"
+                width="300px"
+                height="300px"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="section nativeApps">
+          <div class="nativeApps_left">
+            <img
+              src="https://d33wubrfki0l68.cloudfront.net/d74da08f08b4a17c368b58d36ee23c368b4a6819/fff62/img/homepage/phones.png"
+              alt="native_apps"
+              width="400px"
+              height="520px"
+            />
+          </div>
+
+          <div class="nativeApps_right">
+            <h1 class="heading">
+              Create native apps for Android, iOS, and more using React
+            </h1>
+
+            <br />
+
+            <p>
+              React Native combines the best parts of native development with
+              React, a best-in-class JavaScript library for building user
+              interfaces.
+            </p>
+
+            <br />
+
+            <p>
+              <strong>Use a little—or a lot.</strong>You can use React Native
+              today in your existing Android and iOS projects or you can create
+              a whole new app from scratch.
+            </p>
+          </div>
+        </section>
+
+        <section class="nativeCode">
+          <div class="nativeCode_content">
+            <div class="nativeCode_left">
+              <div class="nativeCode_left_content">
+                <h1 class="heading">
+                  Written in JavaScript—rendered with native code
+                </h1>
+
+                <br />
+
+                <p>
+                  React primitives render to native platform UI, meaning your
+                  app uses the same native platform APIs other apps do.
+                </p>
+
+                <br />
+
+                <p>
+                  <strong>Many platforms, </strong>one React. Create
+                  platform-specific versions of components so a single codebase
+                  can share code across platforms. With React Native, one team
+                  can maintain multiple platforms and share a common
+                  technology—React.
+                </p>
+              </div>
+            </div>
+
+            <div class="nativeCode_right">
+              <div class="nativeCode_right_content">
+                <div class="nativeCode_right_content_inner">
+                  <div></div>
+                  <img
+                    src="./Images/copy-icon.png"
+                    alt="copy-icon"
+                    class="copy-icon"
+                  />
+                </div>
+                <div class="nativeCode_code_content">
+                  <span>
+                    <span class="tag keyword">import</span>
+                    <span class="smallFont">React</span>
+                    <span class="tag keyword">from</span>
+                    <span class="tag module">'react'</span>
+                    <span class="tag punctuation">;</span>
+                  </span>
+                  <span>
+                    <span class="tag keyword">import</span>
+                    <span class="tag punctuation">{</span>
+                    <span class="smallFont">Text, View</span>
+                    <span class="tag punctuation">}</span>
+                    <span class="tag keyword">from</span>
+                    <span class="tag module">'./Header'</span>
+                    <span class="tag punctuation">;</span>
+                  </span>
+                  <span>
+                    <span class="tag keyword">import</span>
+                    <span class="tag punctuation">{</span>
+                    <span class="smallFont">Header</span>
+                    <span class="tag punctuation">}</span>
+                    <span class="tag keyword">from</span>
+                    <span class="tag module">'react'</span>
+                    <span class="tag punctuation">;</span>
+                  </span>
+                  <span>
+                    <span class="tag keyword">import</span>
+                    <span class="tag punctuation">{</span>
+                    <span class="smallFont">heading</span>
+                    <span class="tag punctuation">}</span>
+                    <span class="tag keyword">from</span>
+                    <span class="tag module">'./Typography'</span>
+                    <span class="tag punctuation">;</span>
+                  </span>
+
+                  <br />
+                  <br />
+
+                  <span>
+                    <span class="tag keyword">const</span>
+                    <span class="tag" style="color: rgb(121, 182, 242)"
+                      >WelcomeScreen</span
+                    >
+                    <span class="tag" style="color: rgb(252, 146, 158)">
+                      =
+                    </span>
+                    <span class="tag punctuation"> () </span>
+                    <span class="tag" style="color: rgb(252, 146, 158)">
+                      =>
+                    </span>
+                    <span class="tag punctuation"> ( </span>
+                  </span>
+                  <span>
+                    <span class="plain"> </span>
+                    <span class="tag punctuation"><</span>
+                    <span class="element smallFont">View</span>
+                    <span class="tag punctuation">></span>
+                  </span>
+                  <span>
+                    <span class="plain"> </span>
+                    <span class="tag punctuation"><</span>
+                    <span class="element smallFont plain">Header </span>
+                    <span class="tag keyword">title</span>
+                    <span class="tag punctuation">=</span>
+                    <span class="tag punctuation">"</span>
+                    <span class="smallFont module"
+                      >Welcome to React Native</span
+                    >
+                    <span class="tag punctuation">"/></span>
+                  </span>
+                  <span>
+                    <span class="plain"> </span>
+                    <span class="tag punctuation"><</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag keyword">style</span>
+                    <span class="tag punctuation">=</span>
+                    <span class="tag punctuation">{</span>
+                    <span class="smallFont" style="color: rgb(252, 146, 158)"
+                      >heading</span
+                    >
+                    <span class="tag punctuation">}</span>
+                    <span class="tag punctuation">></span>
+                    <span class="smallFont">Step One</span>
+                    <span class="tag punctuation"><</span>
+                    <span class="tag punctuation">/</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag punctuation">></span>
+                  </span>
+                  <span>
+                    <span class="plain"> </span>
+                    <span class="tag punctuation"><</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag punctuation">></span>
+                    <br />
+                    <span class="plain"> </span>
+                    <span class="smallFont"
+                      >Edit App.js to change this screen and turn it</span
+                    >
+                    <br />
+                    <span class="plain"> </span>
+                    <span class="smallFont">into your app.</span>
+                    <br />
+                    <span class="plain"> </span>
+                    <span class="tag punctuation"><</span>
+                    <span class="tag punctuation">/</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag punctuation">></span>
+                  </span>
+
+                  <span>
+                    <span class="plain"> </span>
+                    <span class="tag punctuation"><</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag keyword">style</span>
+                    <span class="tag punctuation">=</span>
+                    <span class="tag punctuation">{</span>
+                    <span class="smallFont" style="color: rgb(252, 146, 158)"
+                      >heading</span
+                    >
+                    <span class="tag punctuation">}</span>
+                    <span class="tag punctuation">></span>
+                    <span class="smallFont">Step One</span>
+                    <span class="tag punctuation"><</span>
+                    <span class="tag punctuation">/</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag punctuation">></span>
+                  </span>
+                  <span>
+                    <span class="plain"> </span>
+                    <span class="tag punctuation"><</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag punctuation">></span>
+                    <br />
+                    <span class="plain"> </span>
+                    <span class="smallFont"
+                      >Edit App.js to change this screen and turn it</span
+                    >
+                    <br />
+                    <span class="plain"> </span>
+                    <span class="smallFont">into your app.</span>
+                    <br />
+                    <span class="plain"> </span>
+                    <span class="tag punctuation"><</span>
+                    <span class="tag punctuation">/</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag punctuation">></span>
+                  </span>
+
+                  <span>
+                    <span class="plain"> </span>
+                    <span class="tag punctuation"><</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag keyword">style</span>
+                    <span class="tag punctuation">=</span>
+                    <span class="tag punctuation">{</span>
+                    <span class="smallFont" style="color: rgb(252, 146, 158)"
+                      >heading</span
+                    >
+                    <span class="tag punctuation">}</span>
+                    <span class="tag punctuation">></span>
+                    <span class="smallFont">See Your Changes</span>
+                    <span class="tag punctuation"><</span>
+                    <span class="tag punctuation">/</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag punctuation">></span>
+                  </span>
+                  <span>
+                    <span class="plain"> </span>
+                    <span class="tag punctuation"><</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag punctuation">></span>
+                    <br />
+                    <span class="plain"> </span>
+                    <span class="smallFont"
+                      >Press Cmd + R inside the simulator to reload</span
+                    >
+                    <br />
+                    <span class="plain"> </span>
+                    <span class="smallFont">your app’s code.</span>
+                    <br />
+                    <span class="plain"> </span>
+                    <span class="tag punctuation"><</span>
+                    <span class="tag punctuation">/</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag punctuation">></span>
+                  </span>
+
+                  <span>
+                    <span class="plain"> </span>
+                    <span class="tag punctuation"><</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag keyword">style</span>
+                    <span class="tag punctuation">=</span>
+                    <span class="tag punctuation">{</span>
+                    <span class="smallFont" style="color: rgb(252, 146, 158)"
+                      >heading</span
+                    >
+                    <span class="tag punctuation">}</span>
+                    <span class="tag punctuation">></span>
+                    <span class="smallFont">Debug</span>
+                    <span class="tag punctuation"><</span>
+                    <span class="tag punctuation">/</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag punctuation">></span>
+                  </span>
+                  <span>
+                    <span class="plain"> </span>
+                    <span class="tag punctuation"><</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag punctuation">></span>
+                    <br />
+                    <span class="plain"> </span>
+                    <span class="smallFont"
+                      >Press Cmd + M or Shake your device to open the</span
+                    >
+                    <br />
+                    <span class="plain"> </span>
+                    <span class="smallFont">React Native Debug Menu.</span>
+                    <br />
+                    <span class="plain"> </span>
+                    <span class="tag punctuation"><</span>
+                    <span class="tag punctuation">/</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag punctuation">></span>
+                  </span>
+
+                  <span>
+                    <span class="plain"> </span>
+                    <span class="tag punctuation"><</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag keyword">style</span>
+                    <span class="tag punctuation">=</span>
+                    <span class="tag punctuation">{</span>
+                    <span class="smallFont" style="color: rgb(252, 146, 158)"
+                      >heading</span
+                    >
+                    <span class="tag punctuation">}</span>
+                    <span class="tag punctuation">></span>
+                    <span class="smallFont">Learn</span>
+                    <span class="tag punctuation"><</span>
+                    <span class="tag punctuation">/</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag punctuation">></span>
+                  </span>
+                  <span>
+                    <span class="plain"> </span>
+                    <span class="tag punctuation"><</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag punctuation">></span>
+                    <br />
+                    <span class="plain"> </span>
+                    <span class="smallFont"
+                      >Read the docs to discover what to do next:</span
+                    >
+                    <br />
+                    <span class="plain"> </span>
+                    <span class="tag punctuation"><</span>
+                    <span class="tag punctuation">/</span>
+                    <span class="element smallFont plain">Text </span>
+                    <span class="tag punctuation">></span>
+                    <br />
+                    <span class="tag punctuation">);</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section nativeDevelopment">
+          <div class="nativeDevelopment_left">
+            <img
+              src="./Images/native-development-image.png"
+              class="native_development_img"
+            />
+          </div>
+
+          <div class="nativeDevelopment_right">
+            <h1 class="heading">Native Development For Everyone</h1>
+
+            <br />
+
+            <p>
+              React Native lets you create truly native apps and doesn't
+              compromise your users' experiences. It provides a core set of
+              platform agnostic native components like
+              <span class="span_button">View</span>,
+              <span class="span_button">Text</span>, and
+              <span class="span_button">Image</span> that map directly to the
+              platform’s native UI building blocks.
+            </p>
+          </div>
+        </section>
+
+        <section class="section crossPlatform">
+          <div class="crossPlatform_content">
+            <div class="crossPlatform_left">
+              <h1 class="heading">Seamless Cross-Platform</h1>
+
+              <br />
+
+              <p>
+                React components wrap existing native code and interact with
+                native APIs via React’s declarative UI paradigm and JavaScript.
+                This enables native app development for whole new teams of
+                developers, and can let existing native teams work much faster.
+              </p>
+            </div>
+            <div class="crossPlatform_right">
+              <img
+                src="./Images/crossPlatform_img.png"
+                alt="crossPlatform-image"
+                class="crossPlatform_image"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="section fastRefresh">
+          <div class="fastRefresh_left">
+            <video
+              muted
+              autoplay
+              src="https://d33wubrfki0l68.cloudfront.net/b5f28d71a3dead99d229d442c3ca9e9a51b06777/d0bf9/img/homepage/reactrefresh.mp4"
+              height="340px"
+            />
+          </div>
+
+          <div class="fastRefresh_right">
+            <h1 class="heading">Fast Refresh</h1>
+
+            <br />
+
+            <p>
+              <strong>See your changes as soon as you save.</strong>
+              With the power of JavaScript, React Native lets you iterate at
+              lightning speed. No more waiting for native builds to finish.
+              Save, see, repeat.
+            </p>
+          </div>
+        </section>
+
+        <section class="section videoContent">
+          <div class="videoContent_content">
+            <div class="videoContent_first">
+              <div class="videoContent_first_left">
+                <h1 class="heading">Talks and Videos</h1>
+
+                <br />
+
+                <p>
+                  Members of the React Native team frequently speak at various
+                  conferences.
+                </p>
+
+                <br />
+
+                <p>
+                  You can follow the latest news from the React Native team on
+                  Twitter
+                </p>
+
+                <br />
+
+                <a href="#" class="twitter-follow-button">
+                  <div class="icon"></div>
+                  Follow @reactnative
+                </a>
+              </div>
+
+              <div class="videoContent_first_right">
+                <iframe
+                  src="https://www.youtube.com/embed/NCAY0HIfrwc"
+                  height="345"
+                ></iframe>
+              </div>
+            </div>
+
+            <br />
+
+            <div class="videoContent_second">
+              <div class="videoContent_second_left">
+                <p>
+                  The
+                  <a href="#" class="lightBlue_button">Meta Open Source team</a>
+                  has put together a short overview of React Native, where they
+                  explained the project in beginner's terms.
+                </p>
+              </div>
+
+              <div class="videoContent_second_right">
+                <iframe
+                  src="https://www.youtube.com/embed/wUDeLT6WXnQ"
+                  height="345"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section community">
+          <h1 class="heading">Facebook Supported, Community Driven</h1>
+
+          <div class="community_desc">
+            <div class="community_desc_left">
+              <div class="community_desc_intro">
+                <img
+                  src="./Images/facebook-icon.png"
+                  width="56px"
+                  height="56px"
+                />
+                <p>
+                  Facebook released React Native in 2015 and has been
+                  maintaining it ever since.
+                </p>
+              </div>
+
+              <br />
+
+              <p>
+                In 2018, React Native had the
+                <a href="#" class="lightBlue_button">2nd highest number</a> of
+                contributors for any repository in GitHub. Today, React Native
+                is supported by contributions from individuals and companies
+                around the world including<a href="#" class="lightBlue_button"
+                  >Callstack</a
+                >, <a href="#" class="lightBlue_button">Expo</a>,
+                <a href="#" class="lightBlue_button">Infinite Red</a>,
+                <a href="#" class="lightBlue_button">Microsoft</a> and
+                <a href="#" class="lightBlue_button">Software Mansion</a>.
+              </p>
+
+              <br />
+
+              <p>
+                Our community is always shipping exciting new projects and
+                exploring platforms beyond Android and iOS with repos like<a
+                  href="#"
+                  class="lightBlue_button"
+                  >React Native Windows</a
+                >,
+                <a href="#" class="lightBlue_button">React Native macOS</a> and
+                <a href="#" class="lightBlue_button">React Native Web</a>.
+              </p>
+            </div>
+
+            <div class="community_desc_right">
+              <p>
+                React Native is being used in thousands of apps, but it's likely
+                you've already used it in one of these apps:
+              </p>
+
+              <br />
+
+              <div class="grid_container">
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/c9c752551d261695e8ef55e921ea7f2227872a41/cb3b3/img/showcase/facebook.webp"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/0cbb34b472a04fd1fff9a6f071d0a0bc928940ce/456cd/img/showcase/oculus.png"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/7c53dd26864358cd94f029f4d204aba64de4d86e/28702/img/showcase/messengerdesktop.png"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/9ed0d7b2d0bbfd4bb8463249318f29139c5c5f6a/298c3/img/showcase/officemobile.png"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/a014034a5fbb2a740132f356269899260642e80a/a9c46/img/showcase/outlookmobile.png"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/6a4a4da83623e9a058cca4d83b91c58b54437421/08d7e/img/showcase/teamsmobile.png"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/6bfac69e5ee15363bb89d406048ac730d331b0d7/1c523/img/showcase/xboxgamepass.png"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/59ffc53dd14f788fc2e8065e687703bdb2cd3120/1deec/img/showcase/skype.webp"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/2bd1bf148841be04a2700d5934ab982694fce451/57908/img/showcase/shopify.png"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/d5f01ce28264f4098cdc5bc2f9f353f5e5ea7c52/3d07a/img/showcase/shop.webp"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/b242518e85fcdd7d760a5c9fcfdf7ba24e20cfff/30382/img/showcase/coinbase.png"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/84611d57e5771e05f2bec01475be7f7988c3bc84/372e1/img/showcase/puma.png"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/7e52d3dc6f5dde799af084a64d5dd31f5a5be41a/76ff0/img/showcase/playstation.png"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/46ed112836e9c0f8171508055ba367d1241c8874/6c449/img/showcase/wordpress.png"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/badef82ea18087dea431c2f3f97b6fa1318b873b/7f9ac/img/showcase/tableau.webp"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/38bf4398edba3c0d033eb48a02ace7cc0442fbe8/20d31/img/showcase/flipkart.png"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/352c93cd8e793ff3302b60bf7bc6e11c073e8b8f/8a285/img/showcase/mercari.png"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/3ae1ae78b26a853feac298bb3c78727fc75b924c/161e3/img/showcase/discord.png"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/521b93d36ade5e2609b4b324a8a62ad2b41d8ddf/1d98c/img/showcase/bloomberg.png"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/be0275364a3c157259a7c298c1ba5783bc90ac01/85fa7/img/showcase/pinterest.webp"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/8697b6c5e054ce6ed5abf54b87361e74d901a6cd/44e6b/img/showcase/tesla.png"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/e4821d2f9bdcebd904dd537c34eb374206aa71b4/45f4d/img/showcase/walmart.webp"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/ddd5fd116af997e4bbefb2e0c7fa85fb20ca7dd1/d9278/img/showcase/qq.webp"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/cd4e1e2edb47b7122a726ce028aaf1338db002c1/490c5/img/showcase/mattermost.webp"
+                  width="67px"
+                  height="67px"
+                />
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/59ccc68a321429ab0ae3fa41e6b61faae86b8e8e/7608b/img/showcase/nfl.webp"
+                  width="67px"
+                  height="67px"
+                />
+              </div>
+
+              <br />
+
+              <p>and <a href="#" class="lightBlue_button">many more</a>.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section getStarted">
+          <div class="getStarted_content">
+            <h2 class="heading">Give it a try</h2>
+
+            <ol class="steps">
+              <li>
+                <p class="step_name">Run this</p>
+                <div class="terminal">
+                  <p>npx react-native init MyTestApp</p>
+                </div>
+              </li>
+
+              <li>
+                <p class="step_name">Read these</p>
+                <div class="buttons">
+                  <a class="actionButton primary">Get started</a>
+                  <a class="actionButton secondary">Learn the basics></a>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <div class="footer_content">
+            <div class="footer_links">
+              <div class="col footer_col">
+                <div class="footer_title">Develop</div>
+                <ul class="footer_items">
+                  <li class="footer_item">
+                    <a href="#" class="footer_link_item">Guides</a>
+                  </li>
+                  <li class="footer_item">
+                    <a href="#" class="footer_link_item">Components</a>
+                  </li>
+                  <li class="footer_item">
+                    <a href="#" class="footer_link_item">APIs</a>
+                  </li>
+                  <li class="footer_item">
+                    <a href="#" class="footer_link_item">Architecture</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col footer_col">
+                <div class="footer_title">Participate</div>
+                <ul class="footer_items">
+                  <li class="footer_item">
+                    <a href="#" class="footer_link_item">Showcase</a>
+                  </li>
+                  <li class="footer_item">
+                    <a href="#" class="footer_link_item">Contributing</a>
+                  </li>
+                  <li class="footer_item">
+                    <a href="#" class="footer_link_item">Community</a>
+                  </li>
+                  <li class="footer_item">
+                    <a href="#" class="footer_link_item"
+                      >Directory
+                      <img
+                        src="./Images/link-icon.png"
+                        width="13px"
+                        height="13px"
+                      />
+                    </a>
+                  </li>
+                  <li class="footer_item">
+                    <a href="#" class="footer_link_item"
+                      >Stack Overflow
+                      <img
+                        src="./Images/link-icon.png"
+                        width="13px"
+                        height="13px"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col footer_col">
+                <div class="footer_title">Find us</div>
+                <ul class="footer_items">
+                  <li class="footer_item">
+                    <a href="#" class="footer_link_item">Blog</a>
+                  </li>
+                  <li class="footer_item">
+                    <a href="#" class="footer_link_item"
+                      >Twitter
+                      <img
+                        src="./Images/link-icon.png"
+                        width="13px"
+                        height="13px"
+                      />
+                    </a>
+                  </li>
+                  <li class="footer_item">
+                    <a href="#" class="footer_link_item"
+                      >GitHub
+                      <img
+                        src="./Images/link-icon.png"
+                        width="13px"
+                        height="13px"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col footer_col">
+                <div class="footer_title">Explore more</div>
+                <ul class="footer_items">
+                  <li class="footer_item">
+                    <a href="#" class="footer_link_item"
+                      >ReactJS
+                      <img
+                        src="./Images/link-icon.png"
+                        width="13px"
+                        height="13px"
+                      />
+                    </a>
+                  </li>
+                  <li class="footer_item">
+                    <a href="#" class="footer_link_item"
+                      >Privacy Policy
+                      <img
+                        src="./Images/link-icon.png"
+                        width="13px"
+                        height="13px"
+                      />
+                    </a>
+                  </li>
+                  <li class="footer_item">
+                    <a href="#" class="footer_link_item"
+                      >Terms of Services
+                      <img
+                        src="./Images/link-icon.png"
+                        width="13px"
+                        height="13px"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="footer_bottom">
+              <a href="#">
+                <div class="meta_open_source">
+                  <div class="meta_icon">
+                    <img
+                      src="./Images/meta-icon.png"
+                      width="30px"
+                      height="30px"
+                      style="opacity: 0.5"
+                    />
+                  </div>
+                  <div>
+                    <h3>Meta Open Source</h3>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="footer_copyright">
+              Copyright © 2023 Meta Platforms, Inc.
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
