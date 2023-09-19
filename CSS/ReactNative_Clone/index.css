@@ -47,6 +47,14 @@ p {
 
 .navbar-sidebar {
   display: none;
+  font-size: 17px;
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 100vh;
 }
 
 .navbar_inner {
@@ -684,7 +692,7 @@ p {
     display: none;
   }
 }
-@media screen and (max-width: 996px) {
+@media screen and (max-width: 1000px) {
   .searchBox {
     padding: 12px 0px;
   }
@@ -697,17 +705,6 @@ p {
   }
   .lightMode_icon {
     display: none;
-  }
-  .navbar__toggle:hover .navbar-sidebar {
-    font-size: 17px;
-    display: block;
-    position: absolute;
-    z-index: 1;
-    background-color: white;
-    top: 0;
-    left: 0;
-    width: 350px;
-    height: 100vh;
   }
   .navbar-sidebar-brand {
     display: flex;
