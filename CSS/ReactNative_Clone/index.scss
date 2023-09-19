@@ -855,6 +855,10 @@ p {
     font-size: 0.975rem;
   }
 
+  .hide {
+    display: none;
+  }
+
   .sidebar_dropdown_items li {
     margin: 5px 0px;
     padding: 5px;
@@ -866,7 +870,7 @@ p {
 
   .sidebar_dropdown:hover {
     .sidebar_dropdown_items {
-      display: block;
+      // display: block;
     }
   }
 

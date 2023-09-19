@@ -1,6 +1,8 @@
 const toggleButton = document.querySelector('.navbar__toggle');
 const sidebarCloseButton = document.querySelector('.sidebar_close_btn');
 const navBar_sideBar = document.querySelector('.navbar-sidebar');
+const sideBar_dropDown = document.querySelector('.sidebar_dropdown');
+
 
 toggleButton.addEventListener('click', () => {
     navBar_sideBar.style.display = 'block';
@@ -13,3 +15,16 @@ sidebarCloseButton.addEventListener('click', (e) => {
     navBar_sideBar.style.display = 'none';
     console.log(navBar_sideBar.style.display);
 });
+
+sideBar_dropDown.addEventListener('click', (e) => {
+    const sidebar_dropdown_items = document.querySelector('.sidebar_dropdown_items');
+    const arrow_icon = document.getElementById('arrow_icon');
+
+    if (sidebar_dropdown_items.style.display === 'block') {
+        sidebar_dropdown_items.style.display = 'none';
+        arrow_icon.src = "./Images/forward-arrow-icon.png"
+    } else {
+        sidebar_dropdown_items.style.display = 'block';
+        arrow_icon.src = "./Images/downward-arrow-icon.png"
+    }
+ });

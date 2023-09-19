@@ -754,15 +754,15 @@ p {
     width: 180px;
     font-size: 0.975rem;
   }
+  .hide {
+    display: none;
+  }
   .sidebar_dropdown_items li {
     margin: 5px 0px;
     padding: 5px;
   }
   .sidebar_dropdown {
     position: relative;
-  }
-  .sidebar_dropdown:hover .sidebar_dropdown_items {
-    display: block;
   }
   .sidebar_dropdown_items li:hover {
     background-color: rgb(230, 228, 228);
