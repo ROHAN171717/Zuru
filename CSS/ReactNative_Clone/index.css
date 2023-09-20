@@ -278,6 +278,7 @@ p {
   font-weight: 500;
   margin: 0px;
   margin-bottom: 20px;
+  line-height: 1;
 }
 
 .headerHero_left .tagline {

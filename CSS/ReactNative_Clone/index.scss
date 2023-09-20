@@ -293,6 +293,7 @@ p {
     font-weight: 500;
     margin: 0px;
     margin-bottom: 20px;
+    line-height: 1;
   }
 }
 
@@ -546,6 +547,8 @@ p {
 .fastRefresh_left {
   overflow: hidden;
   margin: -50px 0px;
+  // margin-top: -50px;
+  // margin-bottom: -50px;
 }
 
 .fastRefresh_right {
