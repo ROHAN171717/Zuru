@@ -269,7 +269,6 @@ p {
 .headerHero_left {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .headerHero_left .title {
@@ -300,9 +299,9 @@ p {
   transition: 0.2s ease-out;
 }
 
-.actionButton .primary:hover {
+.primary:hover {
   background-color: #fff;
-  color: #282c34;
+  color: #000;
 }
 
 .primary {
@@ -319,6 +318,10 @@ p {
   color: #61dafb;
 }
 
+.secondary:hover {
+  color: white;
+}
+
 .actionButton.secondary:after {
   content: "›";
   font-size: 24px;
@@ -328,20 +331,32 @@ p {
 .desc {
   color: rgb(28, 30, 33);
   line-height: 28.05px;
+  font-weight: 100;
 }
 
 .nativeApps {
   width: 100%;
   max-width: 900px;
+  max-height: 400px;
   display: flex;
   margin: 0 auto;
   justify-content: space-between;
-  gap: 60px;
   overflow-y: hidden;
 }
 
 .nativeApps_left {
+  width: 100%;
+  padding-right: 50px;
   max-height: 400px;
+  margin-top: -25px;
+}
+
+.nativeApps_left img {
+  height: 520px;
+}
+
+.nativeApps_right {
+  padding-left: 50px;
 }
 
 .heading {
@@ -377,14 +392,12 @@ p {
   overflow: auto;
   width: 50%;
   background-color: #282c34;
+  position: relative;
 }
 
 .nativeCode_right_content {
-  max-width: 450px;
   padding: 16px 1.5rem;
   color: white;
-  letter-spacing: 0px;
-  position: relative;
 }
 
 .copy-btn {
@@ -397,8 +410,7 @@ p {
   border-radius: 5px;
   opacity: 0.4;
   position: absolute;
-  right: 0rem;
-  top: 1rem;
+  left: 50%;
 }
 
 .nativeCode_right:hover .copy-btn {
@@ -409,6 +421,16 @@ p {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-weight: 400;
   font-size: 15.3px;
+}
+
+.nativeCode_code_content {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  padding-bottom: 50px;
+  line-height: 22.95px;
 }
 
 .keyword {
@@ -436,15 +458,6 @@ p {
   white-space: pre !important;
 }
 
-.nativeCode_code_content {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 50px;
-  padding-bottom: 50px;
-  line-height: 22.95px;
-}
-
 .nativeDevelopment {
   max-width: 900px;
   display: flex;
@@ -455,11 +468,14 @@ p {
 
 .nativeDevelopment_left {
   width: 50%;
-  max-height: 200px;
+  position: relative;
+  margin-top: -30px;
 }
 
 .native_development_img {
   width: 400px;
+  max-height: 370px;
+  position: absolute;
 }
 
 .nativeDevelopment_right {
@@ -496,6 +512,11 @@ p {
   padding-left: 50px;
 }
 
+.crossPlatform_right svg {
+  margin: -20px 0;
+  max-width: 400px;
+}
+
 .fastRefresh {
   max-width: 900px;
   display: flex;
@@ -506,6 +527,7 @@ p {
 .fastRefresh_left {
   overflow: hidden;
   margin: -50px 0px;
+  max-height: 348px;
 }
 
 .fastRefresh_right {
@@ -541,7 +563,9 @@ p {
 
 .videoContent_first_right iframe,
 .videoContent_second_right iframe {
-  width: 100%;
+  width: 560px;
+  height: 315px;
+  border: none;
 }
 
 .videoContent_second {
@@ -580,6 +604,11 @@ p {
   border-right: 1px solid rgb(170, 169, 169);
 }
 
+.community_desc_left .firstP img {
+  float: left;
+  margin-right: 20px;
+}
+
 .community_desc_right {
   width: 50%;
   padding-left: 50px;
@@ -588,11 +617,13 @@ p {
 .grid_container {
   display: grid;
   grid-template-columns: repeat(5, auto);
-  grid-row-gap: 15px;
+  grid-gap: 16px;
 }
 
 .grid_container img {
-  border-radius: 10px;
+  max-width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 6px 14px hsla(0, 0%, 8%, 0.08);
 }
 
 .getStarted {
@@ -642,8 +673,8 @@ p {
   border-top: 1px solid gray;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  /* display: flex;
-    flex-direction: column; */
+  display: flex;
+  flex-direction: column;
   padding: 30px 30px 0;
   position: relative;
   width: 600px;
@@ -655,14 +686,21 @@ p {
   font-size: 26px;
   left: 15px;
   position: absolute;
-  top: -5px;
+  top: 0px;
+  letter-spacing: -2px;
 }
 
-.getStarted .terminal p:first-child:before {
+.getStarted .terminal code:first-child:before {
   color: gray;
   content: ">";
-  left: 15px;
+  left: -15px;
   position: absolute;
+}
+
+code {
+  font-size: 18px;
+  position: relative;
+  margin: 5px 0;
 }
 
 .step_name {
@@ -770,7 +808,8 @@ p {
   .navbar-sidebar-brand {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    align-items: center;
+    padding: 16px;
     background-color: #20232a;
   }
   .navbar-sidebar-brand_left {
@@ -778,7 +817,8 @@ p {
     align-items: center;
   }
   .navbar-sidebar-links {
-    color: black;
+    color: #606770;
+    font-weight: 600;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -786,17 +826,18 @@ p {
     cursor: pointer;
     padding: 10px;
     font-size: 17px;
-    font-weight: 400;
+    font-weight: 600;
     width: 100%;
   }
   .navbar-sidebar-links a {
     text-decoration: none;
-    color: black;
+    color: #606770;
+    font-weight: 600;
     width: 100%;
     text-align: start;
   }
   .navbar-sidebar-item {
-    padding: 10px 10px 0px;
+    padding: 4px 12px;
     width: 100%;
   }
   .sidebar_dropdown_title {
@@ -843,13 +884,27 @@ p {
     margin: 0 auto;
   }
   .headerHero_left {
-    display: flex;
-    flex-direction: column;
     align-items: center;
   }
   .nativeApps {
+    max-width: 100%;
     flex-direction: column-reverse;
     align-items: center;
+    max-height: inherit;
+    margin: 0;
+  }
+  .nativeApps_left {
+    padding-right: 0px;
+    margin-top: 0px;
+    display: flex;
+    justify-content: center;
+    max-height: 300px;
+  }
+  .nativeApps_left img {
+    width: 66.66%;
+  }
+  .nativeApps_right {
+    padding-left: 0px;
   }
   .nativeCode_content {
     display: flex;
@@ -874,7 +929,6 @@ p {
   }
   .nativeCode_right {
     width: 100%;
-    height: 28rem;
     margin-top: 0px;
     margin-bottom: 0px;
     overflow: auto;
@@ -909,13 +963,22 @@ p {
     padding-top: 50px;
   }
   .nativeDevelopment {
+    max-width: 100%;
     flex-direction: column-reverse;
     gap: 2rem;
     padding: 50px 68px;
+    margin: 0;
   }
   .nativeDevelopment_left {
-    margin: 0 auto;
-    max-height: 300px;
+    width: 100%;
+    margin-top: 0px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+  }
+  .native_development_img {
+    width: 80%;
+    position: absolute;
   }
   .nativeDevelopment_right {
     width: 100%;
@@ -936,15 +999,24 @@ p {
     display: flex;
     justify-content: center;
   }
+  .crossPlatform_right svg {
+    margin: 0 auto;
+    max-width: 100%;
+  }
   .fastRefresh {
+    max-width: 100%;
+    margin: 0;
     display: flex;
     flex-direction: column-reverse;
     gap: 2rem;
+    padding-bottom: 0px;
   }
   .fastRefresh_left {
-    margin: 0px;
-    display: flex;
-    justify-content: center;
+    margin: 0px -68px;
+  }
+  .fastRefresh video {
+    width: 100%;
+    height: auto;
   }
   .fastRefresh_right {
     max-width: inherit;
@@ -971,9 +1043,6 @@ p {
   .videoContent_second_right iframe {
     width: 100%;
   }
-  .community {
-    margin: 0;
-  }
   .community_desc {
     display: flex;
     flex-direction: column;
@@ -993,13 +1062,8 @@ p {
     padding-left: 0px;
   }
   .grid_container {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    display: grid;
-    justify-content: space-between;
-    grid-template-columns: repeat(5, auto);
-    grid-row-gap: 25px;
+    max-width: 500px;
+    margin: 1rem auto;
   }
   .footer_content {
     margin: 0;
@@ -1014,8 +1078,11 @@ p {
   }
 }
 @media screen and (max-width: 760px) {
+  .social_links {
+    margin-top: -2rem;
+  }
   .headerHero_left .title {
-    font-size: 55px;
+    font-size: 60px;
     text-align: center;
     line-height: 1;
     margin-bottom: 10px;
@@ -1036,6 +1103,14 @@ p {
   }
 }
 @media screen and (max-width: 552px) {
+  .nativeApps_left img {
+    width: 100%;
+  }
+  .native_development_img {
+    width: 80%;
+    max-height: auto;
+    position: absolute;
+  }
   .buttons {
     display: flex;
     flex-direction: column;
@@ -1045,10 +1120,6 @@ p {
   }
 }
 @media screen and (max-width: 500px) {
-  .grid_container img {
-    width: 52px;
-    height: 52px;
-  }
   .footer_col {
     width: 100%;
     text-align: center;
@@ -1059,13 +1130,15 @@ p {
   }
 }
 @media screen and (max-width: 480px) {
+  .headerHero_left {
+    align-items: flex-start;
+  }
+  .actionButton {
+    width: 100%;
+    text-align: center;
+  }
   .section {
     padding: 50px 20px;
-  }
-  .native_development_img,
-  .nativeApps_left img,
-  .crossPlatform_right img {
-    width: 100%;
   }
   .nativeDevelopment {
     padding: 50px 20px;
