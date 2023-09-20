@@ -49,7 +49,6 @@ p {
 .react-native-title {
   font-size: 18px;
   font-weight: 600;
-
 }
 
 .react-native-title:hover {
@@ -319,11 +318,10 @@ p {
   transition: 0.2s ease-out;
 }
 
-  .primary:hover {
-    background-color: #fff;
-    color: #000;
-  }
-
+.primary:hover {
+  background-color: #fff;
+  color: #000;
+}
 
 .primary {
   background-color: #61dafb;
@@ -436,9 +434,9 @@ p {
   padding: 6.8px;
   border-radius: 5px;
   opacity: 0.4;
-  position: absolute;
+  position: sticky;
   left: 50%;
-  // top: 1rem;
+  top: 1rem;
 }
 
 .nativeCode_right:hover {
@@ -490,7 +488,6 @@ p {
 .plain {
   white-space: pre !important;
 }
-
 
 .nativeDevelopment {
   max-width: 900px;
@@ -552,7 +549,9 @@ p {
   max-width: 400px;
 }
 
-
+.crossPlatform_right svg tspan {
+  font-family: "OptimisticDisplay";
+}
 
 .fastRefresh {
   max-width: 900px;
@@ -665,7 +664,7 @@ p {
   img {
     max-width: 100%;
     border-radius: 16px;
-    box-shadow: 0 6px 14px hsla(0,0%,8%,.08);
+    box-shadow: 0 6px 14px hsla(0, 0%, 8%, 0.08);
   }
 }
 
@@ -738,7 +737,7 @@ p {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   padding: 30px 30px 0;
   position: relative;
   width: 600px;
@@ -824,6 +823,10 @@ code {
   padding-top: 8px;
 }
 
+.footer_item a {
+  color: rgb(235, 237, 240);
+}
+
 .footer_bottom {
   margin: 30px 0px;
 }
@@ -905,7 +908,14 @@ code {
   //   height: 100vh;
   // }
 
+  .sidebar_lightMode_icon:hover {
+    background-color: #444950;
+    border-radius: 50%;
+  }
 
+  .sidebar_close_btn:hover {
+    background-color: #444950;
+  }
 
   .navbar-sidebar-brand {
     display: flex;
@@ -922,7 +932,8 @@ code {
 
   .navbar-sidebar-links {
     color: #606770;
-    font-weight: 600;
+    font-family: "OptimisticDisplay";
+    font-weight: 400;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -930,7 +941,6 @@ code {
     cursor: pointer;
     padding: 10px;
     font-size: 17px;
-    font-weight: 600;
     width: 100%;
   }
 
@@ -938,7 +948,8 @@ code {
     // position: relative;
     text-decoration: none;
     color: #606770;
-    font-weight: 600;
+    font-family: "OptimisticDisplay";
+    font-weight: 400;
     width: 100%;
     text-align: start;
   }
@@ -946,6 +957,11 @@ code {
   .navbar-sidebar-item {
     padding: 4px 12px;
     width: 100%;
+  }
+
+  .navbar-sidebar-item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
   }
 
   .sidebar_dropdown_title {
@@ -1032,23 +1048,18 @@ code {
     justify-content: center;
     max-height: 300px;
   }
-  
+
   .nativeApps_left img {
     width: 66.66%;
   }
-  
+
   .nativeApps_right {
     padding-left: 0px;
   }
 
   .nativeCode_content {
-    display: flex;
     flex-direction: column;
     align-items: center;
-    // justify-content: center;
-    overflow: auto;
-    gap: 2rem;
-    // gap: 200px;
     padding: 0px;
   }
 
@@ -1107,7 +1118,6 @@ code {
     // padding-bottom: 0px;
   }
 
-
   .nativeDevelopment {
     max-width: 100%;
     flex-direction: column-reverse;
@@ -1123,7 +1133,7 @@ code {
     display: flex;
     justify-content: center;
   }
-  
+
   .native_development_img {
     width: 80%;
     position: absolute;
@@ -1153,7 +1163,7 @@ code {
     display: flex;
     justify-content: center;
   }
-  
+
   .crossPlatform_right svg {
     margin: 0 auto;
     max-width: 100%;
@@ -1172,6 +1182,7 @@ code {
 
   .fastRefresh_left {
     margin: 0px -68px;
+    margin-bottom: -50px;
   }
 
   .fastRefresh video {
@@ -1257,7 +1268,6 @@ code {
 }
 
 @media screen and (max-width: 760px) {
-
   .social_links {
     margin-top: -2rem;
   }
@@ -1300,7 +1310,7 @@ code {
 @media screen and (max-width: 552px) {
   .nativeApps_left img {
     width: 100%;
-}
+  }
   .native_development_img {
     width: 80%;
     max-height: auto;
@@ -1317,7 +1327,6 @@ code {
 }
 
 @media screen and (max-width: 500px) {
-
   .footer_col {
     width: 100%;
     text-align: center;
@@ -1330,7 +1339,6 @@ code {
 }
 
 @media screen and (max-width: 480px) {
-
   .headerHero_left {
     align-items: flex-start;
   }
