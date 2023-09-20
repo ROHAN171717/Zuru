@@ -1,5 +1,19 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+@font-face {
+  font-family: "OptimisticDisplay";
+  src: url(./fonts/OptimisticDisplayBold.woff2);
+  font-weight: 600;
+}
+@font-face {
+  font-family: "OptimisticDisplay";
+  src: url(./fonts/OptimisticDisplayRegular.woff2);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "OptimisticDisplay";
+  src: url(./fonts/OptimisticDisplayLight.woff2);
+  font-weight: 300;
+}
 * {
   box-sizing: border-box;
   margin: 0px;
@@ -7,12 +21,10 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  /*     
-     font-family:  "Optimistic Display",system-ui,-apple-system,sans-serif; */
+  font-family: "OptimisticDisplay";
+  font-weight: 400;
   font-size: 17px;
   width: 100%;
-  letter-spacing: 0.9px;
   margin: 0px;
   padding: 0px;
 }
@@ -28,21 +40,23 @@ p {
   padding: 0px;
 }
 
-p {
-  line-height: 27px;
+.react-native-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.react-native-title:hover {
+  color: #61dafb;
 }
 
 .navbar {
   background-color: #20232a;
-  /* background-color: aqua; */
+  color: rgb(245, 246, 247);
   position: sticky;
   top: 0;
-  display: flex;
-  justify-content: center;
+  font-weight: 500;
   padding: 0px 16px;
-  color: white;
   z-index: 1;
-  font-size: 15px;
 }
 
 .navbar-sidebar {
@@ -62,6 +76,7 @@ p {
   max-width: 1360px;
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
 }
 
 .navbar__toggle {
@@ -94,27 +109,47 @@ p {
 .navbar_items--right {
   flex: 0 0 auto;
   justify-content: flex-end;
-  font-weight: bold;
 }
 
 .navbar_item {
   padding: 0px 18px;
 }
 
+.navbar_item:hover {
+  color: #06bcee;
+}
+
 .navbar-github-link:after {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
   content: "";
   display: flex;
   height: 20px;
   width: 20px;
+  transition: opacity 0.2s;
+}
+
+.navbar-github-link:hover:after {
+  opacity: 0.5;
 }
 
 .lightMode_icon {
   display: flex;
 }
 
+.lightMode_icon:hover {
+  background-color: #444950;
+  border-radius: 50%;
+}
+
 .searchBox {
   padding: 12px;
+}
+
+.seach_placeholder {
+  color: rgb(150, 159, 175);
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .searchButton {
@@ -181,27 +216,33 @@ p {
   max-width: 1200px;
   margin: -10px auto 0;
   padding-top: 50px;
-  gap: 10px;
 }
 
 .twitter-follow-button {
+  width: -moz-fit-content;
+  width: fit-content;
   background-color: #1b95e0;
   text-decoration: none;
   color: white;
   border-radius: 3px;
   padding: 3px;
-  font-size: small;
-  font-weight: bold;
-  padding: 2px 10px;
+  font-size: 13px;
+  font-weight: 400;
+  padding: 1px 10px 1px 9px;
+  margin-right: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .twitter-follow-button .icon {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Cpath fill='none' d='M0 0h72v72H0z'/%3E%3Cpath class='icon' fill='%23fff' d='M68.812 15.14a26.189 26.189 0 0 1-7.52 2.06 13.125 13.125 0 0 0 5.757-7.243 26.133 26.133 0 0 1-8.314 3.176A13.066 13.066 0 0 0 49.182 9c-7.23 0-13.092 5.86-13.092 13.093 0 1.026.118 2.02.338 2.98C25.543 24.527 15.9 19.318 9.44 11.396a13.057 13.057 0 0 0-1.77 6.58c0 4.543 2.312 8.552 5.824 10.9a13.05 13.05 0 0 1-5.93-1.64c-.002.056-.002.11-.002.163 0 6.345 4.513 11.638 10.504 12.84-1.1.298-2.256.457-3.45.457-.845 0-1.666-.078-2.464-.23 1.667 5.2 6.5 8.985 12.23 9.09a26.29 26.29 0 0 1-16.26 5.605c-1.055 0-2.096-.06-3.122-.184a37.036 37.036 0 0 0 20.067 5.882c24.083 0 37.25-19.95 37.25-37.25 0-.565-.013-1.133-.038-1.693a26.61 26.61 0 0 0 6.532-6.774z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
   display: inline-block;
-  height: 18px;
-  margin-right: 4px;
+  height: 24px;
   position: relative;
   top: 4px;
+  margin-right: 4px;
   width: 18px;
 }
 
@@ -212,10 +253,10 @@ p {
   color: black;
   background-color: white;
   border-radius: 3px;
-  padding: 3px;
-  margin: 0px 17px;
+  padding: 5px 10px;
   font-weight: bold;
-  font-size: small;
+  font-size: 12px;
+  margin-right: 17px;
 }
 
 .headerHero_content {
@@ -233,13 +274,17 @@ p {
 
 .headerHero_left .title {
   color: #61dafb;
-  font-size: 75px;
+  font-size: 84px;
+  font-weight: 500;
   margin: 0px;
+  margin-bottom: 20px;
 }
 
 .headerHero_left .tagline {
   color: white;
   font-size: 36px;
+  font-weight: 500;
+  line-height: 1.3;
   margin: 0px;
 }
 
@@ -249,14 +294,14 @@ p {
 
 .actionButton {
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 400;
   padding: 0.75rem 1.5rem;
   transition: 0.2s ease-out;
 }
 
 .actionButton .primary:hover {
   background-color: #fff;
-  color: black;
+  color: #282c34;
 }
 
 .primary {
@@ -273,6 +318,17 @@ p {
   color: #61dafb;
 }
 
+.actionButton.secondary:after {
+  content: "›";
+  font-size: 24px;
+  margin-left: 5px;
+}
+
+.desc {
+  color: rgb(28, 30, 33);
+  line-height: 28.05px;
+}
+
 .nativeApps {
   width: 100%;
   max-width: 900px;
@@ -287,9 +343,9 @@ p {
   max-height: 400px;
 }
 
-.nativeApps_right .heading {
+.heading {
   font-size: 25px;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.2;
 }
 
@@ -330,25 +386,28 @@ p {
   position: relative;
 }
 
-.nativeCode_right_content_inner {
-  display: flex;
-  justify-content: space-between;
-}
-
-.copy-icon {
+.copy-btn {
   display: none;
   cursor: pointer;
+  color: white;
+  background: transparent;
   border: 2px solid gray;
-  padding: 5px;
+  padding: 6.8px;
   border-radius: 5px;
+  opacity: 0.4;
+  position: absolute;
+  right: 0rem;
+  top: 1rem;
 }
 
-.nativeCode_right:hover .copy-icon {
-  display: block;
+.nativeCode_right:hover .copy-btn {
+  display: flex;
 }
 
 .nativeCode_right_content .tag {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight: 400;
+  font-size: 15.3px;
 }
 
 .keyword {
@@ -357,10 +416,6 @@ p {
 
 .import {
   /* font-size: small; */
-}
-
-.smallFont {
-  font-size: small;
 }
 
 .module {
@@ -377,7 +432,7 @@ p {
 }
 
 .plain {
-  white-space: pre;
+  white-space: pre !important;
 }
 
 .nativeCode_code_content {
@@ -386,6 +441,7 @@ p {
   position: absolute;
   top: 50px;
   padding-bottom: 50px;
+  line-height: 22.95px;
 }
 
 .nativeDevelopment {
@@ -411,9 +467,12 @@ p {
 }
 
 .span_button {
-  background-color: rgb(221, 221, 221);
+  background-color: rgba(0, 0, 0, 0.06);
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
   border-radius: 3px;
-  padding: 0px 3px;
+  font-size: 90%;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  padding: 0.1rem;
 }
 
 .crossPlatform {
@@ -489,9 +548,11 @@ p {
 }
 
 .lightBlue_button {
-  background-color: rgba(146, 231, 255, 0.3);
+  background-color: rgba(187, 239, 253, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   text-decoration: none;
   color: black;
+  line-height: 21px;
 }
 
 .community {
@@ -634,6 +695,7 @@ p {
 .footer_links a {
   text-decoration: none;
   color: white;
+  line-height: 1.44;
 }
 
 .footer_col ul {
@@ -723,6 +785,7 @@ p {
     cursor: pointer;
     padding: 10px;
     font-size: 17px;
+    font-weight: 400;
     width: 100%;
   }
   .navbar-sidebar-links a {
@@ -824,15 +887,16 @@ p {
     width: 100vw;
     padding: 0px;
   }
-  .copy-icon {
-    display: none;
-    cursor: pointer;
+  .copy-btn {
+    color: white;
+    background: transparent;
     border: 2px solid gray;
-    padding: 5px;
-    position: absolute;
-    right: 10px;
-    top: 10px;
+    padding: 6.8px;
     border-radius: 5px;
+    opacity: 0.4;
+  }
+  .copy-btn {
+    right: 30px;
   }
   .nativeCode_code_content {
     width: 50%;
@@ -849,7 +913,7 @@ p {
     padding: 50px 68px;
   }
   .nativeDevelopment_left {
-    width: 100%;
+    margin: 0 auto;
     max-height: 300px;
   }
   .nativeDevelopment_right {
@@ -886,7 +950,8 @@ p {
     width: 100%;
     padding-left: 0px;
   }
-  .videoContent_first, .videoContent_second {
+  .videoContent_first,
+  .videoContent_second {
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -996,23 +1061,19 @@ p {
   .section {
     padding: 50px 20px;
   }
-  .native_development_img, .nativeApps_left img, .crossPlatform_right img {
+  .native_development_img,
+  .nativeApps_left img,
+  .crossPlatform_right img {
     width: 100%;
   }
   .nativeDevelopment {
     padding: 50px 20px;
   }
   .nativeCode_left {
-    width: 100%;
-    height: -moz-fit-content;
-    height: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 50px 20px 0px 20px;
   }
   .nativeCode_code_content {
     width: 100%;
-    margin-left: 20px;
+    padding-left: 20px;
   }
 }/*# sourceMappingURL=index.css.map */

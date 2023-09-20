@@ -38,7 +38,7 @@
                       height="34px"
                       width="38px"
                     />
-                    <h3>React Native</h3>
+                    <h3 class="react-native-title">React Native</h3>
                     <img
                       src="./Images/light-mode-icon.png"
                       alt="light-mode-icon"
@@ -79,7 +79,10 @@
                   <a href="#" class="navbar-sidebar-item">Community</a>
                   <a href="#" class="navbar-sidebar-item">Showcase</a>
                   <a href="#" class="navbar-sidebar-item">Blog</a>
-                  <a href="#" class="navbar-sidebar-item navbar-github-link"></a>
+                  <a
+                    href="#"
+                    class="navbar-sidebar-item navbar-github-link"
+                  ></a>
                 </div>
               </div>
             </div>
@@ -93,7 +96,7 @@
               height="34px"
               width="38px"
             />
-            <h3>React Native</h3>
+            <h3 class="react-native-title">React Native</h3>
           </div>
 
           <div class="navbar_items navbar_items--right">
@@ -172,13 +175,13 @@
             </div>
           </div>
 
-          <div class=" section headerHero_content">
+          <div class="section headerHero_content">
             <div class="headerHero_left">
               <h1 class="title">React Native</h1>
               <p class="tagline">Learn once, write anywhere.</p>
               <div class="buttons">
                 <a class="actionButton primary">Get started</a>
-                <a class="actionButton secondary">Learn the basics></a>
+                <a class="actionButton secondary">Learn the basics</a>
               </div>
             </div>
 
@@ -210,7 +213,7 @@
 
             <br />
 
-            <p>
+            <p class="desc">
               React Native combines the best parts of native development with
               React, a best-in-class JavaScript library for building user
               interfaces.
@@ -218,7 +221,7 @@
 
             <br />
 
-            <p>
+            <p class="desc">
               <strong>Use a little—or a lot.</strong>You can use React Native
               today in your existing Android and iOS projects or you can create
               a whole new app from scratch.
@@ -236,14 +239,14 @@
 
                 <br />
 
-                <p>
+                <p class="desc">
                   React primitives render to native platform UI, meaning your
                   app uses the same native platform APIs other apps do.
                 </p>
 
                 <br />
 
-                <p>
+                <p class="desc">
                   <strong>Many platforms, </strong>one React. Create
                   platform-specific versions of components so a single codebase
                   can share code across platforms. With React Native, one team
@@ -255,18 +258,16 @@
 
             <div class="nativeCode_right">
               <div class="nativeCode_right_content">
-                <div class="nativeCode_right_content_inner">
-                  <div></div>
-                  <img
-                    src="./Images/copy-icon.png"
-                    alt="copy-icon"
-                    class="copy-icon"
-                  />
-                </div>
+                  <div>
+                  <button class="copy-btn" type="button" aria-label="Copy code to clipboard" title="Copy">
+                      <svg viewBox="0 0 24 24" class="copyButtonIcon_FoOz" width="19px">
+                        <path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path>
+                      </svg>
+                  </button>
                 <div class="nativeCode_code_content">
                   <span>
                     <span class="tag keyword">import</span>
-                    <span class="smallFont">React</span>
+                    <span class="tag">React</span>
                     <span class="tag keyword">from</span>
                     <span class="tag module">'react'</span>
                     <span class="tag punctuation">;</span>
@@ -274,7 +275,7 @@
                   <span>
                     <span class="tag keyword">import</span>
                     <span class="tag punctuation">{</span>
-                    <span class="smallFont">Text, View</span>
+                    <span class="tag">Text, View</span>
                     <span class="tag punctuation">}</span>
                     <span class="tag keyword">from</span>
                     <span class="tag module">'./Header'</span>
@@ -283,7 +284,7 @@
                   <span>
                     <span class="tag keyword">import</span>
                     <span class="tag punctuation">{</span>
-                    <span class="smallFont">Header</span>
+                    <span class="tag">Header</span>
                     <span class="tag punctuation">}</span>
                     <span class="tag keyword">from</span>
                     <span class="tag module">'react'</span>
@@ -292,7 +293,7 @@
                   <span>
                     <span class="tag keyword">import</span>
                     <span class="tag punctuation">{</span>
-                    <span class="smallFont">heading</span>
+                    <span class="tag">heading</span>
                     <span class="tag punctuation">}</span>
                     <span class="tag keyword">from</span>
                     <span class="tag module">'./Typography'</span>
@@ -317,212 +318,212 @@
                     <span class="tag punctuation"> ( </span>
                   </span>
                   <span>
-                    <span class="plain"> </span>
+                    <span class="plain">&nbsp;&nbsp;</span>
                     <span class="tag punctuation"><</span>
-                    <span class="element smallFont">View</span>
+                    <span class="element tag">View</span>
                     <span class="tag punctuation">></span>
                   </span>
                   <span>
-                    <span class="plain"> </span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <span class="tag punctuation"><</span>
-                    <span class="element smallFont plain">Header </span>
+                    <span class="element tag plain">Header </span>
                     <span class="tag keyword">title</span>
                     <span class="tag punctuation">=</span>
                     <span class="tag punctuation">"</span>
-                    <span class="smallFont module"
+                    <span class="tag module"
                       >Welcome to React Native</span
                     >
                     <span class="tag punctuation">"/></span>
                   </span>
                   <span>
-                    <span class="plain"> </span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <span class="tag punctuation"><</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text </span>
                     <span class="tag keyword">style</span>
                     <span class="tag punctuation">=</span>
                     <span class="tag punctuation">{</span>
-                    <span class="smallFont" style="color: rgb(252, 146, 158)"
+                    <span class="tag" style="color: rgb(252, 146, 158)"
                       >heading</span
                     >
                     <span class="tag punctuation">}</span>
                     <span class="tag punctuation">></span>
-                    <span class="smallFont">Step One</span>
+                    <span class="tag">Step One</span>
                     <span class="tag punctuation"><</span>
                     <span class="tag punctuation">/</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text</span>
                     <span class="tag punctuation">></span>
                   </span>
                   <span>
-                    <span class="plain"> </span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <span class="tag punctuation"><</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text</span>
                     <span class="tag punctuation">></span>
                     <br />
-                    <span class="plain"> </span>
-                    <span class="smallFont"
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span class="tag"
                       >Edit App.js to change this screen and turn it</span
                     >
                     <br />
-                    <span class="plain"> </span>
-                    <span class="smallFont">into your app.</span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span class="tag">into your app.</span>
                     <br />
-                    <span class="plain"> </span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <span class="tag punctuation"><</span>
                     <span class="tag punctuation">/</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text</span>
                     <span class="tag punctuation">></span>
                   </span>
 
                   <span>
-                    <span class="plain"> </span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <span class="tag punctuation"><</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text </span>
                     <span class="tag keyword">style</span>
                     <span class="tag punctuation">=</span>
                     <span class="tag punctuation">{</span>
-                    <span class="smallFont" style="color: rgb(252, 146, 158)"
+                    <span class="tag" style="color: rgb(252, 146, 158)"
                       >heading</span
                     >
                     <span class="tag punctuation">}</span>
                     <span class="tag punctuation">></span>
-                    <span class="smallFont">Step One</span>
+                    <span class="tag">Step One</span>
                     <span class="tag punctuation"><</span>
                     <span class="tag punctuation">/</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text</span>
                     <span class="tag punctuation">></span>
                   </span>
                   <span>
-                    <span class="plain"> </span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <span class="tag punctuation"><</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text</span>
                     <span class="tag punctuation">></span>
                     <br />
-                    <span class="plain"> </span>
-                    <span class="smallFont"
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span class="tag"
                       >Edit App.js to change this screen and turn it</span
                     >
                     <br />
-                    <span class="plain"> </span>
-                    <span class="smallFont">into your app.</span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span class="tag">into your app.</span>
                     <br />
-                    <span class="plain"> </span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <span class="tag punctuation"><</span>
                     <span class="tag punctuation">/</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text</span>
                     <span class="tag punctuation">></span>
                   </span>
 
                   <span>
-                    <span class="plain"> </span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <span class="tag punctuation"><</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text </span>
                     <span class="tag keyword">style</span>
                     <span class="tag punctuation">=</span>
                     <span class="tag punctuation">{</span>
-                    <span class="smallFont" style="color: rgb(252, 146, 158)"
+                    <span class="tag" style="color: rgb(252, 146, 158)"
                       >heading</span
                     >
                     <span class="tag punctuation">}</span>
                     <span class="tag punctuation">></span>
-                    <span class="smallFont">See Your Changes</span>
+                    <span class="tag">See Your Changes</span>
                     <span class="tag punctuation"><</span>
                     <span class="tag punctuation">/</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text</span>
                     <span class="tag punctuation">></span>
                   </span>
                   <span>
-                    <span class="plain"> </span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <span class="tag punctuation"><</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text</span>
                     <span class="tag punctuation">></span>
                     <br />
-                    <span class="plain"> </span>
-                    <span class="smallFont"
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span class="tag"
                       >Press Cmd + R inside the simulator to reload</span
                     >
                     <br />
-                    <span class="plain"> </span>
-                    <span class="smallFont">your app’s code.</span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span class="tag">your app’s code.</span>
                     <br />
-                    <span class="plain"> </span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <span class="tag punctuation"><</span>
                     <span class="tag punctuation">/</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text</span>
                     <span class="tag punctuation">></span>
                   </span>
 
                   <span>
-                    <span class="plain"> </span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <span class="tag punctuation"><</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text </span>
                     <span class="tag keyword">style</span>
                     <span class="tag punctuation">=</span>
                     <span class="tag punctuation">{</span>
-                    <span class="smallFont" style="color: rgb(252, 146, 158)"
+                    <span class="tag" style="color: rgb(252, 146, 158)"
                       >heading</span
                     >
                     <span class="tag punctuation">}</span>
                     <span class="tag punctuation">></span>
-                    <span class="smallFont">Debug</span>
+                    <span class="tag">Debug</span>
                     <span class="tag punctuation"><</span>
                     <span class="tag punctuation">/</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text</span>
                     <span class="tag punctuation">></span>
                   </span>
                   <span>
-                    <span class="plain"> </span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <span class="tag punctuation"><</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text</span>
                     <span class="tag punctuation">></span>
                     <br />
-                    <span class="plain"> </span>
-                    <span class="smallFont"
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span class="tag"
                       >Press Cmd + M or Shake your device to open the</span
                     >
                     <br />
-                    <span class="plain"> </span>
-                    <span class="smallFont">React Native Debug Menu.</span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span class="tag">React Native Debug Menu.</span>
                     <br />
-                    <span class="plain"> </span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <span class="tag punctuation"><</span>
                     <span class="tag punctuation">/</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text</span>
                     <span class="tag punctuation">></span>
                   </span>
 
                   <span>
-                    <span class="plain"> </span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <span class="tag punctuation"><</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text </span>
                     <span class="tag keyword">style</span>
                     <span class="tag punctuation">=</span>
                     <span class="tag punctuation">{</span>
-                    <span class="smallFont" style="color: rgb(252, 146, 158)"
+                    <span class="tag" style="color: rgb(252, 146, 158)"
                       >heading</span
                     >
                     <span class="tag punctuation">}</span>
                     <span class="tag punctuation">></span>
-                    <span class="smallFont">Learn</span>
+                    <span class="tag">Learn</span>
                     <span class="tag punctuation"><</span>
                     <span class="tag punctuation">/</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text</span>
                     <span class="tag punctuation">></span>
                   </span>
                   <span>
-                    <span class="plain"> </span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <span class="tag punctuation"><</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text</span>
                     <span class="tag punctuation">></span>
                     <br />
-                    <span class="plain"> </span>
-                    <span class="smallFont"
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span class="tag"
                       >Read the docs to discover what to do next:</span
                     >
                     <br />
-                    <span class="plain"> </span>
+                    <span class="plain">&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <span class="tag punctuation"><</span>
                     <span class="tag punctuation">/</span>
-                    <span class="element smallFont plain">Text </span>
+                    <span class="element tag plain">Text</span>
                     <span class="tag punctuation">></span>
                     <br />
                     <span class="tag punctuation">);</span>
@@ -546,7 +547,7 @@
 
             <br />
 
-            <p>
+            <p class="desc">
               React Native lets you create truly native apps and doesn't
               compromise your users' experiences. It provides a core set of
               platform agnostic native components like
@@ -565,7 +566,7 @@
 
               <br />
 
-              <p>
+              <p class="desc">
                 React components wrap existing native code and interact with
                 native APIs via React’s declarative UI paradigm and JavaScript.
                 This enables native app development for whole new teams of
@@ -588,7 +589,7 @@
               muted
               autoplay
               src="https://d33wubrfki0l68.cloudfront.net/b5f28d71a3dead99d229d442c3ca9e9a51b06777/d0bf9/img/homepage/reactrefresh.mp4"
-              height="340px"
+              height="343.33px"
             />
           </div>
 
@@ -597,7 +598,7 @@
 
             <br />
 
-            <p>
+            <p class="desc">
               <strong>See your changes as soon as you save.</strong>
               With the power of JavaScript, React Native lets you iterate at
               lightning speed. No more waiting for native builds to finish.
@@ -614,14 +615,14 @@
 
                 <br />
 
-                <p>
+                <p class="desc">
                   Members of the React Native team frequently speak at various
                   conferences.
                 </p>
 
                 <br />
 
-                <p>
+                <p class="desc">
                   You can follow the latest news from the React Native team on
                   Twitter
                 </p>
@@ -675,7 +676,7 @@
                   width="56px"
                   height="56px"
                 />
-                <p>
+                <p class="desc">
                   Facebook released React Native in 2015 and has been
                   maintaining it ever since.
                 </p>
@@ -683,14 +684,14 @@
 
               <br />
 
-              <p>
+              <p class="desc">
                 In 2018, React Native had the
                 <a href="#" class="lightBlue_button">2nd highest number</a> of
                 contributors for any repository in GitHub. Today, React Native
                 is supported by contributions from individuals and companies
-                around the world including<a href="#" class="lightBlue_button"
-                  >Callstack</a
-                >, <a href="#" class="lightBlue_button">Expo</a>,
+                around the world including
+                <a href="#" class="lightBlue_button">Callstack</a>,
+                <a href="#" class="lightBlue_button">Expo</a>,
                 <a href="#" class="lightBlue_button">Infinite Red</a>,
                 <a href="#" class="lightBlue_button">Microsoft</a> and
                 <a href="#" class="lightBlue_button">Software Mansion</a>.
@@ -698,20 +699,17 @@
 
               <br />
 
-              <p>
+              <p class="desc">
                 Our community is always shipping exciting new projects and
-                exploring platforms beyond Android and iOS with repos like<a
-                  href="#"
-                  class="lightBlue_button"
-                  >React Native Windows</a
-                >,
+                exploring platforms beyond Android and iOS with repos like
+                <a href="#" class="lightBlue_button">React Native Windows</a>,
                 <a href="#" class="lightBlue_button">React Native macOS</a> and
                 <a href="#" class="lightBlue_button">React Native Web</a>.
               </p>
             </div>
 
             <div class="community_desc_right">
-              <p>
+              <p class="desc">
                 React Native is being used in thousands of apps, but it's likely
                 you've already used it in one of these apps:
               </p>
@@ -848,7 +846,9 @@
 
               <br />
 
-              <p>and <a href="#" class="lightBlue_button">many more</a>.</p>
+              <p class="desc">
+                and <a href="#" class="lightBlue_button">many more</a>.
+              </p>
             </div>
           </div>
         </section>
