@@ -260,6 +260,7 @@ p {
 }
 
 .star {
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -312,6 +313,7 @@ p {
 }
 
 .actionButton {
+  cursor: pointer;
   font-size: 1.25rem;
   font-weight: 400;
   padding: 0.75rem 1.5rem;
@@ -1102,6 +1104,7 @@ code {
     padding: 6.8px;
     border-radius: 5px;
     opacity: 0.4;
+    position: absolute;
     left: 95%;
     top: 0.5rem;
   }
@@ -1218,11 +1221,8 @@ code {
   .videoContent_first_right iframe,
   .videoContent_second_right iframe {
     width: 100%;
-  }
-
-  .community {
-    // max-width: 100%;
-    // margin: 0 auto;
+    height: auto;
+    aspect-ratio: 2/1;
   }
 
   .community_desc {
@@ -1342,6 +1342,10 @@ code {
   .headerHero_left {
     align-items: flex-start;
   }
+
+  .headerHero_left .title, .headerHero_left .tagline {
+    text-align: start;
+}
 
   .actionButton {
     width: 100%;
