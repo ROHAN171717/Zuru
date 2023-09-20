@@ -955,7 +955,8 @@ code {
     top: 0.5rem;
   }
   .nativeCode_code_content {
-    width: 50%;
+    width: -moz-fit-content;
+    width: fit-content;
     display: flex;
     justify-content: center;
     margin: 0 auto;
