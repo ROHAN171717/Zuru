@@ -1091,9 +1091,6 @@ code {
     padding: 6.8px;
     border-radius: 5px;
     opacity: 0.4;
-  }
-
-  .copy-btn {
     left: 95%;
     top: 0.5rem;
   }
@@ -1282,8 +1279,13 @@ code {
   }
 
   .nativeCode_code_content {
-    width: 100%;
-    padding-left: 68px;
+    // width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .copy-btn {
+    left: 90%;
   }
 
   .getStarted_content {
@@ -1352,5 +1354,9 @@ code {
   .nativeCode_code_content {
     width: 100%;
     padding-left: 20px;
+  }
+
+  .copy-btn {
+    left: 85%;
   }
 }
