@@ -557,6 +557,7 @@ p {
 }
 
 .fastRefresh {
+  padding: 50px 0px;
   max-width: 900px;
   display: flex;
   margin: 0 auto;
@@ -569,9 +570,6 @@ p {
   max-height: 348px;
 }
 
-// .fastRefresh_left video{
-//   height: 348;
-// }
 
 .fastRefresh_right {
   width: 33.33%;
@@ -1069,21 +1067,15 @@ code {
 
   .nativeCode_right {
     width: 100%;
-    // height: 28rem;
     margin-top: 0px;
     margin-bottom: 0px;
     overflow: auto;
     background-color: #282c34;
-    // display: flex;
-    // justify-content: center;
     position: relative;
-    border: 2px solid red;
   }
 
   .nativeCode_right_content {
-    // width: fit-content;
     padding: 0px;
-    border: 2px solid green;
   }
 
   .copy-btn {
@@ -1115,23 +1107,14 @@ code {
 
   .nativeDevelopment_left {
     width: 66%;
-    // margin-top: 0px;
     margin: 0 auto;
-    // height: 250px;
     min-height: 300px;
   }
-
-  // .native_development_img {
-  //   width: 80%;
-  //   position: absolute;
-  // }
 
   .nativeDevelopment_right {
     width: 100%;
     padding-left: 0px;
   }
-
-  ////////////////////////////////////////
 
   .crossPlatform_content {
     display: flex;
@@ -1161,7 +1144,9 @@ code {
   .fastRefresh {
     flex-direction: column-reverse;
     gap: 2rem;
-    padding-bottom: 0px;
+    padding: 50px 68px;
+    max-width: 100%;
+    // padding-bottom: 0px;
   }
 
   .fastRefresh_left {
@@ -1172,6 +1157,7 @@ code {
   .fastRefresh video {
     width: 100%;
     height: auto;
+    // aspect-ratio: 2/1;
   }
 
   .fastRefresh_right {
@@ -1273,6 +1259,7 @@ code {
     // width: 100%;
     padding-left: 0;
     padding-right: 0;
+    white-space: nowrap;
   }
 
   .copy-btn {
@@ -1351,9 +1338,12 @@ code {
     padding: 50px 20px 0px 20px;
   }
 
-
   .nativeCode_code_content {
     padding-left: 20px;
+  }
+
+  .fastRefresh {
+    padding: 50px 20px;;
   }
 
   .copy-btn {
