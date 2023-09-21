@@ -30,12 +30,14 @@ sideBar_dropDown.addEventListener('click', (e) => {
     }
 });
  
-dropDown.addEventListener('click', (e) => { 
-    const dropdown_items = document.querySelector('.dropdown_items');
+// dropDown.addEventListener('click', (e) => { 
+//     const dropdown_items = document.querySelector('.dropdown_items');
 
-    if (dropdown_items.style.display === 'block') {
-        dropdown_items.style.display = 'none';
-    } else {
-        dropdown_items.style.display = 'block';
-    }
-});
+//     if (dropdown_items.style.display === 'block') {
+//         dropdown_items.style.display = 'none';
+//     } else {
+//         dropdown_items.style.display = 'block';
+//     }
+
+
+// });
