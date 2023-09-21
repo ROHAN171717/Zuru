@@ -471,14 +471,12 @@ p {
 
 .nativeDevelopment_left {
   width: 50%;
-  position: relative;
   margin-top: -30px;
+  max-height: 330px;
 }
 
 .native_development_img {
-  width: 400px;
-  max-height: 370px;
-  position: absolute;
+  max-width: 100%;
 }
 
 .nativeDevelopment_right {
@@ -872,6 +870,7 @@ code {
   }
   .sidebar_dropdown_items {
     display: none;
+    width: 100% !important;
     top: 0px;
     color: gray;
     text-align: start;
@@ -885,8 +884,10 @@ code {
     display: none;
   }
   .sidebar_dropdown_items li {
+    width: 100%;
     margin: 5px 0px;
     padding: 5px;
+    font-size: 13px;
   }
   .sidebar_dropdown {
     position: relative;
@@ -921,7 +922,7 @@ code {
     padding-right: 0px;
     margin-top: 0px;
     justify-content: center;
-    width: 66.67%;
+    width: 66%;
     max-height: 300px;
   }
   .nativeApps_right {
@@ -931,6 +932,7 @@ code {
     flex-direction: column;
     align-items: center;
     padding: 0px;
+    gap: 2rem;
   }
   .nativeCode_left {
     width: 100%;
@@ -951,14 +953,12 @@ code {
     margin-bottom: 0px;
     overflow: auto;
     background-color: #282c34;
-    display: flex;
-    justify-content: center;
     position: relative;
+    border: 2px solid red;
   }
   .nativeCode_right_content {
-    max-width: inherit;
-    width: 100vw;
     padding: 0px;
+    border: 2px solid green;
   }
   .copy-btn {
     color: white;
@@ -974,11 +974,8 @@ code {
   .nativeCode_code_content {
     width: -moz-fit-content;
     width: fit-content;
-    display: flex;
-    justify-content: center;
     margin: 0 auto;
     position: inherit;
-    top: inherit;
     padding-top: 50px;
   }
   .nativeDevelopment {
@@ -989,15 +986,9 @@ code {
     margin: 0;
   }
   .nativeDevelopment_left {
-    width: 100%;
-    margin-top: 0px;
-    height: 250px;
-    display: flex;
-    justify-content: center;
-  }
-  .native_development_img {
-    width: 80%;
-    position: absolute;
+    width: 66%;
+    margin: 0 auto;
+    min-height: 300px;
   }
   .nativeDevelopment_right {
     width: 100%;
@@ -1023,9 +1014,6 @@ code {
     max-width: 100%;
   }
   .fastRefresh {
-    max-width: 100%;
-    margin: 0;
-    display: flex;
     flex-direction: column-reverse;
     gap: 2rem;
     padding-bottom: 0px;
@@ -1128,10 +1116,8 @@ code {
   }
 }
 @media screen and (max-width: 576px) {
-  .native_development_img {
-    width: 80%;
-    max-height: auto;
-    position: absolute;
+  .nativeDevelopment_left {
+    width: 100%;
   }
   .buttons {
     display: flex;
@@ -1171,11 +1157,13 @@ code {
   .nativeDevelopment {
     padding: 50px 20px;
   }
+  .nativeCode_content {
+    gap: 0;
+  }
   .nativeCode_left {
     padding: 50px 20px 0px 20px;
   }
   .nativeCode_code_content {
-    width: 100%;
     padding-left: 20px;
   }
   .copy-btn {
