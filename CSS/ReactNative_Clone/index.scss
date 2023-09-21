@@ -573,7 +573,6 @@ p {
 
 .fastRefresh_right {
   width: 33.33%;
-  max-width: 450px;
   padding-left: 50px;
 }
 
@@ -1144,26 +1143,24 @@ code {
   .fastRefresh {
     flex-direction: column-reverse;
     gap: 2rem;
-    padding: 50px 68px;
+    padding: 50px 0px;
     max-width: 100%;
     // padding-bottom: 0px;
   }
 
   .fastRefresh_left {
-    margin: 0px -68px;
+    margin: 0px;
     margin-bottom: -50px;
   }
 
   .fastRefresh video {
     width: 100%;
     height: auto;
-    // aspect-ratio: 2/1;
   }
 
   .fastRefresh_right {
-    max-width: inherit;
+    padding: 0px 68px;
     width: 100%;
-    padding-left: 0px;
   }
 
   .videoContent_first,
@@ -1342,8 +1339,8 @@ code {
     padding-left: 20px;
   }
 
-  .fastRefresh {
-    padding: 50px 20px;;
+  .fastRefresh_right {
+    padding: 0px 20px;
   }
 
   .copy-btn {
