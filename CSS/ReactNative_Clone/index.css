@@ -348,13 +348,13 @@ p {
 
 .nativeApps_left {
   width: 100%;
+  min-width: 50%;
   padding-right: 50px;
-  max-height: 400px;
   margin-top: -25px;
 }
 
 .nativeApps_left img {
-  height: 520px;
+  max-width: 100%;
 }
 
 .nativeApps_right {
@@ -712,6 +712,7 @@ code {
 
 .step_name {
   margin-bottom: 20px;
+  font-weight: 300;
 }
 
 .footer {
@@ -919,12 +920,9 @@ code {
   .nativeApps_left {
     padding-right: 0px;
     margin-top: 0px;
-    display: flex;
     justify-content: center;
+    width: 66.67%;
     max-height: 300px;
-  }
-  .nativeApps_left img {
-    width: 66.66%;
   }
   .nativeApps_right {
     padding-left: 0px;
@@ -1129,10 +1127,7 @@ code {
     width: 100% !important;
   }
 }
-@media screen and (max-width: 552px) {
-  .nativeApps_left img {
-    width: 100%;
-  }
+@media screen and (max-width: 576px) {
   .native_development_img {
     width: 80%;
     max-height: auto;
@@ -1169,6 +1164,9 @@ code {
   }
   .section {
     padding: 50px 20px;
+  }
+  .nativeApps_left {
+    width: 100%;
   }
   .nativeDevelopment {
     padding: 50px 20px;
