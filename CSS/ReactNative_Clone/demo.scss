@@ -1170,16 +1170,18 @@
     .footer_content {
       margin: 0;
   
-      .footer_links {
-        row-gap: 30px;
-  
-        .footer_col {
-          width: 50%;
-          text-align: center;
-          margin-bottom: 28px;
-        }
-      }
+      
     }
+
+    .footer_col {
+      width: 50%;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .footer_links {
+        row-gap: 30px;
+      }
   }
   
   /************************ MEDIA_QUERY (MAX-WIDTH: 760PX) ************************/

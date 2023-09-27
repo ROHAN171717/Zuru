@@ -688,6 +688,10 @@ p {
   line-height: 21px;
 }
 
+.lightBlue_button:hover {
+  background-color: rgba(187, 239, 253, 0.6);
+}
+
 /************************* COMMUNITY SECTION-8 ************************/
 .community {
   max-width: 900px;

@@ -1063,13 +1063,13 @@ p {
   .footer_content {
     margin: 0;
   }
-  .footer_content .footer_links {
-    row-gap: 30px;
-  }
-  .footer_content .footer_links .footer_col {
+  .footer_col {
     width: 50%;
     text-align: center;
     margin-bottom: 28px;
+  }
+  .footer_links {
+    row-gap: 30px;
   }
 }
 /************************ MEDIA_QUERY (MAX-WIDTH: 760PX) ************************/
