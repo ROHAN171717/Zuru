@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import AddTask from "../AddTask/AddTask";
 import ShowTasks from "../ShowTasks/ShowTasks";
 import "./Container.css";
@@ -31,7 +31,7 @@ const Container = () => {
   function editTask(editedTask) {
     const newArr = [];
     
-    savedTasks.map((task) => {
+    savedTasks.forEach((task) => {
       if (task.id === editedTask.id) { 
         newArr.push(editedTask)
       } else {

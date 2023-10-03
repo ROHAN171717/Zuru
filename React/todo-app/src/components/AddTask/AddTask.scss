@@ -1,0 +1,36 @@
+.row {
+  width: 100%;
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: center;
+
+  #input-box {
+    width: 80%;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    padding: 0px 20px;
+    font-size: larger;
+  }
+
+  .button {
+    width: 20%;
+    height: 50px;
+    border: none;
+    border-radius: 20px;
+    font-size: larger;
+    cursor: pointer;
+    background-color: rgb(230, 129, 57);
+    color: white;
+    transition: 0.4s ease-out;
+
+    
+  }
+
+  .button:hover {
+    background-color: rgb(94, 92, 92);
+    border: none;
+  }
+}

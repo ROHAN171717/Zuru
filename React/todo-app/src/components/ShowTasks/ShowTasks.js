@@ -9,7 +9,7 @@ const ShowTasks = ({ tasks, deleteTask, editTask }) => {
       <ul>
         {tasks?.map((task) => {
           return (
-            <li className="item" key={Math.random()} >
+            <li className="item" key={task.id} >
               <TaskDetail taskDetail={task} deleteTask={deleteTask} editTask={editTask}/>
             </li>
           );

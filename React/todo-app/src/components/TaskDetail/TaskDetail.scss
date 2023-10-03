@@ -3,10 +3,12 @@
   padding: 0px 15px;
   height: 100%;
   display: flex;
-}
-.d1 .checkbox {
-  width: 18px;
-  cursor: pointer;
+
+
+  .checkbox {
+    width: 18px;
+    cursor: pointer;
+  }
 }
 
 .d2 {
@@ -15,26 +17,29 @@
   justify-content: space-between;
   width: 100%;
   overflow: hidden;
-}
-.d2 .task {
-  width: 75%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 20px;
-}
-.d2 .checked {
-  text-decoration: line-through;
-  text-decoration-thickness: 2px;
-}
-.d2 .edit-task {
-  width: 100%;
-  height: 30px;
-  border: none;
-  outline: none;
-  background: transparent;
-  margin-right: 5px;
-  font-size: 20px;
+
+  .task {
+    width: 75%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 20px;
+  }
+
+  .checked {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+  }
+
+  .edit-task {
+    width: 100%;
+    height: 30px;
+    border: none;
+    outline: none;
+    background: transparent;
+    margin-right: 5px;
+    font-size: 20px;
+  } 
 }
 
 .btn {
@@ -80,4 +85,4 @@
 
 .save-btn:hover {
   background-color: green;
-}/*# sourceMappingURL=TaskDetail.css.map */
+}
