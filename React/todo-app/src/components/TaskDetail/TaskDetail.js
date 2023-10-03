@@ -5,13 +5,15 @@ const TaskDetail = ({ taskDetail, deleteTask, editTask }) => {
 
   const [isEditTask, setIsEditTask] = useState(false);
   const [task, setTask] = useState(taskDetail.task);
-  const [checkedTask, setCheckedTask] = useState(taskDetail.checked);
+  // console.log(t);
+  
+  // const [checkedTask, setCheckedTask] = useState(taskDetail.checked);
 
   return (
     <>
       <div className="d1">
-        <input type="checkbox" className="checkbox" checked={checkedTask} onChange={(e) => {
-          setCheckedTask(e.target.checked); 
+        <input type="checkbox" className="checkbox" checked={taskDetail.checked} onChange={(e) => {
+          // setCheckedTask(e.target.checked); 
           editTask({ ...taskDetail, checked: e.target.checked})
         }}/>
       </div>
@@ -27,12 +29,12 @@ const TaskDetail = ({ taskDetail, deleteTask, editTask }) => {
             }}
           />
         ) : (
-          <p className={`task ${checkedTask ? "checked" : ""}`}>{task}</p>
+          <p className={`task ${taskDetail.checked ? "checked" : ""}`}>{task}</p>
         )}
       </div>
       {isEditTask ? (
         <button
-        className="btn edit-btn"
+        className="btn save-btn"
         onClick={() => {
           setIsEditTask(false);
           editTask({ ...taskDetail, task: task });
@@ -50,7 +52,7 @@ const TaskDetail = ({ taskDetail, deleteTask, editTask }) => {
         Edit
       </button>
       )}
-      <button className="btn" onClick={() => deleteTask(taskDetail.id)}>
+      <button className="btn delete-btn" onClick={() => deleteTask(taskDetail.id)}>
         Delete
       </button>
     </>

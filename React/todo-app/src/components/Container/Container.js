@@ -20,12 +20,7 @@ const Container = () => {
       task: newTask,
       checked: false,
     };
-
-    if (savedTasks.length > 0) {
-      saveData([...savedTasks, newTaskObject]);
-    } else {
-      saveData([newTaskObject]);
-    }
+    saveData([...savedTasks, newTaskObject]);
   }
 
   function deleteTask(taskId) {
@@ -34,13 +29,16 @@ const Container = () => {
   }
 
   function editTask(editedTask) {
+    const newArr = [];
+    
     savedTasks.map((task) => {
-      if (task.id === editedTask.id) {
-        task.task = editedTask.task;
-        task.checked = editedTask.checked;
+      if (task.id === editedTask.id) { 
+        newArr.push(editedTask)
+      } else {
+        newArr.push(task);
       }
     });
-    saveData(savedTasks);
+    saveData(newArr);
   }
 
   return (

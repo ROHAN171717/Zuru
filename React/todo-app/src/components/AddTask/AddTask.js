@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./AddTask.css";
 
 const AddTask = ({ addTask }) => {
-  const [task, setTask] = useState('');
+  const [task, setTask] = useState("");
 
   return (
     <div className="row">
@@ -13,11 +13,18 @@ const AddTask = ({ addTask }) => {
         value={task}
         onChange={(e) => setTask(e.target.value)}
       />
-      <button className="button" type="submit" onClick={() => {
-        addTask(task);
-        setTask('');
-      }
-      }>
+      <button
+        className="button"
+        type="submit"
+        onClick={() => {
+          if (task.trim() === "") {
+            alert("You must write something!!!");
+          } else {
+            addTask(task.trim());
+          }
+          setTask("");
+        }}
+      >
         Add
       </button>
     </div>

@@ -29,17 +29,44 @@
   ul li .btn {
     border-radius: 10px;
     border: none;
-    color: #555;
-    background-color: pink;
     text-align: center;
     padding: 5px 20px;
-  }
-  
-  ul li .btn:hover {
-    background: #979797;
-    color: white;
+    cursor: pointer;
   }
 
   .edit-btn {
     margin-right: 10px;
+    background-color: rgb(192, 193, 255);
+    transition: 0.2s ease-out;
+  }
+
+  .edit-btn:hover {
+    background-color: blueviolet;
+    color: white;
+  }
+
+  .save-btn {
+    margin-right: 10px;
+    background-color: rgb(59, 231, 59);
+    color: black;
+    transition: 0.2s ease-out;
+  }
+
+  .save-btn:hover {
+    background-color: green;
+    color: white;
+  }
+
+  .delete-btn {
+    background-color: rgb(243, 95, 95);
+    color: white;
+    transition: 0.2s ease-out;
+  }
+
+  .delete-btn:hover {
+    background-color: brown;
+  }
+
+  .save-btn:hover {
+    background-color: green;
   }

@@ -9,7 +9,8 @@
 #input-box {
     width: 80%;
     height: 50px;
-    border: 2px solid black;
+    border: none;
+    outline: none;
     border-radius: 20px;
     padding: 0px 20px;
     font-size: larger;
@@ -18,14 +19,16 @@
   .button {
     width: 20%;
     height: 50px;
-    border: 2px solid black;
+    border: none;
     border-radius: 20px;
     font-size: larger;
     cursor: pointer;
+    background-color:rgb(230, 129, 57);
+    color: white;
+    transition: 0.4s ease-out;
   }
   
   .button:hover{
     background-color: rgb(94, 92, 92);
     border: none;
-    color: white;
   }
