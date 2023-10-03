@@ -1,0 +1,15 @@
+.header {
+    color: red;
+    font-size: 47px;
+    border: 2px solid green;
+}
+
+.desc {
+    color: blue;
+    font-size: 27px;
+    border: 1px solid pink;
+}
+
+.gapp {
+    margin: 20px;
+}
