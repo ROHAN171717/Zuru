@@ -1,5 +1,4 @@
 .container {
-  width: 100%;
   max-width: 1000px;
   margin: 40px auto;
   background-color: rgb(158, 224, 202);
@@ -9,5 +8,11 @@
   .heading {
     text-align: center;
     margin-bottom: 10px;
+  }
+}
+
+@media screen  and (max-width: 1024px) {
+  .container {
+    margin: 40px 24px;
   }
 }

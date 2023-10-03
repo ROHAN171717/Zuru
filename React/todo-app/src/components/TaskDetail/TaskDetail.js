@@ -7,7 +7,7 @@ const TaskDetail = ({ taskDetail, deleteTask, editTask }) => {
 
   return (
     <>
-      <div className="d1">
+      <div className="left_wrapper">
         <input
           type="checkbox"
           className="checkbox"
@@ -17,7 +17,7 @@ const TaskDetail = ({ taskDetail, deleteTask, editTask }) => {
           }}
         />
       </div>
-      <div className="d2">
+      <div className="right_wrapper">
         {isEditTask ? (
           <input
             className="edit-task"
@@ -33,7 +33,7 @@ const TaskDetail = ({ taskDetail, deleteTask, editTask }) => {
             {task}
           </p>
         )}
-        <div>
+        <div className="btn_div">
         {isEditTask ? (
           <button
             className="btn save-btn"

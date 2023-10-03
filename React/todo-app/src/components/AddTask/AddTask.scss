@@ -12,7 +12,7 @@
     outline: none;
     border-radius: 20px;
     padding: 0px 20px;
-    font-size: larger;
+    font-size: 20px;
   }
 
   .button {
@@ -20,17 +20,38 @@
     height: 50px;
     border: none;
     border-radius: 20px;
-    font-size: larger;
+    font-size: 20px;
     cursor: pointer;
     background-color: rgb(230, 129, 57);
     color: white;
     transition: 0.4s ease-out;
 
-    
+    &:hover {
+      background-color: rgb(94, 92, 92);
+    }
   }
+}
 
-  .button:hover {
-    background-color: rgb(94, 92, 92);
-    border: none;
+@media screen and (max-width: 900px) {
+  .row {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .row {
+    gap: 10px;
+
+    #input-box {
+      font-size: 16px;
+      height: 40px;
+      width: 75%;
+    }
+
+    .button {
+      height: 40px;
+      font-size: 16px;
+      width: 25%;
+    }
   }
 }

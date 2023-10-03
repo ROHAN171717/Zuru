@@ -12,14 +12,14 @@
   outline: none;
   border-radius: 20px;
   padding: 0px 20px;
-  font-size: larger;
+  font-size: 20px;
 }
 .row .button {
   width: 20%;
   height: 50px;
   border: none;
   border-radius: 20px;
-  font-size: larger;
+  font-size: 20px;
   cursor: pointer;
   background-color: rgb(230, 129, 57);
   color: white;
@@ -27,5 +27,25 @@
 }
 .row .button:hover {
   background-color: rgb(94, 92, 92);
-  border: none;
+}
+
+@media screen and (max-width: 900px) {
+  .row {
+    gap: 20px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .row {
+    gap: 10px;
+  }
+  .row #input-box {
+    font-size: 16px;
+    height: 40px;
+    width: 75%;
+  }
+  .row .button {
+    height: 40px;
+    font-size: 16px;
+    width: 25%;
+  }
 }/*# sourceMappingURL=AddTask.css.map */

@@ -1,9 +1,8 @@
-.d1 {
+.left_wrapper {
   border-right: 2px solid black;
   padding: 0px 15px;
   height: 100%;
   display: flex;
-
 
   .checkbox {
     width: 18px;
@@ -11,15 +10,15 @@
   }
 }
 
-.d2 {
+.right_wrapper {
   padding: 0px 15px;
   display: flex;
+  flex: 1;
   justify-content: space-between;
-  width: 100%;
   overflow: hidden;
 
   .task {
-    width: 75%;
+    flex: 1;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -32,57 +31,73 @@
   }
 
   .edit-task {
-    width: 100%;
+    flex: 1;
     height: 30px;
     border: none;
     outline: none;
     background: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin-right: 5px;
     font-size: 20px;
-  } 
+  }
+
+  .btn {
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    padding: 5px 20px;
+    cursor: pointer;
+  }
+  
+  .edit-btn {
+    margin-right: 10px;
+    background-color: rgb(192, 193, 255);
+    transition: 0.2s ease-out;
+  
+    &:hover {
+      background-color: blueviolet;
+      color: white;
+    }
+  }
+  
+  .save-btn {
+    margin-right: 10px;
+    background-color: rgb(59, 231, 59);
+    color: black;
+    transition: 0.2s ease-out;
+  
+    :hover {
+      background-color: green;
+      color: white;
+    }
+  }
+  
+  .delete-btn {
+    background-color: rgb(243, 95, 95);
+    color: white;
+    transition: 0.2s ease-out;
+  
+    :hover {
+      background-color: brown;
+    }
+  }
 }
 
-.btn {
-  border-radius: 10px;
-  border: none;
-  text-align: center;
-  padding: 5px 20px;
-  cursor: pointer;
-}
+@media screen and (max-width: 578px) {
+  .right_wrapper {
+    .task {
+      font-size: 16px;
+    }
+  
+    .edit-task {
+      font-size: 16px;
+    }
 
-.edit-btn {
-  margin-right: 10px;
-  background-color: rgb(192, 193, 255);
-  transition: 0.2s ease-out;
-}
-
-.edit-btn:hover {
-  background-color: blueviolet;
-  color: white;
-}
-
-.save-btn {
-  margin-right: 10px;
-  background-color: rgb(59, 231, 59);
-  color: black;
-  transition: 0.2s ease-out;
-}
-
-.save-btn:hover {
-  background-color: green;
-  color: white;
-}
-
-.delete-btn {
-  background-color: rgb(243, 95, 95);
-  color: white;
-  transition: 0.2s ease-out;
-}
-
-.delete-btn:hover {
-  background-color: brown;
-}
-
-.save-btn:hover {
-  background-color: green;
+    .btn  {
+      padding: 5px 10px;
+    }
+  }
+  
 }
