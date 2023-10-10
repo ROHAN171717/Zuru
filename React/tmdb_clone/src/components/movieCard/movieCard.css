@@ -1,0 +1,47 @@
+.movie_card {
+  width: 150px;
+  min-width: 150px;
+  border: none;
+  overflow: visible;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.movie_card:not(:first-child) {
+  margin-left: 20px;
+}
+.movie_card .movie_card_image img {
+  border-radius: 8px;
+  width: 100%;
+  min-height: 225px;
+  overflow: hidden;
+}
+.movie_card .movie_card_content {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: 26px 10px 12px;
+  white-space: normal;
+}
+.movie_card .movie_card_content .circular_progressbar {
+  position: absolute;
+  top: -19px;
+  left: 10px;
+  width: 35px;
+}
+.movie_card .movie_card_content .circular_progressbar .CircularProgressbar-text {
+  font-size: 30px;
+}
+.movie_card .movie_card_content h2 {
+  font-size: 1em;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+}
+.movie_card .movie_card_content p {
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.6);
+}/*# sourceMappingURL=movieCard.css.map */

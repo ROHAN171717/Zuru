@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url(./fonts/source-sans-pro-regular.woff2) format("woff2");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url(./fonts/source-sans-pro-300.woff2) format("woff2");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url(./fonts/source-sans-pro-600.woff2) format("woff2");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url(./fonts/source-sans-pro-700.woff2) format("woff2");
+  font-weight: 700;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-size: 1em;
+  color: black;
+}/*# sourceMappingURL=index.css.map */

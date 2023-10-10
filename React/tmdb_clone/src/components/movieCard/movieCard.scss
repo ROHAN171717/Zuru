@@ -1,0 +1,60 @@
+.movie_card {
+  width: 150px;
+  min-width: 150px;
+  border: none;
+  overflow: visible;
+  position: relative;
+  top: 0;
+  left: 0;
+
+  &:not(:first-child) {
+    margin-left: 20px;
+  }
+
+  &:first-child {
+    // margin-left: 80px;
+  }
+
+  .movie_card_image {
+    img {
+      border-radius: 8px;
+      width: 100%;
+      min-height: calc(150px * 1.5);
+      overflow: hidden;
+    }
+  }
+
+  .movie_card_content {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding: 26px 10px 12px;
+    white-space: normal;
+
+    .circular_progressbar {
+      position: absolute;
+      top: -19px;
+      left: 10px;
+      width: 35px;
+
+      .CircularProgressbar-text {
+        font-size: 30px;
+      }
+    }
+
+    h2 {
+      font-size: 1em;
+      margin: 0;
+      width: 100%;
+      text-align: left;
+    }
+
+    p {
+      font-size: 1em;
+      margin: 0;
+      padding: 0;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+}

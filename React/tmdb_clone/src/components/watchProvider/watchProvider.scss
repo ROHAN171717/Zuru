@@ -1,0 +1,39 @@
+.ott_wrapper {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  .ott_item {
+    list-style: none;
+    position: relative;
+
+    .item_logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+    }
+
+    &:hover {
+      .tooltip_img_wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(1, 180, 228, 0.9);
+        width: 50px;
+        height: 50px;
+        border-radius: 8px;
+        .tooptip_img {
+          display: block;
+          background-image: url("https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-739-check-white-a09b2a26e235b77489dfd57be3b66a17ff86efd5fb94d6db5f10cd3ced01e5a6.svg");
+          width: 30px;
+          height: 30px;
+          border: 2px solid red;
+        }
+      }
+    }
+  }
+}

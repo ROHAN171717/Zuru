@@ -1,0 +1,41 @@
+.nav_item {
+  margin-right: 14px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.nav_item:hover .menu_items_container {
+  display: block;
+}
+.nav_item .nav_link {
+  padding: 0.5rem;
+  text-decoration: none;
+  color: white;
+}
+.nav_item .menu_items_container {
+  display: none;
+  position: absolute;
+  top: 37px;
+}
+.nav_item .menu_items_container .menu_items {
+  list-style: none;
+  background-color: white;
+  padding: 8px 0px;
+  width: 180px;
+  border: none;
+  border-radius: 0.25rem;
+}
+.nav_item .menu_items_container .menu_items .menu_item {
+  width: 100%;
+  display: flex;
+}
+.nav_item .menu_items_container .menu_items .menu_item .menu_link {
+  color: black;
+  padding: 3px 1.5rem;
+  cursor: pointer;
+  font-weight: 400;
+  text-decoration: none;
+}
+.nav_item .menu_items_container .menu_items .menu_item:hover {
+  background-color: #f8f9fa;
+}/*# sourceMappingURL=navbarMenu.css.map */
