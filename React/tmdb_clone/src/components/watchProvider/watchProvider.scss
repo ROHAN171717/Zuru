@@ -6,6 +6,7 @@
   .ott_item {
     list-style: none;
     position: relative;
+    cursor: pointer;
 
     .item_logo {
       width: 50px;
@@ -13,7 +14,7 @@
       border-radius: 8px;
     }
 
-    &:hover {
+    &:hover, &.selected {
       .tooltip_img_wrapper {
         display: flex;
         align-items: center;
@@ -26,14 +27,17 @@
         width: 50px;
         height: 50px;
         border-radius: 8px;
-        .tooptip_img {
+        .tooltip_img {
           display: block;
           background-image: url("https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-739-check-white-a09b2a26e235b77489dfd57be3b66a17ff86efd5fb94d6db5f10cd3ced01e5a6.svg");
           width: 30px;
           height: 30px;
-          border: 2px solid red;
         }
       }
     }
+
+    // &.selected {
+
+    // }
   }
 }

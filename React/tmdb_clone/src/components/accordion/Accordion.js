@@ -1,14 +1,13 @@
 import React, { useState } from "react";
+import './accordian.css'
 
-const Accordion = ({ title, digit, isOpen, setIsOpen, children }) => {
+const Accordion = ({ title, digit, isAccordianOpen, children  }) => {
+  const [isOpen, setIsOpen] = useState(isAccordianOpen);
   return (
     <div
       className="dropdown_wrapper"
-      onClick={() => {
-        setIsOpen(!isOpen);
-      }}
     >
-      <div className="name">
+      <div className="name" onClick={() => setIsOpen(!isOpen)}>
         <h2>
           {title}
           {digit && <span>{digit}</span>}

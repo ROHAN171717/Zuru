@@ -1,8 +1,11 @@
 .nav_item {
-    margin-right: 14px;
     display: flex;
     align-items: center;
     position: relative;
+
+    &:not(:last-child) {
+        margin-right: 14px;
+    }
 
     &:hover {
         .menu_items_container {

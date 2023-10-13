@@ -1,21 +1,22 @@
 import "./App.css";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
-import MainContent from "./components/mainContent/MainContent";
+import MainContent from "./pages/home/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Movie from "./components/movie/Movie";
+import Home from "./pages/home/Home";
+import Filter from "./pages/filter/Filter";
 
 function App() {
   return (
-      <div className="App">
-        <Header />
+    <div className="App">
+      <Header />
       <Routes>
-        <Route path="/" element={ <MainContent/>} />
-        <Route exact path="/movie/:id" element={ <Movie/>} />
-        <Route path="*" element={ <MainContent/>} />
-        </Routes>
-        <Footer />
-      </div>
+        <Route path="/" element={<Home />} />
+        <Route exact path="/movie/:id" element={<Filter />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
+      <Footer />
+    </div>
   );
 }
 

@@ -6,9 +6,16 @@
   position: relative;
   top: 0;
   left: 0;
+  cursor: pointer;
 }
-.movie_card:not(:first-child) {
+.movie_card.default:not(:first-child) {
   margin-left: 20px;
+}
+.movie_card.full {
+  width: 180px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 30px;
 }
 .movie_card .movie_card_image img {
   border-radius: 8px;

@@ -8,16 +8,18 @@ import {
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, variant }) => {
+  
   const percentage = Math.round(movie.vote_average * 10);
   return (
-    <div className="movie_card">
+    <div className={`movie_card ${variant}`}>
       <div className="movie_card_image">
         <div className="wrapper">
           <a>
             <img
               className="poster"
               src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${movie.poster_path}`}
+
             />
           </a>
         </div>
@@ -47,6 +49,10 @@ const MovieCard = ({ movie }) => {
       </div>
     </div>
   );
+};
+
+MovieCard.defaultProps = {
+  variant: "default"
 };
 
 export default MovieCard;

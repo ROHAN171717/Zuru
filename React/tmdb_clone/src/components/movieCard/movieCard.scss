@@ -6,13 +6,20 @@
   position: relative;
   top: 0;
   left: 0;
+  cursor: pointer;
 
-  &:not(:first-child) {
-    margin-left: 20px;
+  &.default {
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
   }
 
-  &:first-child {
-    // margin-left: 80px;
+  &.full {
+    width: 180px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    border-radius: 8px;
+    // margin-left: 20px;
+    margin-bottom: 30px;
   }
 
   .movie_card_image {

@@ -1,0 +1,24 @@
+.filter_list {
+  text-align: left;
+}
+.filter_list .filter_list_item {
+  display: inline-flex;
+  justify-content: flex-start;
+  border: 1px solid #9e9e9e;
+  border-radius: 14px;
+  font-size: 0.9em;
+  padding: 4px 12px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  cursor: context-menu;
+}
+.filter_list .filter_list_item:hover {
+  background-color: #01b4e4;
+  border-color: #01b4e4;
+  color: white;
+}
+.filter_list .filter_list_item.selected {
+  background-color: #01b4e4;
+  border-color: #01b4e4;
+  color: white;
+}/*# sourceMappingURL=filterList.css.map */

@@ -1,0 +1,24 @@
+.availability {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+.availability input.availability_checkbox {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #adb5bd;
+  border-radius: 3px;
+  background-image: url("https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-739-check-white-a09b2a26e235b77489dfd57be3b66a17ff86efd5fb94d6db5f10cd3ced01e5a6.svg");
+  cursor: pointer;
+}
+.availability input.availability_checkbox:focus {
+  border-color: #01b4e4;
+}
+.availability input.availability_checkbox:checked {
+  border-color: #01b4e4;
+  background-color: #01b4e4;
+}/*# sourceMappingURL=checkboxWrapper.css.map */

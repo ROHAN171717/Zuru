@@ -1,0 +1,89 @@
+.select_menu {
+  width: 100%;
+  cursor: pointer;
+}
+.select_menu .selected {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border-color: #e4e7eb;
+  color: #212529;
+  background-color: #e4e7eb;
+  border-radius: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 14.4px;
+}
+.select_menu .selected:hover {
+  border-color: #c7cdd5;
+  color: #212529;
+  background-color: #ced3db;
+}
+.select_menu .selected .dropdown_icon {
+  background-image: url("https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-224-chevron-right-d1f88a6c15e68190c3b47e1ee4f39fe47f4b69f4966ca7c250c2e14cfa689a04.svg");
+  width: 16px;
+  height: 16px;
+}
+
+.select_menu_items_wrapper {
+  background: white;
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 5px;
+  width: 225px;
+}
+.select_menu_items_wrapper .searchbar {
+  margin: 16px;
+}
+.select_menu_items_wrapper .searchbar .search_input {
+  width: 100%;
+  border: 1px solid #ced4da;
+  color: #495057;
+  outline: none;
+  border-radius: 0.25rem;
+  line-height: 1.5;
+  padding: 6px 32px 6px 12px;
+}
+.select_menu_items_wrapper .searchbar:focus {
+  border: 1px solid #01b4e4;
+}
+.select_menu_items_wrapper .select_menu_items {
+  width: 100%;
+  max-height: 200px;
+  overflow-y: scroll;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14.4px;
+}
+.select_menu_items_wrapper .select_menu_items .select_menu_item {
+  display: flex;
+  margin: 5px 0px;
+  padding-left: 10px;
+  padding: 3px 1.5rem;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+.select_menu_items_wrapper .select_menu_items .select_menu_item.selected_item {
+  background-color: #f2f2f2;
+}
+.select_menu_items_wrapper .select_menu_items .select_menu_item.selected_item:hover {
+  background-color: #01b4e4;
+  color: white;
+}
+.select_menu_items_wrapper .select_menu_items .select_menu_item:hover {
+  color: #16181b;
+  background-color: #f8f9fa;
+}
+.select_menu_items_wrapper .no_data_wrapper {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.25rem;
+}
+.select_menu_items_wrapper .no_data_wrapper p {
+  font-size: 14.4px;
+  color: rgba(33, 37, 41, 0.5);
+  text-transform: uppercase;
+  font-weight: lighter;
+}/*# sourceMappingURL=selectMenu.css.map */
