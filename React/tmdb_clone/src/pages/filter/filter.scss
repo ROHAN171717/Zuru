@@ -169,6 +169,7 @@
                 flex-direction: column;
                 align-items: flex-start;
                 row-gap: 10px;
+                margin-top: 15px;
 
                 .date_select {
                   width: 100%;
@@ -278,6 +279,7 @@
           line-height: 1;
           font-weight: 600;
           border: none;
+          cursor: pointer;
 
           &:disabled {
             background-color: rgba(228, 228, 228, 0.7);
@@ -296,16 +298,20 @@
         }
 
         .load_button_wrapper {
+          width: 100%;
+          border-radius: 8px;
+          background-color: rgba(rgb(1, 180, 228), 1);
           .load_button {
-            width: 100%;
             font-size: 1.5em;
             font-weight: 700;
             color: #fff;
             height: 50px;
             border: none;
-            border-radius: 8px;
             background-color: rgba(rgb(1, 180, 228), 1);
             cursor: pointer;
+            &:hover {
+              color: black;
+            }
           }
         }
       }

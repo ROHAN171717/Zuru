@@ -20,7 +20,7 @@ const CheckboxWrapper = ({ items, selectedItems, setSelectedItems }) => {
             checked={selectedItems.includes(item)}
           />
           <label for="availability" className="availability_desc">
-            {item}
+            {item.name}
           </label>
         </div>
       ))}

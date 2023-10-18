@@ -11,7 +11,9 @@ export default function SelectMenu({
   changeSelectedValue,
 }) {
   const referenceElement = React.useRef();
+  const inputRef = React.useRef();
   const [isSelectMenuOpen, setIsSelectMenuOpen] = React.useState(false);
+  const [searchText, setSearchText] = React.useState("");
   const selectedItem = items.find((item) => item.id === selectedValue);
 
   return (
@@ -53,10 +55,12 @@ export default function SelectMenu({
             <input
               type="text"
               className="search_input"
-              onClick={(e) => {
-                e.stopPropagation();
+              ref={inputRef}
+              value={searchText}
+              onChange={(e) => {
+                setSearchText(e.target.value);
+                handleFilter(e.target.value);
               }}
-              onChange={(e) => handleFilter(e.target.value)}
             />
           </div>
         )}
@@ -65,10 +69,11 @@ export default function SelectMenu({
             return (
               <li
                 className={`select_menu_item ${
-                  selectedItem.name === item.name ? "selected_item" : ""
+                  selectedItem?.name === item?.name ? "selected_item" : ""
                 }`}
+                key={item.id}
                 onClick={(e) => {
-                  e.stopPropagation();
+                  setSearchText("");
                   changeSelectedValue(item);
                   setIsSelectMenuOpen(!isSelectMenuOpen);
                 }}

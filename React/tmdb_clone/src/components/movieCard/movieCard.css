@@ -6,7 +6,6 @@
   position: relative;
   top: 0;
   left: 0;
-  cursor: pointer;
 }
 .movie_card.default:not(:first-child) {
   margin-left: 20px;
@@ -17,11 +16,17 @@
   border-radius: 8px;
   margin-bottom: 30px;
 }
-.movie_card .movie_card_image img {
+.movie_card .movie_card_image .poster {
   border-radius: 8px;
   width: 100%;
   min-height: 225px;
+  max-height: 225px;
   overflow: hidden;
+  cursor: pointer;
+}
+.movie_card .movie_card_image .poster.full {
+  min-height: 270px;
+  max-height: 270px;
 }
 .movie_card .movie_card_content {
   position: relative;
@@ -45,6 +50,14 @@
   margin: 0;
   width: 100%;
   text-align: left;
+  cursor: pointer;
+}
+.movie_card .movie_card_content h2 a {
+  text-decoration: none;
+  color: black;
+}
+.movie_card .movie_card_content h2 a:hover {
+  color: #01b4e4;
 }
 .movie_card .movie_card_content p {
   font-size: 1em;

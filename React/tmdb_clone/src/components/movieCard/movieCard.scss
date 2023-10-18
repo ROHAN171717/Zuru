@@ -6,7 +6,6 @@
   position: relative;
   top: 0;
   left: 0;
-  cursor: pointer;
 
   &.default {
     &:not(:first-child) {
@@ -16,18 +15,24 @@
 
   &.full {
     width: 180px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    // margin-left: 20px;
     margin-bottom: 30px;
   }
 
   .movie_card_image {
-    img {
+    .poster {
       border-radius: 8px;
       width: 100%;
-      min-height: calc(150px * 1.5);
+      min-height: 225px;
+      max-height: 225px;
       overflow: hidden;
+      cursor: pointer;
+
+      &.full {
+        min-height: 270px;
+        max-height: 270px;
+      }
     }
   }
 
@@ -55,6 +60,16 @@
       margin: 0;
       width: 100%;
       text-align: left;
+      cursor: pointer;
+
+      a {
+        text-decoration: none;
+        color: black;
+
+        &:hover {
+          color: rgba(rgb(1, 180, 228), 1);
+        }
+      }
     }
 
     p {

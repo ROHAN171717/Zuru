@@ -3,6 +3,8 @@ import "./watchProvider.css";
 import toggleItemInArray from "../../helper";
 
 const WatchProvider = ({ data, selectedItems, setSelectedItems }) => {
+  console.log("data" , data);
+  
   return (
     <div className="ott_wrapper">
       {data?.map((item) => (

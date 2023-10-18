@@ -12,7 +12,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route exact path="/movie/:id" element={<Filter />} />
+        <Route exact path="/:category/:subCategory" element={<Filter />} />
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />

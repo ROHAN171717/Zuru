@@ -153,6 +153,7 @@
   flex-direction: column;
   align-items: flex-start;
   row-gap: 10px;
+  margin-top: 15px;
 }
 .movie_content_wrapper .movie_content .movie_detail .movie_detail_left .dropdown_wrapper .filter .release_date_wrapper .date_picker .date_select {
   width: 100%;
@@ -248,6 +249,7 @@
   line-height: 1;
   font-weight: 600;
   border: none;
+  cursor: pointer;
 }
 .movie_content_wrapper .movie_content .movie_detail .movie_detail_left .search_btn:disabled {
   background-color: rgba(228, 228, 228, 0.7);
@@ -261,16 +263,22 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.movie_content_wrapper .movie_content .movie_detail .movie_detail_right .load_button_wrapper .load_button {
+.movie_content_wrapper .movie_content .movie_detail .movie_detail_right .load_button_wrapper {
   width: 100%;
+  border-radius: 8px;
+  background-color: #01b4e4;
+}
+.movie_content_wrapper .movie_content .movie_detail .movie_detail_right .load_button_wrapper .load_button {
   font-size: 1.5em;
   font-weight: 700;
   color: #fff;
   height: 50px;
   border: none;
-  border-radius: 8px;
   background-color: #01b4e4;
   cursor: pointer;
+}
+.movie_content_wrapper .movie_content .movie_detail .movie_detail_right .load_button_wrapper .load_button:hover {
+  color: black;
 }
 
 .react-datepicker-wrapper .react-datepicker__input-container input {

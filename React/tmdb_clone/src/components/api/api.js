@@ -8,7 +8,6 @@ const options = {
 
 async function fetchAPI(url) {
   let x = await fetch(url, options);
-
   let data = await x.json();
   return data;
 }
@@ -43,26 +42,8 @@ export function getLanguages() {
   return fetchAPI(url);
 }
 
-export function discoverMovies(
-  page,
-  sort_by,
-  watch_region,
-  with_watch_providers,
-  with_watch_monetization_types,
-  with_release_type,
-  release_date_gte,
-  release_date_lte,
-  with_genres,
-  certification,
-  with_original_language,
-  vote_average_gte,
-  vote_average_lte,
-  vote_count_gte,
-  with_runtime_gte,
-  with_runtime_lte,
-  with_keywords
-) {
-  const url = `https://api.themoviedb.org/3/discover/movie?language=en-US&page=1&sort_by=popularity.desc&api_key=1d89162391a00b377990d9a88bd59b0b`;
+export function discoverMovies(queryString) {
+  const url = `https://api.themoviedb.org/3/discover/movie?language=en-US${queryString}&certification_country=IN&api_key=1d89162391a00b377990d9a88bd59b0b`;
   return fetchAPI(url);
 }
 
@@ -76,3 +57,4 @@ export function getMovieGenres() {
     "https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=1d89162391a00b377990d9a88bd59b0b";
   return fetchAPI(url);
 }
+

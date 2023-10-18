@@ -8,6 +8,7 @@
 }
 .nav_item:hover .menu_items_container {
   display: block;
+  z-index: 10;
 }
 .nav_item .nav_link {
   padding: 0.5rem;
@@ -26,6 +27,7 @@
   width: 180px;
   border: none;
   border-radius: 0.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
 }
 .nav_item .menu_items_container .menu_items .menu_item {
   width: 100%;

@@ -5,7 +5,6 @@ import NavbarMenu from "../navbarMenu/NavbarMenu";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-
   return (
     <nav className="navbar">
       <div className="navbar_content">
@@ -17,10 +16,19 @@ const Header = () => {
             />
           </Link>
           <ul className="nav_links">
-            <NavbarMenu title="Movies" menubarItem={["Popular", "Now Playing", "Upcoming", "Top Rated"]}  />
-            <NavbarMenu title="TV Shows" menubarItem={["Popular", "Airing Today", "On TV", "Top Rated"]}  />
-            <NavbarMenu title="People" menubarItem={["Popular People"]}  />
-            <NavbarMenu title="More" menubarItem={["Discussion", "Leaderboard", "Support", "API"]}  />
+            <NavbarMenu
+              title="Movies"
+              menubarItem={["Popular", "Now Playing", "Upcoming", "Top Rated"]}
+            />
+            <NavbarMenu
+              title="TV Shows"
+              menubarItem={["Popular", "Airing Today", "On TV", "Top Rated"]}
+            />
+            <NavbarMenu title="People" menubarItem={["Popular People"]} />
+            <NavbarMenu
+              title="More"
+              menubarItem={["Discussion", "Leaderboard", "Support", "API"]}
+            />
           </ul>
         </div>
         <div className="navbar_content_right">
@@ -41,7 +49,7 @@ const Header = () => {
               <span className="nav_link">Login</span>
             </li>
             <li className="nav_item">
-            <span className="nav_link">JoinTMDB</span>
+              <span className="nav_link">JoinTMDB</span>
             </li>
             <li className="nav_item">
               <div className="nav_link search" href="#">

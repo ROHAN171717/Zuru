@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import "./filter.css";
 import { useParams } from "react-router-dom";
@@ -7,7 +7,14 @@ import RightPanel from "../filter/components/rightPanel/RightPanel";
 
 const Filter = () => {
   const [movieData, setMovieData] = useState([]);
+  const [page, setPage] = useState(2);
+  const infiniteRef = useRef(null);
+  const [isFetching, setIsFetching] = useState(false);
 
+  function handleClick() {
+    infiniteRef.current.applyFilter(page);
+    setPage(page => page + 1);
+  }
   // function sortData(data) {
   //   data.sort(function (a, b) {
   //     if (a.name) {
@@ -36,7 +43,6 @@ const Filter = () => {
   //   });
   //   return data;
   // }
-
   return (
     <div className="movie_content_wrapper">
       <div className="movie_content">
@@ -44,8 +50,8 @@ const Filter = () => {
           <h2>Popular Movies</h2>
         </div>
         <div className="movie_detail">
-          <LeftPanel setMovieData={setMovieData} />
-          <RightPanel />
+          <LeftPanel setMovieData={setMovieData} movieData={movieData} ref={infiniteRef} setIsFetching={setIsFetching} />
+          <RightPanel movieData={movieData} handleClick={handleClick} isFetching={isFetching} />
         </div>
       </div>
     </div>

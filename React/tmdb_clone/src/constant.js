@@ -9,15 +9,19 @@ export const ALL_SORTING_ORDER = [
   { name: "Title (Z-A)", id: "title.desc" },
 ];
 
-export const AVAILABILITIES = ["Stream", "Free", "Ads", "Rent", "Buy"];
+export const AVAILABILITIES = [
+  { id: "flatrate", name: "Stream" },
+  { id: "free", name: "Free" },
+  { id: "ads", name: "Ads" },
+  { id: "rent", name: "Rent" },
+  { id: "buy", name: "Buy" },
+];
 
 export const RELEASE_TYPE = [
-  "Search all countries?",
-  "Theatrical(limited)",
-  "Theatrical",
-  "Premiere",
-  "Digital",
-  "Physical",
-  "TV",
+  { id: 2, name: "Theatrical (limited)" },
+  { id: 3, name: "Theatrical" },
+  { id: 1, name: "Premiere" },
+  { id: 4, name: "Digital" },
+  { id: 5, name: "Physical" },
+  { id: 6, name: "TV" },
 ];
- 
