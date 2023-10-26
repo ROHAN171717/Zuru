@@ -2,7 +2,7 @@ import React from "react";
 import "./navbarMenu.css";
 import { Link } from "react-router-dom";
 
-const NavbarMenu = ({ title, menubarItem }) => {
+const NavbarMenu = ({ title, value, menubarItem }) => {
   return (
     <li className="nav_item">
       <span className="nav_link" style={{ cursor: "pointer" }}>
@@ -13,7 +13,7 @@ const NavbarMenu = ({ title, menubarItem }) => {
         <ul className="menu_items">
           {menubarItem.map((item) => (
             <li className="menu_item" key={item}>
-              <Link to={`/${title.replaceAll(" ", "_").toLowerCase()}/${item.replaceAll(" ", "_").toLowerCase()}`} className="menu_link">
+              <Link to={`/${value}/${item.replaceAll(" ", "_").toLowerCase()}`} className="menu_link">
                 {item}
               </Link>
             </li>

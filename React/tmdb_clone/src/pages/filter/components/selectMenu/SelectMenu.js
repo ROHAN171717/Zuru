@@ -7,7 +7,6 @@ export default function SelectMenu({
   title,
   menuWidth,
   selectedValue,
-  handleFilter,
   changeSelectedValue,
 }) {
   const referenceElement = React.useRef();
@@ -15,6 +14,26 @@ export default function SelectMenu({
   const [isSelectMenuOpen, setIsSelectMenuOpen] = React.useState(false);
   const [searchText, setSearchText] = React.useState("");
   const selectedItem = items.find((item) => item.id === selectedValue);
+  const [filteredData, setFilteredData] = React.useState([]);
+  console.log("Filtered data: ", filteredData, items);
+  
+  console.log("Selected Item: ", selectedItem, title, selectedValue, items, isSelectMenuOpen, filteredData);
+
+  React.useEffect(() => {
+    setFilteredData(items)
+  },[items])
+
+  function handleFilter(value) {
+    const newArr = items?.filter(
+      (item) =>
+        item?.name
+          .toLowerCase()
+          .replace(" ", "")
+          .indexOf(value.toLowerCase().replace(" ", "")) > -1
+    );
+    setFilteredData(newArr);
+  }
+  
 
   return (
     <div className="select_menu">
@@ -22,7 +41,7 @@ export default function SelectMenu({
         <p
           className="selected"
           onClick={(e) => {
-            e.stopPropagation();
+            // e.stopPropagation();
             setIsSelectMenuOpen(!isSelectMenuOpen);
           }}
         >
@@ -65,17 +84,18 @@ export default function SelectMenu({
           </div>
         )}
         <ul className="select_menu_items">
-          {items.map((item) => {
+          {filteredData.map((item) => {
             return (
               <li
                 className={`select_menu_item ${
                   selectedItem?.name === item?.name ? "selected_item" : ""
                 }`}
                 key={item.id}
-                onClick={(e) => {
+                onClick={() => {
                   setSearchText("");
                   changeSelectedValue(item);
                   setIsSelectMenuOpen(!isSelectMenuOpen);
+                  setFilteredData(items);
                 }}
               >
                 {title === "country" && (

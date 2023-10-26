@@ -1,0 +1,52 @@
+.scroller_wrapper {
+  width: 100%;
+  position: relative;
+
+  &.default, &.medium {
+    &::after {
+      content: "";
+      width: 60px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0,
+        white 100%
+      );
+    }
+  }
+  .trending_scroller {
+    width: 100%;
+    // padding: 20px 0px;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    &.full {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    &.default {
+      padding-left: 40px;
+    }
+
+    &.medium {
+      padding-bottom: 20px;
+    }
+
+    &::-webkit-scrollbar {
+      height: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: white;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgb(235, 235, 235);
+      border-radius: 50px;
+      // padding-top: 50px;
+    }
+  }
+}

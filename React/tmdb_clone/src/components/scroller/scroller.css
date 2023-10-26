@@ -1,0 +1,39 @@
+.scroller_wrapper {
+  width: 100%;
+  position: relative;
+}
+.scroller_wrapper.default::after, .scroller_wrapper.medium::after {
+  content: "";
+  width: 60px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0, white 100%);
+}
+.scroller_wrapper .trending_scroller {
+  width: 100%;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.scroller_wrapper .trending_scroller.full {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.scroller_wrapper .trending_scroller.default {
+  padding-left: 40px;
+}
+.scroller_wrapper .trending_scroller.medium {
+  padding-bottom: 20px;
+}
+.scroller_wrapper .trending_scroller::-webkit-scrollbar {
+  height: 10px;
+}
+.scroller_wrapper .trending_scroller::-webkit-scrollbar-track {
+  background-color: white;
+}
+.scroller_wrapper .trending_scroller::-webkit-scrollbar-thumb {
+  background-color: rgb(235, 235, 235);
+  border-radius: 50px;
+}/*# sourceMappingURL=scroller.css.map */

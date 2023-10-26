@@ -7,10 +7,12 @@
   padding-top: 30px;
   position: sticky;
   left: 0;
+  margin-bottom: 20px;
 
   h2 {
     margin-right: 20px;
     white-space: nowrap;
+    font-weight: 600;
   }
 
   .selector {
@@ -19,7 +21,6 @@
     border-radius: 30px;
 
     .anchor {
-
       h3 {
         font-size: 1em;
         padding: 4px 20px;
@@ -27,23 +28,23 @@
         a {
           transition: 0.4s ease-out;
           text-decoration: none;
-          color: rgba(rgb(3,37,65),1);
+          color: rgba(rgb(3, 37, 65), 1);
           font-weight: 600;
         }
-      } 
+      }
     }
 
     .selected {
-      background-color: rgba(rgb(3,37,65),1);
+      background-color: rgba(rgb(3, 37, 65), 1);
       border: none;
       border-radius: 30px;
-        h3 {
-          a {
-            background: linear-gradient(to right,#c0fecf 0,#1ed5a9 100%);
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-          }
+      h3 {
+        a {
+          background: linear-gradient(to right, #c0fecf 0, #1ed5a9 100%);
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
+      }
     }
   }
 }

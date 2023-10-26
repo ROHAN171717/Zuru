@@ -33,19 +33,14 @@ import { useParams } from "react-router-dom";
 
 let timeout;
 
-const initialCommonMovieFilter = {
+const initialCommonFilter = {
   sort_by: ALL_SORTING_ORDER[0],
   watch_region: { name: "India", id: "IN" },
   selectedLanguage: {},
   with_watch_providers: [],
   isSearchAllAvailabilities: true,
   with_watch_monetization_types: AVAILABILITIES,
-  isSearchAllReleases: true,
-  with_release_type: RELEASE_TYPE,
-  isSearchAllCountries: true,
-  region: {},
-  release_date_gte: "",
-  release_date_lte: "",
+  region: { name: "India", id: "IN" },
   vote_average: [0, 10],
   vote_count_gte: 0,
   with_runtime: [0, 400],
@@ -55,6 +50,23 @@ const initialCommonMovieFilter = {
   certification: [],
 };
 
+const initialCommonMovieFilter = {
+  isSearchAllReleases: true,
+  with_release_type: RELEASE_TYPE,
+  isSearchAllCountries: true,
+  release_date_gte: "",
+  release_date_lte: "",
+};
+
+const initialCommonTVShowFilter = {
+  isSearchAllEpisodes: true,
+  isSearchFirstAirDate: true,
+  air_date_gte: "",
+  air_date_lte: "",
+  first_air_date_lte: "",
+  first_air_date_gte: "",
+};
+
 const popularMovie = {
   sort_by: ALL_SORTING_ORDER[0],
 };
@@ -62,13 +74,11 @@ const popularMovie = {
 const nowPlayingMovie = {
   isSearchAllReleases: false,
   with_release_type: [RELEASE_TYPE[1]],
-  release_date_gte: new Date("9/6/2023"),
 };
 
 const upComingMovie = {
   isSearchAllReleases: false,
   with_release_type: [RELEASE_TYPE[1]],
-  release_date_gte: new Date("10/18/2023"),
 };
 
 const topRatedMovie = {
@@ -76,35 +86,46 @@ const topRatedMovie = {
   vote_count_gte: 300,
 };
 
+const popularTVShow = {
+  isSearchAllAvailabilities: false,
+};
+const airingTodayTVShow = {
+  isSearchAllAvailabilities: false,
+};
+const nowPlayingTVShow = {
+  isSearchAllAvailabilities: false,
+};
+const topRatedTVShow = {
+  vote_count_gte: 200,
+};
+
 const LeftPanel = forwardRef(
   ({ movieData, setMovieData, setIsFetching }, ref) => {
     const popperRef = useRef();
-    const scrollRef = useRef();
+    const infiniteScrollRef = useRef();
     const { category, subCategory } = useParams();
-
-    console.log(category, subCategory);
-
     const [referenceElement, setReferenceElement] = useState();
     const [initialMovieFilter, setInitialMovieFilter] = useState({
-      ...initialCommonMovieFilter,
+      ...initialCommonFilter,
     });
-
     const [movieFilter, setMovieFilter] = useState(
       JSON.parse(JSON.stringify(initialMovieFilter))
     );
+    const [genres, setgenres] = useState([]);
     const [APIData, setAPIData] = useState({
       countryData: [],
-      filteredData: [],
+      // filteredData: [],
       languages: [],
       watchProviderData: [],
-      movieGenres: [],
       keywordResult: [],
     });
+
     const initialMovieFilterKeysArr = Object.keys(initialMovieFilter);
 
     useEffect(() => {
-      if (category === "movies" && subCategory === "popular") {
+      if (category === "movie" && subCategory === "popular") {
         setInitialMovieFilter({
+          ...initialCommonFilter,
           ...initialCommonMovieFilter,
           ...popularMovie,
           release_date_lte: new Date(
@@ -112,69 +133,147 @@ const LeftPanel = forwardRef(
           ),
         });
         setMovieFilter({
+          ...initialCommonFilter,
           ...initialCommonMovieFilter,
           ...popularMovie,
           release_date_lte: new Date(
             new Date().setMonth(new Date().getMonth() + 6)
           ),
         });
-      } else if (category === "movies" && subCategory === "now_playing") {
+      } else if (category === "movie" && subCategory === "now_playing") {
         setInitialMovieFilter({
+          ...initialCommonFilter,
           ...initialCommonMovieFilter,
           ...nowPlayingMovie,
+          release_date_gte: new Date(
+            new Date().setDate(new Date().getDate() - 36)
+          ),
           release_date_lte: new Date(
-            new Date(nowPlayingMovie.release_date_gte).setDate(
-              new Date(nowPlayingMovie.release_date_gte).getDate() + 42
-            )
+            new Date().setDate(new Date().getDate() + 6)
           ),
         });
         setMovieFilter({
+          ...initialCommonFilter,
           ...initialCommonMovieFilter,
           ...nowPlayingMovie,
+          release_date_gte: new Date(
+            new Date().setDate(new Date().getDate() - 36)
+          ),
           release_date_lte: new Date(
-            new Date(nowPlayingMovie.release_date_gte).setDate(
-              new Date(nowPlayingMovie.release_date_gte).getDate() + 42
-            )
+            new Date().setDate(new Date().getDate() + 6)
           ),
         });
-      } else if (category === "movies" && subCategory === "upcoming") {
+      } else if (category === "movie" && subCategory === "upcoming") {
         setInitialMovieFilter({
+          ...initialCommonFilter,
           ...initialCommonMovieFilter,
           ...upComingMovie,
+          release_date_gte: new Date(
+            new Date().setDate(new Date().getDate() + 6)
+          ),
           release_date_lte: new Date(
-            new Date().setMonth(new Date().getMonth() + 4)
+            new Date().setDate(new Date().getDate() + 27)
           ),
         });
         setMovieFilter({
+          ...initialCommonFilter,
           ...initialCommonMovieFilter,
           ...upComingMovie,
+          release_date_gte: new Date(
+            new Date().setDate(new Date().getDate() + 6)
+          ),
           release_date_lte: new Date(
-            new Date().setMonth(new Date().getMonth() + 4)
+            new Date().setDate(new Date().getDate() + 27)
           ),
         });
-      } else if (category === "movies" && subCategory === "top_rated") {
+      } else if (category === "movie" && subCategory === "top_rated") {
         setInitialMovieFilter({
+          ...initialCommonFilter,
           ...initialCommonMovieFilter,
           ...topRatedMovie,
           release_date_lte: new Date(
-            new Date().setMonth(new Date().getMonth() + 3)
+            new Date().setMonth(new Date().getMonth() + 6)
           ),
         });
         setMovieFilter({
+          ...initialCommonFilter,
           ...initialCommonMovieFilter,
           ...topRatedMovie,
           release_date_lte: new Date(
-            new Date().setMonth(new Date().getMonth() + 3)
+            new Date().setMonth(new Date().getMonth() + 6)
+          ),
+        });
+      } else if (category === "tv" && subCategory === "popular") {
+        setInitialMovieFilter({
+          ...initialCommonFilter,
+          ...initialCommonTVShowFilter,
+          ...popularTVShow,
+          air_date_lte: new Date(
+            new Date().setMonth(new Date().getMonth() + 6)
+          ),
+        });
+        setMovieFilter({
+          ...initialCommonFilter,
+          ...initialCommonTVShowFilter,
+          ...popularTVShow,
+          air_date_lte: new Date(
+            new Date().setMonth(new Date().getMonth() + 6)
+          ),
+        });
+      } else if (category === "tv" && subCategory === "airing_today") {
+        setInitialMovieFilter({
+          ...initialCommonFilter,
+          ...initialCommonTVShowFilter,
+          ...airingTodayTVShow,
+          air_date_lte: new Date(),
+          air_date_gte: new Date(),
+        });
+        setMovieFilter({
+          ...initialCommonFilter,
+          ...initialCommonTVShowFilter,
+          ...airingTodayTVShow,
+          air_date_lte: new Date(),
+          air_date_gte: new Date(),
+        });
+      } else if (category === "tv" && subCategory === "on_tv") {
+        setInitialMovieFilter({
+          ...initialCommonFilter,
+          ...initialCommonTVShowFilter,
+          ...nowPlayingTVShow,
+          air_date_gte: new Date(),
+          air_date_lte: new Date(new Date().setDate(new Date().getDate() + 7)),
+        });
+        setMovieFilter({
+          ...initialCommonFilter,
+          ...initialCommonTVShowFilter,
+          ...nowPlayingTVShow,
+          air_date_gte: new Date(),
+          air_date_lte: new Date(new Date().setDate(new Date().getDate() + 7)),
+        });
+      } else if (category === "tv" && subCategory === "top_rated") {
+        setInitialMovieFilter({
+          ...initialCommonFilter,
+          ...initialCommonTVShowFilter,
+          ...topRatedTVShow,
+          air_date_lte: new Date(
+            new Date().setMonth(new Date().getMonth() + 6)
+          ),
+        });
+        setMovieFilter({
+          ...initialCommonFilter,
+          ...initialCommonTVShowFilter,
+          ...topRatedTVShow,
+          air_date_lte: new Date(
+            new Date().setMonth(new Date().getMonth() + 6)
           ),
         });
       }
-    }, [subCategory]);
+    }, [category, subCategory]);
 
     useEffect(() => {
       async function getData() {
         const data = await getAllCountry();
         const languagesData = await getLanguages();
-        const movieGenresData = await getMovieGenres();
         const watchProvider = await getWatchProvider(
           movieFilter.watch_region.id
         );
@@ -189,20 +288,20 @@ const LeftPanel = forwardRef(
           id: language.iso_639_1,
         }));
 
-        const refactoredMovieGenresData = movieGenresData.genres.map(
-          (movieGenres) => ({
-            name: movieGenres.name,
-            id: movieGenres.id,
+        const refactoredWatchProviderData = watchProvider.results.map(
+          (watchProvider) => ({
+            name: watchProvider.provider_name,
+            id: watchProvider.provider_id,
+            logo_path: watchProvider.logo_path,
           })
         );
 
         setAPIData({
           ...APIData,
-          watchProviderData: watchProvider.results,
+          watchProviderData: refactoredWatchProviderData,
           countryData: refactoredCountryData,
-          filteredData: refactoredCountryData,
+          // filteredData: refactoredCountryData,
           languages: refactoredLanguagesData,
-          movieGenres: refactoredMovieGenresData,
         });
       }
       getData();
@@ -210,11 +309,20 @@ const LeftPanel = forwardRef(
 
     useEffect(() => {
       async function getData() {
-        const queryString = generateQueryString();
-        const data = await discoverMovies(`${queryString}&page=1`);
-        setMovieData([...data.results]);
+        const movieGenresData = await getMovieGenres(category);
+        const refactoredMovieGenresData = movieGenresData.genres?.map(
+          (movieGenre) => ({
+            name: movieGenre.name,
+            id: movieGenre.id,
+          })
+        );
+        setgenres(refactoredMovieGenresData);
       }
       getData();
+    }, [category]);
+
+    useEffect(() => {
+      getFilteredData(1);
     }, [initialMovieFilter]);
 
     const generateQueryString = useCallback(() => {
@@ -247,6 +355,8 @@ const LeftPanel = forwardRef(
               queryString += `&with_runtime_lte=${movieFilter[key][1]}`;
             } else if (typeof movieFilter[key][0] === "object") {
               // Array of Object
+              console.log(key, movieFilter[key], "Key");
+
               queryString += `&${key}=${movieFilter[key]
                 .map((item) => item.id)
                 .join("%7c")}`;
@@ -262,7 +372,14 @@ const LeftPanel = forwardRef(
           // Date Object
           Object.prototype.toString.call(movieFilter[key]) === "[object Date]"
         ) {
-          queryString += `&${key}=${dateFormatter(movieFilter[key])}`;
+          if (
+            (key === "air_date_gte" || key === "air_date_lte") &&
+            movieFilter.isSearchAllEpisodes === false
+          ) {
+            queryString += "";
+          } else {
+            queryString += `&${key}=${dateFormatter(movieFilter[key])}`;
+          }
         } else if (
           // String
           (typeof movieFilter[key] === "string" &&
@@ -275,33 +392,58 @@ const LeftPanel = forwardRef(
       return queryString;
     }, [movieFilter]);
 
-    const applyFilter = useCallback(
+    const handleLoadMore = useCallback(
       async (page) => {
         setIsFetching(true);
-        const queryString = generateQueryString();
-        const data = await discoverMovies(`${queryString}&page=${page}`);
-        setMovieData([...movieData, ...data.results]);
+        getFilteredData(page);
         setIsFetching(false);
-        if (page < 2) {
-          setInitialMovieFilter(movieFilter); // to disable search button again
-        }
       },
-      [movieFilter, movieData, setMovieData, generateQueryString, setIsFetching]
+      [setIsFetching, getFilteredData]
     );
 
     useImperativeHandle(
       ref,
       () => {
         return {
-          applyFilter,
+          handleLoadMore,
         };
       },
-      [applyFilter]
+      [handleLoadMore]
     );
+
+    async function getFilteredData(page) {
+      const queryString = generateQueryString();
+      const data = await discoverMovies(
+        category,
+        `${queryString}&page=${page}`
+      );
+
+      const refactoredData = data.results.map((movie) => ({
+        id: movie.id,
+        title: movie.title,
+        subTitle: movie.release_date,
+        poster: movie.poster_path,
+        vote_avg: movie.vote_average,
+      }));
+      if (page < 2) {
+        setMovieData([...refactoredData]);
+      } else {
+        setMovieData([...movieData, ...refactoredData]);
+      }
+    }
 
     async function getWatchProviderData(id) {
       const data = await getWatchProvider(id);
-      setAPIData({ ...APIData, watchProviderData: data.results });
+      const refactoredWatchProviderData = data.results.map((watchProvider) => ({
+        name: watchProvider.provider_name,
+        id: watchProvider.provider_id,
+        logo_path: watchProvider.logo_path,
+      }));
+      setAPIData({
+        ...APIData,
+        watchProviderData: refactoredWatchProviderData,
+        // filteredData: APIData.countryData,
+      });
     }
 
     function objectCompare(object1, object2) {
@@ -366,16 +508,16 @@ const LeftPanel = forwardRef(
       setMovieFilter({ ...movieFilter, [key]: value });
     }
 
-    function handleFilter(value) {
-      const newArr = APIData.countryData.filter(
-        (item) =>
-          item.name
-            .toLowerCase()
-            .replace(" ", "")
-            .indexOf(value.toLowerCase().replace(" ", "")) > -1
-      );
-      setAPIData({ ...APIData, filteredData: newArr });
-    }
+    // function handleFilter(value) {
+    //   const newArr = APIData.countryData.filter(
+    //     (item) =>
+    //       item.name
+    //         .toLowerCase()
+    //         .replace(" ", "")
+    //         .indexOf(value.toLowerCase().replace(" ", "")) > -1
+    //   );
+    //   setAPIData({ ...APIData, filteredData: newArr });
+    // }
 
     function handleKeywordChange(e) {
       clearTimeout(timeout);
@@ -411,7 +553,7 @@ const LeftPanel = forwardRef(
     console.log("movie", movieFilter);
 
     return (
-      <div className="movie_detail_left" ref={scrollRef}>
+      <div className="movie_detail_left" ref={infiniteScrollRef}>
         <Accordion title="Sort" isAccordianOpen={false}>
           <div className="filter">
             <h3>Sort Results By</h3>
@@ -428,7 +570,7 @@ const LeftPanel = forwardRef(
 
         <Accordion
           title="Where To Watch"
-          digit={category === "movies" ? 55 : 41}
+          digit={category === "movie" ? 55 : 41}
           isAccordianOpen={false}
         >
           <div className="filter">
@@ -451,10 +593,9 @@ const LeftPanel = forwardRef(
           <div className="filter">
             <h3>Country</h3>
             <SelectMenu
-              items={APIData.filteredData}
+              items={APIData.countryData}
               title="country"
               menuWidth={300}
-              handleFilter={handleFilter}
               selectedValue={movieFilter.watch_region?.id}
               changeSelectedValue={(value) => {
                 handleMovieFilterChange("watch_region", value);
@@ -550,7 +691,7 @@ const LeftPanel = forwardRef(
             </div>
           </div>
 
-          {category === "movies" && (
+          {category === "movie" && (
             <div className="filter">
               <h3>Release Dates</h3>
               <div className="release_date_wrapper">
@@ -596,13 +737,10 @@ const LeftPanel = forwardRef(
                       </div>
                       {!movieFilter.isSearchAllCountries && (
                         <SelectMenu
-                          items={APIData.filteredData}
+                          items={APIData.countryData}
                           title="country"
                           menuWidth={300}
-                          handleFilter={handleFilter}
-                          selectedValue={
-                            movieFilter.region?.id || APIData.filteredData[0].id
-                          }
+                          selectedValue={movieFilter.region?.id}
                           changeSelectedValue={(value) => {
                             handleMovieFilterChange("region", value);
                           }}
@@ -653,7 +791,7 @@ const LeftPanel = forwardRef(
             </div>
           )}
 
-          {category === "tv_shows" && (
+          {category === "tv" && (
             <div className="filter">
               <h3>Air Dates</h3>
               <div className="release_date_wrapper">
@@ -663,48 +801,62 @@ const LeftPanel = forwardRef(
                       type="checkbox"
                       id="availability"
                       className="availability_checkbox"
-                      onClick={(e) => {
+                      onChange={(e) => {
                         e.stopPropagation();
                         setMovieFilter({
                           ...movieFilter,
-                          isSearchAllReleases: e.target.checked,
+                          isSearchAllEpisodes: e.target.checked,
+                          first_air_date_gte:
+                            e.target.checked === false
+                              ? movieFilter.air_date_gte
+                              : "",
+                          first_air_date_lte:
+                            e.target.checked === false
+                              ? movieFilter.air_date_lte
+                              : "",
                         });
                       }}
-                      checked={movieFilter.isSearchAllReleases}
+                      checked={movieFilter.isSearchAllEpisodes}
                     />
                     <label for="availability" className="availability_desc">
                       Search all episodes?
                     </label>
                   </div>
-                  <div className="availability">
-                    <input
-                      type="checkbox"
-                      id="availability"
-                      className="availability_checkbox"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setMovieFilter({
-                          ...movieFilter,
-                          isSearchAllReleases: e.target.checked,
-                        });
-                      }}
-                      checked={movieFilter.isSearchAllReleases}
-                    />
-                    <label for="availability" className="availability_desc">
-                      Search first air date?
-                    </label>
-                  </div>
+                  {!movieFilter.isSearchAllEpisodes && (
+                    <div className="availability">
+                      <input
+                        type="checkbox"
+                        id="availability"
+                        className="availability_checkbox"
+                        onChange={(e) => {
+                          e.stopPropagation();
+                          setMovieFilter({
+                            ...movieFilter,
+                            isSearchFirstAirDate: e.target.checked,
+                          });
+                        }}
+                        checked={movieFilter.isSearchFirstAirDate}
+                      />
+                      <label for="availability" className="availability_desc">
+                        Search first air date?
+                      </label>
+                    </div>
+                  )}
 
                   <div className="date_picker">
                     <div className="date_select">
                       <p>from</p>
                       <span>
                         <DatePicker
-                          selected={movieFilter.release_date_gte}
+                          selected={movieFilter.air_date_gte}
                           onChange={(date) => {
                             setMovieFilter({
                               ...movieFilter,
-                              release_date_gte: date,
+                              air_date_gte: date,
+                              first_air_date_gte:
+                                movieFilter.isSearchAllEpisodes === false
+                                  ? date
+                                  : "",
                             });
                           }}
                         />
@@ -714,11 +866,15 @@ const LeftPanel = forwardRef(
                       <p>to</p>
                       <span>
                         <DatePicker
-                          selected={movieFilter.release_date_lte}
+                          selected={movieFilter.air_date_lte}
                           onChange={(date) => {
                             setMovieFilter({
                               ...movieFilter,
-                              release_date_lte: date,
+                              air_date_lte: date,
+                              first_air_date_lte:
+                                movieFilter.isSearchAllEpisodes === false
+                                  ? date
+                                  : "",
                             });
                           }}
                         />
@@ -733,7 +889,7 @@ const LeftPanel = forwardRef(
           <div className="filter">
             <h3>Genres</h3>
             <FilterList
-              items={APIData.movieGenres}
+              items={genres}
               selectedItems={movieFilter.with_genres}
               setSelectedItems={(value) =>
                 handleMovieFilterChange("with_genres", value)
@@ -950,7 +1106,9 @@ const LeftPanel = forwardRef(
           <button
             className="search_btn"
             disabled={!isMovieFilterChanged(initialMovieFilterKeysArr)}
-            onClick={() => applyFilter(1)}
+            onClick={
+              () => setInitialMovieFilter(movieFilter) // to disable search button again
+            }
           >
             Search
           </button>

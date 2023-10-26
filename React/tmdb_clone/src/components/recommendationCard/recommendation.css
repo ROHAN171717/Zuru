@@ -1,0 +1,48 @@
+.recommendation {
+  width: 250px;
+  min-width: 250px;
+  position: relative;
+}
+.recommendation:not(:first-child) {
+  margin-left: 20px;
+}
+.recommendation .recommendation_poster {
+  max-width: 250px;
+  max-height: 141px;
+}
+.recommendation .recommendation_poster.no_img {
+  background-color: #dbdbdb;
+  border-radius: 8px;
+}
+.recommendation .recommendation_poster .image {
+  border-radius: 8px;
+  cursor: pointer;
+}
+.recommendation .recommendation_poster .no_img {
+  width: 250px;
+  height: 141px;
+}
+.recommendation .recommendation_detail {
+  display: flex;
+  justify-content: space-between;
+}
+.recommendation .release_date {
+  display: none;
+}
+.recommendation:hover .release_date {
+  position: absolute;
+  top: 101px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+  padding: 0 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+}
+.recommendation:hover .release_date img {
+  width: 16px;
+  height: 16px;
+}/*# sourceMappingURL=recommendation.css.map */

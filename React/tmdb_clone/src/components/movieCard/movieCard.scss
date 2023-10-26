@@ -13,25 +13,50 @@
     }
   }
 
+  &.small {
+    width: 140px;
+    min-width: 140px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(rgb(227,227,227),1);
+    overflow: hidden;
+    border-radius: 8px;
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+  }
+
   &.full {
     width: 180px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
     border-radius: 8px;
     margin-bottom: 30px;
   }
 
   .movie_card_image {
     .poster {
-      border-radius: 8px;
       width: 100%;
       min-height: 225px;
       max-height: 225px;
       overflow: hidden;
       cursor: pointer;
 
+      &.default {
+        border-radius: 8px;
+      }
+
+      &.small {
+        min-height: 175px;
+        max-height: 175px;
+      }
+
       &.full {
         min-height: 270px;
         max-height: 270px;
+      }
+
+      &.no_img {
+      background-color: #dbdbdb;
       }
     }
   }
@@ -44,15 +69,8 @@
     padding: 26px 10px 12px;
     white-space: normal;
 
-    .circular_progressbar {
-      position: absolute;
-      top: -19px;
-      left: 10px;
-      width: 35px;
-
-      .CircularProgressbar-text {
-        font-size: 30px;
-      }
+    &.small {
+      padding-top: 10px;
     }
 
     h2 {
@@ -65,6 +83,7 @@
       a {
         text-decoration: none;
         color: black;
+        transition: ease-in-out 0.1s;
 
         &:hover {
           color: rgba(rgb(1, 180, 228), 1);

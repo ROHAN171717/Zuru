@@ -17,7 +17,7 @@ const CheckboxWrapper = ({ items, selectedItems, setSelectedItems }) => {
             onChange={() =>
               setSelectedItems(toggleItemInArray(selectedItems, item))
             }
-            checked={selectedItems.includes(item)}
+            checked={selectedItems?.includes(item)}
           />
           <label for="availability" className="availability_desc">
             {item.name}

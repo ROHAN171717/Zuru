@@ -18,10 +18,12 @@ const Header = () => {
           <ul className="nav_links">
             <NavbarMenu
               title="Movies"
+              value="movie"
               menubarItem={["Popular", "Now Playing", "Upcoming", "Top Rated"]}
             />
             <NavbarMenu
               title="TV Shows"
+              value="tv"
               menubarItem={["Popular", "Airing Today", "On TV", "Top Rated"]}
             />
             <NavbarMenu title="People" menubarItem={["Popular People"]} />

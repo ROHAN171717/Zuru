@@ -1,49 +1,51 @@
-import React, { useState, useEffect } from "react";
-import './popular.css'
+import React, { useState, useEffect, useRef } from "react";
+import "./popular.css";
 import { getPopularMovies } from "../../../../components/api/api";
 import MovieCard from "../../../../components/movieCard/MovieCard";
 import SectionTitle from "../../../../components/sectionTitle/SectionTitle";
+import Scroller from "../../../../components/scroller/Scroller";
+import { formateDateString } from "../../../../helper";
+
+const arr = [
+  { id: 1, name: "Movie", type: "movie", value: "popular" },
+  { id: 2, name: "On TV", type: "tv", value: "popular" },
+  { id: 3, name: "In Theaters", type: "movie", value: "now_playing" },
+];
 
 const Popular = () => {
   const [id, setId] = useState(1);
-  const [allTrendingMovies, setAllTrendingMovies] = useState([]);
+  const [allPopular, setAllPopular] = useState([]);
+  const tvShowOrMovieref = useRef("movie");
 
   useEffect(() => {
     let category = "popular";
-    let tvShowOrMovie = "movie";
 
-    arr.map((item) => {
+    arr.forEach((item) => {
       if (id === item.id) {
         category = item.value;
-        tvShowOrMovie = item.type;
+        tvShowOrMovieref.current = item.type;
       }
     });
 
     async function getData() {
-      const data = await getPopularMovies(category, tvShowOrMovie);
-      console.log(data);
-      setAllTrendingMovies(data.results);
+      const data = await getPopularMovies(category, tvShowOrMovieref.current);
       // getPopularMovies(category, tvShowOrMovie).then((res) => setAllTrendingMovies(res.results));
+      const refactoredData = data.results?.map((cast) => ({
+        id: cast.id,
+        title: cast.title || cast.name,
+        subTitle: formateDateString(cast.release_date || cast.first_air_date),
+        poster: cast.poster_path,
+        vote_avg: cast.vote_average,
+      }));
+      setAllPopular(refactoredData);
     }
     getData();
   }, [id]);
 
-  const arr = [
-    { id: 1, name: "Movie", type: "movie", value: "popular" },
-    { id: 2, name: "On TV", type: "tv", value: "popular" },
-    { id: 3, name: "In Theaters", type: "movie", value: "now_playing" },
-  ];
-
   return (
     <section className="inner_content trending popular">
       <SectionTitle title="What's Popular" items={arr} setId={setId} />
-      <div className="scroller_wrapper">
-        <div className="trending_scroller">
-          {allTrendingMovies?.map((movie) => (
-            <MovieCard movie={movie} />
-          ))}
-        </div>
-      </div>
+      <Scroller data={allPopular} category={tvShowOrMovieref.current} />
     </section>
   );
 };

@@ -1,0 +1,46 @@
+.trailer_model {
+  width: 1287px;
+  height: 786px;
+  .trailer_model_action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: black;
+    color: white;
+    width: 100%;
+    padding: 10px;
+
+    .img_wrapper {
+      display: flex;
+      padding: 5px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: linear .2s;
+      img {
+        width: 16px;
+        height: 16px;
+        filter: invert(1);
+      }
+      &:hover {
+        background-color: rgb(48, 48, 48);
+      }
+    }
+  }
+  iframe {
+    width: 100%;
+    height: calc(100% - 51px);
+    border: none;
+  }
+}
+
+.popperTrailer {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    to right,
+    rgb(167, 166, 166) 150px,
+    rgba(104, 103, 103, 0.84) 100%
+  );
+  display: flex !important;
+  justify-content: center;
+}

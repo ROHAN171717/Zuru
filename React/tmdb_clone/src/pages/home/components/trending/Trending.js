@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import SectionTitle from "../../../../components/sectionTitle/SectionTitle";
-import './trending.css'
+import "./trending.css";
 import MovieCard from "../../../../components/movieCard/MovieCard";
 import { getTrendingMovies } from "../../../../components/api/api";
+import Scroller from "../../../../components/scroller/Scroller";
+import { formateDateString } from "../../../../helper";
 
 const Trending = () => {
   const [id, setId] = useState(1);
   const [allTrendingMovies, setAllTrendingMovies] = useState([]);
 
   useEffect(() => {
-    let category = 'day';
-    arr.map((item) => {
+    let category = "day";
+    arr.forEach((item) => {
       if (id === item.id) {
         category = item.value;
       }
@@ -18,10 +20,16 @@ const Trending = () => {
 
     async function getData() {
       const data = await getTrendingMovies(category);
-      console.log(data);
-      setAllTrendingMovies(data.results);
-      }
-      getData();
+      const refactoredData = data.results?.map((cast) => ({
+        id: cast.id,
+        title: cast.title,
+        subTitle: formateDateString(cast.release_date),
+        poster: cast.poster_path,
+        vote_avg: cast.vote_average,
+      }));
+      setAllTrendingMovies(refactoredData);
+    }
+    getData();
   }, [id]);
 
   const arr = [
@@ -32,13 +40,7 @@ const Trending = () => {
   return (
     <section className="inner_content trending">
       <SectionTitle title="Trending" items={arr} setId={setId} />
-      <div className="scroller_wrapper">
-        <div className="trending_scroller">
-          {allTrendingMovies?.map((movie) => (
-            <MovieCard movie={movie} />
-          ))}
-        </div>
-      </div>
+      <Scroller data={allTrendingMovies} category="movie" />
     </section>
   );
 };

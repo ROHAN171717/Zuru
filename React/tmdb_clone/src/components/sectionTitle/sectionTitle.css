@@ -7,10 +7,12 @@
   padding-top: 30px;
   position: sticky;
   left: 0;
+  margin-bottom: 20px;
 }
 .section_header h2 {
   margin-right: 20px;
   white-space: nowrap;
+  font-weight: 600;
 }
 .section_header .selector {
   display: flex;

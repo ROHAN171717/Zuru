@@ -10,7 +10,7 @@
   padding: 4px 12px;
   margin-right: 8px;
   margin-bottom: 8px;
-  cursor: context-menu;
+  cursor: pointer;
 }
 .filter_list .filter_list_item:hover {
   background-color: #01b4e4;

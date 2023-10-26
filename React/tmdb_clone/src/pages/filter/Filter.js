@@ -12,7 +12,7 @@ const Filter = () => {
   const [isFetching, setIsFetching] = useState(false);
 
   function handleClick() {
-    infiniteRef.current.applyFilter(page);
+    infiniteRef.current.handleLoadMore(page);
     setPage(page => page + 1);
   }
   // function sortData(data) {

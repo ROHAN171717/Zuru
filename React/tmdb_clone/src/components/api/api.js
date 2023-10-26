@@ -42,8 +42,8 @@ export function getLanguages() {
   return fetchAPI(url);
 }
 
-export function discoverMovies(queryString) {
-  const url = `https://api.themoviedb.org/3/discover/movie?language=en-US${queryString}&certification_country=IN&api_key=1d89162391a00b377990d9a88bd59b0b`;
+export function discoverMovies(category, queryString) {
+  const url = `https://api.themoviedb.org/3/discover/${category}?language=en-US${queryString}&certification_country=IN&api_key=1d89162391a00b377990d9a88bd59b0b`;
   return fetchAPI(url);
 }
 
@@ -52,9 +52,37 @@ export function getKeywords(keyword) {
   return fetchAPI(url);
 }
 
-export function getMovieGenres() {
-  const url =
-    "https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=1d89162391a00b377990d9a88bd59b0b";
+export function getMovieGenres(category) {
+  const url = `https://api.themoviedb.org/3/genre/${category}/list?language=en-US&api_key=1d89162391a00b377990d9a88bd59b0b`;
   return fetchAPI(url);
 }
 
+export function getMovieDetailById(category, movieId) {
+  const url = `https://api.themoviedb.org/3/${category}/${movieId}?language=en-US&api_key=1d89162391a00b377990d9a88bd59b0b`;
+  return fetchAPI(url);
+}
+
+export function getCastData(category, movieId) {
+  const url = `https://api.themoviedb.org/3/${category}/${movieId}/credits?language=en-US&api_key=1d89162391a00b377990d9a88bd59b0b`;
+  return fetchAPI(url);
+}
+
+export function getReviews(category, movieId) {
+  const url = `https://api.themoviedb.org/3/${category}/${movieId}/reviews?language=en-US&api_key=1d89162391a00b377990d9a88bd59b0b`;
+  return fetchAPI(url);
+}
+
+export function getKeywordsById(category, movieId) {
+  const url = `https://api.themoviedb.org/3/${category}/${movieId}/keywords?language=en-US&api_key=1d89162391a00b377990d9a88bd59b0b`;
+  return fetchAPI(url);
+}
+
+export function getRecommendations(category, movieId) {
+  const url = `https://api.themoviedb.org/3/${category}/${movieId}/recommendations?language=en-US&api_key=1d89162391a00b377990d9a88bd59b0b`;
+  return fetchAPI(url);
+}
+
+export function getVideosById(category, movieId) {
+  const url = `https://api.themoviedb.org/3/${category}/${movieId}/videos?language=en-US&api_key=1d89162391a00b377990d9a88bd59b0b`;
+  return fetchAPI(url);
+}

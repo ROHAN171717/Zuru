@@ -3,35 +3,4 @@
   background-position: 50% 200px;
   background-size: 1400px;
   background-repeat: no-repeat;
-}
-.trending .scroller_wrapper {
-  width: 100%;
-  position: relative;
-}
-.trending .scroller_wrapper::after {
-  content: "";
-  width: 60px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0, white 100%);
-}
-.trending .scroller_wrapper .trending_scroller {
-  width: 100%;
-  padding: 20px 0px;
-  padding-left: 40px;
-  display: flex;
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-.trending .scroller_wrapper .trending_scroller::-webkit-scrollbar {
-  height: 10px;
-}
-.trending .scroller_wrapper .trending_scroller::-webkit-scrollbar-track {
-  background-color: white;
-}
-.trending .scroller_wrapper .trending_scroller::-webkit-scrollbar-thumb {
-  background-color: rgb(235, 235, 235);
-  border-radius: 50px;
 }/*# sourceMappingURL=trending.css.map */

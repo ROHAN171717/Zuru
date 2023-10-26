@@ -2,12 +2,10 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  border: 2px solid red;
 
   .movie_content {
     width: 100%;
     max-width: 1400px;
-    border: 2px solid green;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -22,14 +20,13 @@
     .movie_detail {
       display: flex;
       .movie_detail_left {
+        min-width: 260px;
+        width: 260px;
         .dropdown_wrapper {
-          min-width: 260px;
-          width: 260px;
           border: 1px solid #e3e3e3;
           border-radius: 8px;
           display: flex;
           justify-content: space-between;
-          // overflow: hidden;
           flex-wrap: wrap;
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
@@ -289,13 +286,14 @@
       }
 
       .movie_detail_right {
+        width: 1051px;
         padding-left: 30px;
 
-        .trending_scroller {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-        }
+        // .trending_scroller {
+        //   display: flex;
+        //   flex-wrap: wrap;
+        //   justify-content: space-between;
+        // }
 
         .load_button_wrapper {
           width: 100%;

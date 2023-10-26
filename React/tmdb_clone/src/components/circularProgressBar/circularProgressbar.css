@@ -1,0 +1,14 @@
+.circular_progressbar.default {
+  position: absolute;
+  top: -19px;
+  left: 10px;
+  width: 35px;
+}
+.circular_progressbar.full {
+  top: 0;
+  left: 0;
+  width: 68px;
+}
+.circular_progressbar .CircularProgressbar-text {
+  font-size: 30px;
+}/*# sourceMappingURL=circularProgressbar.css.map */

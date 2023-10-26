@@ -1,0 +1,145 @@
+.leftPanel {
+  max-width: 1052px;
+  padding-right: 30px;
+}
+.leftPanel .title {
+  text-align: left;
+  font-weight: 600;
+  font-size: 1.4em;
+  margin-bottom: 20px;
+}
+.leftPanel .cast_wrapper {
+  max-width: 100%;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #d7d7d7;
+}
+.leftPanel .current_season_wrapper {
+  padding: 30px 0;
+  border-bottom: 1px solid #d7d7d7;
+}
+.leftPanel .current_season_wrapper .season_card {
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e3e3e3;
+  overflow: hidden;
+}
+.leftPanel .current_season_wrapper .season_card .season_poster {
+  min-width: 130px;
+  width: 130px;
+  height: 195px;
+}
+.leftPanel .current_season_wrapper .season_card .season_poster.no_img {
+  background-color: #dbdbdb;
+}
+.leftPanel .current_season_wrapper .season_card .content {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+.leftPanel .current_season_wrapper .season_card .content .season_header {
+  text-align: left;
+}
+.leftPanel .current_season_wrapper .season_card .content .season_header h2 {
+  font-weight: 600;
+}
+.leftPanel .current_season_wrapper .season_card .content .chapter_wrapper {
+  display: flex;
+}
+.leftPanel .current_season_wrapper .season_card .content .chapter_wrapper .chapter {
+  display: flex;
+  align-items: center;
+  margin-right: 6px;
+}
+.leftPanel .current_season_wrapper .season_card .content .chapter_wrapper .chapter img {
+  width: 1.3em;
+  height: 1.3em;
+  margin-right: 4px;
+}
+.leftPanel .social_panel_wrapper {
+  max-width: 100%;
+  padding: 30px 0;
+  border-bottom: 1px solid #d7d7d7;
+}
+.leftPanel .social_panel_wrapper .menu {
+  display: flex;
+}
+.leftPanel .social_panel_wrapper .menu .title {
+  margin-right: 50px;
+}
+.leftPanel .social_panel_wrapper .menu .menu_item {
+  font-weight: 600;
+  border-bottom: 4px solid black;
+  font-size: 1.1em;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.leftPanel .social_panel_wrapper .menu .menu_item .review_count {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.6;
+}
+.leftPanel .social_panel_wrapper .content {
+  border: 2px solid red;
+  padding: 20px;
+  border: 1px solid #e3e3e3;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.leftPanel .social_panel_wrapper .content .review_header {
+  display: flex;
+}
+.leftPanel .social_panel_wrapper .content .review_header .avatar img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.leftPanel .social_panel_wrapper .content .review_header .info {
+  margin-left: 15px;
+}
+.leftPanel .social_panel_wrapper .content .review_header .info h3 {
+  text-align: left;
+  font-size: 1.3em;
+}
+.leftPanel .social_panel_wrapper .content .review_header .info .rating_wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.leftPanel .social_panel_wrapper .content .review_header .info .rating_wrapper .rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  width: 50px;
+  padding: 1px 0;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.9em;
+  font-weight: 600;
+  background: black;
+}
+.leftPanel .social_panel_wrapper .content .review_header .info .rating_wrapper .rating img {
+  width: 14px;
+  height: 14px;
+  filter: invert(1);
+}
+.leftPanel .social_panel_wrapper .content .review_header .info .rating_wrapper h5 {
+  font-weight: 300;
+  font-size: 0.9em;
+}
+.leftPanel .social_panel_wrapper .content .review_header .info .rating_wrapper h5 .name {
+  font-weight: 400;
+}
+.leftPanel .social_panel_wrapper .content .review_content {
+  margin-top: 20px;
+}
+.leftPanel .social_panel_wrapper .content .review_content p {
+  text-align: left;
+}
+.leftPanel .recommendations_wrapper {
+  padding-top: 30px;
+}/*# sourceMappingURL=leftPanel.css.map */

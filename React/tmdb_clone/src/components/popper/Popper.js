@@ -3,7 +3,7 @@ import { usePopper } from "react-popper";
 import { Portal } from "../portal/Portal";
 
 const Popper = forwardRef(
-  ({ children, referenceElement, isSelectMenuOpen, width }, ref) => {
+  ({ children, referenceElement, isSelectMenuOpen, width, className }, ref) => {
     //   const referenceElement = React.useRef();
     const popperElement = React.useRef();
 
@@ -38,7 +38,7 @@ const Popper = forwardRef(
         <Portal>
           <div
             ref={popperElement}
-            className="select_menu_items_wrapper"
+            className={`select_menu_items_wrapper ${className === 'popperTrailer' ? 'popperTrailer' : ''}`}
             style={{
               display: isSelectMenuOpen ? "block" : "none",
               width: width,

@@ -10,23 +10,44 @@
 .movie_card.default:not(:first-child) {
   margin-left: 20px;
 }
+.movie_card.small {
+  width: 140px;
+  min-width: 140px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e3e3e3;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.movie_card.small:not(:first-child) {
+  margin-left: 20px;
+}
 .movie_card.full {
   width: 180px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
   border-radius: 8px;
   margin-bottom: 30px;
 }
 .movie_card .movie_card_image .poster {
-  border-radius: 8px;
   width: 100%;
   min-height: 225px;
   max-height: 225px;
   overflow: hidden;
   cursor: pointer;
 }
+.movie_card .movie_card_image .poster.default {
+  border-radius: 8px;
+}
+.movie_card .movie_card_image .poster.small {
+  min-height: 175px;
+  max-height: 175px;
+}
 .movie_card .movie_card_image .poster.full {
   min-height: 270px;
   max-height: 270px;
+}
+.movie_card .movie_card_image .poster.no_img {
+  background-color: #dbdbdb;
 }
 .movie_card .movie_card_content {
   position: relative;
@@ -36,14 +57,8 @@
   padding: 26px 10px 12px;
   white-space: normal;
 }
-.movie_card .movie_card_content .circular_progressbar {
-  position: absolute;
-  top: -19px;
-  left: 10px;
-  width: 35px;
-}
-.movie_card .movie_card_content .circular_progressbar .CircularProgressbar-text {
-  font-size: 30px;
+.movie_card .movie_card_content.small {
+  padding-top: 10px;
 }
 .movie_card .movie_card_content h2 {
   font-size: 1em;
@@ -55,6 +70,7 @@
 .movie_card .movie_card_content h2 a {
   text-decoration: none;
   color: black;
+  transition: ease-in-out 0.1s;
 }
 .movie_card .movie_card_content h2 a:hover {
   color: #01b4e4;

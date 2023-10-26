@@ -1,0 +1,51 @@
+.recommendation {
+  width: 250px;
+  min-width: 250px;
+  position: relative;
+
+  &:not(:first-child) {
+    margin-left: 20px;
+  }
+  .recommendation_poster {
+    max-width: 250px;
+    max-height: 141px;
+    &.no_img {
+      background-color: #dbdbdb;
+      border-radius: 8px;
+    }
+    .image {
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .no_img {
+      width: 250px;
+      height: 141px;
+    }
+  }
+  .recommendation_detail {
+    display: flex;
+    justify-content: space-between;
+  }
+  .release_date {
+    display: none;
+  }
+  &:hover {
+    .release_date {
+      position: absolute;
+      // bottom: 60px;
+      top: 101px;
+      width: 100%;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      column-gap: 5px;
+      padding: 0 10px;
+      background-color: rgba(255, 255, 255, 0.9);
+      cursor: pointer;
+      img {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
