@@ -22,6 +22,7 @@
   width: 300px;
   height: 450px;
   overflow: hidden;
+  transition: ease-in 0.5s;
 }
 .movie_detail .movie_header_wrapper .background_gradiant .movie_header .movie_poster_wrapper.no_img {
   background-color: #dbdbdb;

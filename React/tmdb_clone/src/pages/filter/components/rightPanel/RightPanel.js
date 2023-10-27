@@ -4,14 +4,23 @@ import { getTrendingMovies } from "../../../../components/api/api";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Scroller from "../../../../components/scroller/Scroller";
 import { useParams } from "react-router-dom";
+import ShimmerCardEffect from "../../../../components/shimmerCardEffect/ShimmerCardEffect";
 
 const RightPanel = ({ movieData, handleClick, isFetching }) => {
   const params = useParams();
-  console.log("Data Length: ", movieData.length, movieData.length % 5);
-  console.log(
-    "Scroller",
-    movieData.length > 20 && (movieData.length % 20 === 0 ? true : false)
-  );
+
+  if (movieData.length === 0 && isFetching === false) {
+    return (
+      <p
+        style={{
+          marginLeft: "30px",
+          fontSize: "20px",
+        }}
+      >
+        No Data Found...
+      </p>
+    );
+  }
 
   return (
     <InfiniteScroll
@@ -20,7 +29,15 @@ const RightPanel = ({ movieData, handleClick, isFetching }) => {
       hasMore={
         movieData.length > 20 && (movieData.length % 20 === 0 ? true : false)
       }
-      loader={isFetching && <h1>Loading...</h1>}
+      loader={
+        isFetching && (
+          <>
+            {[...Array(20)].map(() => (
+              <ShimmerCardEffect variant="full" />
+            ))}
+          </>
+        )
+      }
     >
       <div className="movie_detail_right">
         {/* <div className="trending_scroller">
@@ -37,6 +54,7 @@ const RightPanel = ({ movieData, handleClick, isFetching }) => {
           variant="full"
           movieCardVariant="full"
           category={params.category}
+          // isLoading={isFetching}
         />
 
         {movieData.length >= 20 && (

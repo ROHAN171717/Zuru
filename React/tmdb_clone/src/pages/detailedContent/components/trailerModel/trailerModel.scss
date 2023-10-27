@@ -1,6 +1,7 @@
 .trailer_model {
   width: 1287px;
   height: 786px;
+  position: fixed;
   .trailer_model_action {
     display: flex;
     justify-content: space-between;
@@ -34,8 +35,10 @@
 }
 
 .popperTrailer {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  position: fixed !important;
+  top: 0;
   background: linear-gradient(
     to right,
     rgb(167, 166, 166) 150px,
@@ -43,4 +46,5 @@
   );
   display: flex !important;
   justify-content: center;
+  align-items: center;
 }

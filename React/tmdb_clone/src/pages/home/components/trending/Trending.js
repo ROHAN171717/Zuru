@@ -9,6 +9,8 @@ import { formateDateString } from "../../../../helper";
 const Trending = () => {
   const [id, setId] = useState(1);
   const [allTrendingMovies, setAllTrendingMovies] = useState([]);
+  const [isCategoryChanged, setIsCategoryChanged] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     let category = "day";
@@ -19,6 +21,7 @@ const Trending = () => {
     });
 
     async function getData() {
+      setIsLoading(true);
       const data = await getTrendingMovies(category);
       const refactoredData = data.results?.map((cast) => ({
         id: cast.id,
@@ -28,8 +31,13 @@ const Trending = () => {
         vote_avg: cast.vote_average,
       }));
       setAllTrendingMovies(refactoredData);
+      setIsLoading(false);
     }
     getData();
+    setIsCategoryChanged(false);
+    setTimeout(() => {
+      setIsCategoryChanged(true);
+    }, 500);
   }, [id]);
 
   const arr = [
@@ -40,7 +48,12 @@ const Trending = () => {
   return (
     <section className="inner_content trending">
       <SectionTitle title="Trending" items={arr} setId={setId} />
-      <Scroller data={allTrendingMovies} category="movie" />
+      <Scroller
+        data={allTrendingMovies}
+        category="movie"
+        isCategoryChanged={isCategoryChanged}
+        isLoading={isLoading}
+      />
     </section>
   );
 };

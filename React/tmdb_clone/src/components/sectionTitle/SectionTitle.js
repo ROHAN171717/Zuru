@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./sectionTitle.css";
 
 const SectionTitle = ({ title, items, setId }) => {
@@ -21,9 +21,7 @@ const SectionTitle = ({ title, items, setId }) => {
                 className={`anchor ${selected === item.name ? "selected" : ""}`}
                 onClick={() => handleClick(item)}
               >
-                <h3>
-                  <a href="#">{item.name}</a>
-                </h3>
+                <h3>{item.name}</h3>
               </div>
             );
           })}

@@ -1,7 +1,8 @@
 import React from "react";
 import "./movieCard.css";
-import { Link } from "@mui/material";
+
 import CircularProgressBar from "../circularProgressBar/CircularProgressBar";
+import { Link } from "react-router-dom";
 
 const MovieCard = ({ movie, variant, category }) => {
   const percentage = Math.round(movie?.vote_avg * 10);
@@ -9,7 +10,7 @@ const MovieCard = ({ movie, variant, category }) => {
     <div className={`movie_card ${variant}`}>
       <div className="movie_card_image">
         <div>
-          <a href={`/detail/${category}/${movie.id}`}>
+          <Link to={`/detail/${category}/${movie.id}`}>
             <img
               className={`poster ${variant} ${
                 movie.poster === null ? "no_img" : ""
@@ -21,7 +22,7 @@ const MovieCard = ({ movie, variant, category }) => {
               }
               alt={movie.title}
             />
-          </a>
+          </Link>
         </div>
         <div className="options"></div>
       </div>

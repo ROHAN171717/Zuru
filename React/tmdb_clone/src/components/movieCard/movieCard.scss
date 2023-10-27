@@ -7,6 +7,7 @@
   top: 0;
   left: 0;
 
+
   &.default {
     &:not(:first-child) {
       margin-left: 20px;
@@ -16,8 +17,9 @@
   &.small {
     width: 140px;
     min-width: 140px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(rgb(227,227,227),1);
+    margin-bottom: 2px;
     overflow: hidden;
     border-radius: 8px;
     &:not(:first-child) {

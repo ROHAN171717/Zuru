@@ -17,16 +17,21 @@ const LeftPanel = ({ movieDetail }) => {
   const params = useParams();
   const [allCast, setAllCast] = useState([]);
   const [allReviews, setAllReviews] = useState([]);
+  const [review, setReview] = useState({});
   const [allRecommendations, setAllRecommendations] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  function demo() {
-    const x = allReviews[0]?.content.split(' ').length;
-    console.log("Reveiw", x); 
+  function getModifiedReview(content) {
+    return content?.split(" ").length > 150
+      ? content?.split(" ").slice(0, 150).toString().replaceAll(",", " ") +
+          "..."
+      : content;
   }
-  demo()
+  getModifiedReview();
 
   useEffect(() => {
     async function getData(category, id) {
+      setIsLoading(true);
       const data = await getCastData(category, id);
       const refactoredCastData = data?.cast?.map((cast) => ({
         id: cast.id,
@@ -40,14 +45,12 @@ const LeftPanel = ({ movieDetail }) => {
 
       setAllCast(refactoredCastData);
       setAllReviews(getReviewdata.results);
+      setReview(getReviewdata.results[0]);
       setAllRecommendations(getRecommendationsData.results);
+      setIsLoading(false);
     }
     getData(params.category, params.id);
   }, [params.category, params.id]);
-  console.log(
-    "Img",
-    movieDetail?.seasons?.[movieDetail.seasons.length - 1].poster_path
-  );
 
   return (
     <div className="leftPanel">
@@ -55,7 +58,12 @@ const LeftPanel = ({ movieDetail }) => {
         <h3 className="title">
           {params.category === "movie" ? "Top Billed Cast" : "Series Cast"}
         </h3>
-        <Scroller data={allCast} variant="medium" movieCardVariant="small" />
+        <Scroller
+          data={allCast}
+          variant="medium"
+          movieCardVariant="small"
+          isLoading={isLoading}
+        />
       </div>
       {params.category === "tv" && (
         <div className="current_season_wrapper">
@@ -63,14 +71,20 @@ const LeftPanel = ({ movieDetail }) => {
           <div className="season_card">
             <img
               src={
-                movieDetail?.seasons?.[movieDetail.seasons.length - 1].poster_path !== null
+                movieDetail?.seasons?.[movieDetail.seasons.length - 1]
+                  .poster_path !== null
                   ? `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${
                       movieDetail?.seasons?.[movieDetail.seasons.length - 1]
                         .poster_path
                     }`
                   : "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg"
               }
-              className={`season_poster ${movieDetail?.seasons?.[movieDetail.seasons.length - 1].poster_path === null ? 'no_img' : ''}`}
+              className={`season_poster ${
+                movieDetail?.seasons?.[movieDetail.seasons.length - 1]
+                  .poster_path === null
+                  ? "no_img"
+                  : ""
+              }`}
               alt=""
             />
             <div className="content">
@@ -140,11 +154,11 @@ const LeftPanel = ({ movieDetail }) => {
             <div className="review_header">
               <div className="avatar">
                 <Avatar
-                  src={`https://www.themoviedb.org/t/p/w45_and_h45_face${allReviews[0]?.author_details.avatar_path}`}
+                  src={`https://www.themoviedb.org/t/p/w45_and_h45_face${review?.author_details.avatar_path}`}
                 />
               </div>
               <div className="info">
-                <h3>A review by {allReviews[0]?.author}</h3>
+                <h3>A review by {review?.author}</h3>
                 <div className="rating_wrapper">
                   <div className="rating">
                     <img
@@ -154,15 +168,14 @@ const LeftPanel = ({ movieDetail }) => {
                     <p>6.0</p>
                   </div>
                   <h5>
-                    Written by{" "}
-                    <span className="name">{allReviews[0]?.author}</span> on
-                    {formateDateString(allReviews[0]?.created_at)}
+                    Written by <span className="name">{review?.author}</span> on
+                    {formateDateString(review?.created_at)}
                   </h5>
                 </div>
               </div>
             </div>
             <div className="review_content">
-              <p>{allReviews[0]?.content}</p>
+              <p>{getModifiedReview(review?.content)}</p>
             </div>
           </div>
         ) : (
@@ -179,6 +192,7 @@ const LeftPanel = ({ movieDetail }) => {
             data={allRecommendations}
             variant="medium"
             movieCardVariant="recommendations"
+            isLoading={isLoading}
           />
         ) : (
           <p style={{ textAlign: "left" }}>

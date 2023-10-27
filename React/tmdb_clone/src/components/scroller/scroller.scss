@@ -1,8 +1,14 @@
 .scroller_wrapper {
   width: 100%;
   position: relative;
+  opacity: 0;
+  &.scroller_transition {
+    opacity: 1;
+    transition: ease-in .5s;
+  }
 
-  &.default, &.medium {
+  &.default,
+  &.medium {
     &::after {
       content: "";
       width: 60px;

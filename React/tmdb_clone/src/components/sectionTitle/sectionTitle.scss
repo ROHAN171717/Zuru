@@ -21,16 +21,14 @@
     border-radius: 30px;
 
     .anchor {
+      cursor: pointer;
       h3 {
         font-size: 1em;
         padding: 4px 20px;
-
-        a {
-          transition: 0.4s ease-out;
-          text-decoration: none;
-          color: rgba(rgb(3, 37, 65), 1);
-          font-weight: 600;
-        }
+        transition: 0.4s ease-out;
+        text-decoration: none;
+        color: rgba(rgb(3, 37, 65), 1);
+        font-weight: 600;
       }
     }
 
@@ -39,12 +37,11 @@
       border: none;
       border-radius: 30px;
       h3 {
-        a {
-          background: linear-gradient(to right, #c0fecf 0, #1ed5a9 100%);
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
+        background: linear-gradient(to right, #c0fecf 0, #1ed5a9 100%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
+      transition: linear 0.5s;
     }
   }
 }

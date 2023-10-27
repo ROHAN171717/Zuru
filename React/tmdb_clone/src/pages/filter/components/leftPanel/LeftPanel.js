@@ -124,24 +124,19 @@ const LeftPanel = forwardRef(
 
     useEffect(() => {
       if (category === "movie" && subCategory === "popular") {
-        setInitialMovieFilter({
+        const obj = {
           ...initialCommonFilter,
           ...initialCommonMovieFilter,
           ...popularMovie,
           release_date_lte: new Date(
             new Date().setMonth(new Date().getMonth() + 6)
           ),
-        });
-        setMovieFilter({
-          ...initialCommonFilter,
-          ...initialCommonMovieFilter,
-          ...popularMovie,
-          release_date_lte: new Date(
-            new Date().setMonth(new Date().getMonth() + 6)
-          ),
-        });
+        };
+        setInitialMovieFilter(obj);
+        setMovieFilter(obj);
+        getFilteredData(1, obj);
       } else if (category === "movie" && subCategory === "now_playing") {
-        setInitialMovieFilter({
+        const obj = {
           ...initialCommonFilter,
           ...initialCommonMovieFilter,
           ...nowPlayingMovie,
@@ -151,20 +146,12 @@ const LeftPanel = forwardRef(
           release_date_lte: new Date(
             new Date().setDate(new Date().getDate() + 6)
           ),
-        });
-        setMovieFilter({
-          ...initialCommonFilter,
-          ...initialCommonMovieFilter,
-          ...nowPlayingMovie,
-          release_date_gte: new Date(
-            new Date().setDate(new Date().getDate() - 36)
-          ),
-          release_date_lte: new Date(
-            new Date().setDate(new Date().getDate() + 6)
-          ),
-        });
+        };
+        setInitialMovieFilter(obj);
+        setMovieFilter(obj);
+        getFilteredData(1, obj);
       } else if (category === "movie" && subCategory === "upcoming") {
-        setInitialMovieFilter({
+        const obj = {
           ...initialCommonFilter,
           ...initialCommonMovieFilter,
           ...upComingMovie,
@@ -174,99 +161,68 @@ const LeftPanel = forwardRef(
           release_date_lte: new Date(
             new Date().setDate(new Date().getDate() + 27)
           ),
-        });
-        setMovieFilter({
-          ...initialCommonFilter,
-          ...initialCommonMovieFilter,
-          ...upComingMovie,
-          release_date_gte: new Date(
-            new Date().setDate(new Date().getDate() + 6)
-          ),
-          release_date_lte: new Date(
-            new Date().setDate(new Date().getDate() + 27)
-          ),
-        });
+        };
+        setInitialMovieFilter(obj);
+        setMovieFilter(obj);
+        getFilteredData(1, obj);
       } else if (category === "movie" && subCategory === "top_rated") {
-        setInitialMovieFilter({
+        const obj = {
           ...initialCommonFilter,
           ...initialCommonMovieFilter,
           ...topRatedMovie,
           release_date_lte: new Date(
             new Date().setMonth(new Date().getMonth() + 6)
           ),
-        });
-        setMovieFilter({
-          ...initialCommonFilter,
-          ...initialCommonMovieFilter,
-          ...topRatedMovie,
-          release_date_lte: new Date(
-            new Date().setMonth(new Date().getMonth() + 6)
-          ),
-        });
+        };
+        setInitialMovieFilter(obj);
+        setMovieFilter(obj);
+        getFilteredData(1, obj);
       } else if (category === "tv" && subCategory === "popular") {
-        setInitialMovieFilter({
+        const obj = {
           ...initialCommonFilter,
           ...initialCommonTVShowFilter,
           ...popularTVShow,
           air_date_lte: new Date(
             new Date().setMonth(new Date().getMonth() + 6)
           ),
-        });
-        setMovieFilter({
-          ...initialCommonFilter,
-          ...initialCommonTVShowFilter,
-          ...popularTVShow,
-          air_date_lte: new Date(
-            new Date().setMonth(new Date().getMonth() + 6)
-          ),
-        });
+        };
+        setInitialMovieFilter(obj);
+        setMovieFilter(obj);
+        getFilteredData(1, obj);
       } else if (category === "tv" && subCategory === "airing_today") {
-        setInitialMovieFilter({
+        const obj = {
           ...initialCommonFilter,
           ...initialCommonTVShowFilter,
           ...airingTodayTVShow,
           air_date_lte: new Date(),
           air_date_gte: new Date(),
-        });
-        setMovieFilter({
-          ...initialCommonFilter,
-          ...initialCommonTVShowFilter,
-          ...airingTodayTVShow,
-          air_date_lte: new Date(),
-          air_date_gte: new Date(),
-        });
+        };
+        setInitialMovieFilter(obj);
+        setMovieFilter(obj);
+        getFilteredData(1, obj);
       } else if (category === "tv" && subCategory === "on_tv") {
-        setInitialMovieFilter({
+        const obj = {
           ...initialCommonFilter,
           ...initialCommonTVShowFilter,
           ...nowPlayingTVShow,
           air_date_gte: new Date(),
           air_date_lte: new Date(new Date().setDate(new Date().getDate() + 7)),
-        });
-        setMovieFilter({
-          ...initialCommonFilter,
-          ...initialCommonTVShowFilter,
-          ...nowPlayingTVShow,
-          air_date_gte: new Date(),
-          air_date_lte: new Date(new Date().setDate(new Date().getDate() + 7)),
-        });
+        };
+        setInitialMovieFilter(obj);
+        setMovieFilter(obj);
+        getFilteredData(1, obj);
       } else if (category === "tv" && subCategory === "top_rated") {
-        setInitialMovieFilter({
+        const obj = {
           ...initialCommonFilter,
           ...initialCommonTVShowFilter,
           ...topRatedTVShow,
           air_date_lte: new Date(
             new Date().setMonth(new Date().getMonth() + 6)
           ),
-        });
-        setMovieFilter({
-          ...initialCommonFilter,
-          ...initialCommonTVShowFilter,
-          ...topRatedTVShow,
-          air_date_lte: new Date(
-            new Date().setMonth(new Date().getMonth() + 6)
-          ),
-        });
+        };
+        setInitialMovieFilter(obj);
+        setMovieFilter(obj);
+        getFilteredData(1, obj);
       }
     }, [category, subCategory]);
 
@@ -321,82 +277,72 @@ const LeftPanel = forwardRef(
       getData();
     }, [category]);
 
-    useEffect(() => {
-      getFilteredData(1);
-    }, [initialMovieFilter]);
-
-    const generateQueryString = useCallback(() => {
+    const generateQueryString = useCallback((obj) => {
       let queryString = "";
 
-      const keyArr = Object.keys(movieFilter).filter(
-        (key) => movieFilter[key] !== true
-      );
+      const keyArr = Object.keys(obj).filter((key) => obj[key] !== true);
 
       keyArr.forEach((key) => {
         if (
-          typeof movieFilter[key] === "object" &&
-          Object.keys(movieFilter[key]).length !== 0
+          typeof obj[key] === "object" &&
+          Object.keys(obj[key]).length !== 0
         ) {
           // Object
-          if (Array.isArray(movieFilter[key]) && movieFilter[key].length) {
+          if (Array.isArray(obj[key]) && obj[key].length) {
             // Array
             if (
               (key === "with_watch_monetization_types" &&
-                movieFilter.isSearchAllAvailabilities === true) ||
-              (key === "with_release_type" &&
-                movieFilter.isSearchAllReleases === true)
+                obj.isSearchAllAvailabilities === true) ||
+              (key === "with_release_type" && obj.isSearchAllReleases === true)
             ) {
               queryString += "";
             } else if (key === "vote_average") {
-              queryString += `&vote_average_gte=${movieFilter[key][0]}`;
-              queryString += `&vote_average_lte=${movieFilter[key][1]}`;
+              queryString += `&vote_average_gte=${obj[key][0]}`;
+              queryString += `&vote_average_lte=${obj[key][1]}`;
             } else if (key === "with_runtime") {
-              queryString += `&with_runtime_gte=${movieFilter[key][0]}`;
-              queryString += `&with_runtime_lte=${movieFilter[key][1]}`;
-            } else if (typeof movieFilter[key][0] === "object") {
+              queryString += `&with_runtime_gte=${obj[key][0]}`;
+              queryString += `&with_runtime_lte=${obj[key][1]}`;
+            } else if (typeof obj[key][0] === "object") {
               // Array of Object
-              console.log(key, movieFilter[key], "Key");
+              console.log(key, obj[key], "Key");
 
-              queryString += `&${key}=${movieFilter[key]
+              queryString += `&${key}=${obj[key]
                 .map((item) => item.id)
                 .join("%7c")}`;
             } else {
               // Array of String
-              queryString += `&${key}=${movieFilter[key].join("%7c")}`;
+              queryString += `&${key}=${obj[key].join("%7c")}`;
             }
           } else {
             // Object with Id
-            queryString += `&${key}=${movieFilter[key].id}`;
+            queryString += `&${key}=${obj[key].id}`;
           }
         } else if (
           // Date Object
-          Object.prototype.toString.call(movieFilter[key]) === "[object Date]"
+          Object.prototype.toString.call(obj[key]) === "[object Date]"
         ) {
           if (
             (key === "air_date_gte" || key === "air_date_lte") &&
-            movieFilter.isSearchAllEpisodes === false
+            obj.isSearchAllEpisodes === false
           ) {
             queryString += "";
           } else {
-            queryString += `&${key}=${dateFormatter(movieFilter[key])}`;
+            queryString += `&${key}=${dateFormatter(obj[key])}`;
           }
         } else if (
           // String
-          (typeof movieFilter[key] === "string" &&
-            movieFilter[key].length > 0) ||
-          typeof movieFilter[key] === "number"
+          (typeof obj[key] === "string" && obj[key].length > 0) ||
+          typeof obj[key] === "number"
         ) {
-          queryString += `&${key}=${movieFilter[key]}`;
+          queryString += `&${key}=${obj[key]}`;
         }
       });
       return queryString;
-    }, [movieFilter]);
+    }, []);
 
     const handleLoadMore = useCallback(
       async (page) => {
-        setIsFetching(true);
         getFilteredData(page);
-        setIsFetching(false);
       },
       [setIsFetching, getFilteredData]
     );
@@ -411,8 +357,13 @@ const LeftPanel = forwardRef(
       [handleLoadMore]
     );
 
-    async function getFilteredData(page) {
-      const queryString = generateQueryString();
+    async function getFilteredData(page, obj = null) {
+      setIsFetching(true);
+      console.log("API Call", obj);
+
+      const queryString = generateQueryString(obj === null ? movieFilter : obj);
+      console.log("Query String", queryString);
+
       const data = await discoverMovies(
         category,
         `${queryString}&page=${page}`
@@ -430,6 +381,7 @@ const LeftPanel = forwardRef(
       } else {
         setMovieData([...movieData, ...refactoredData]);
       }
+      setIsFetching(false);
     }
 
     async function getWatchProviderData(id) {
@@ -1107,7 +1059,10 @@ const LeftPanel = forwardRef(
             className="search_btn"
             disabled={!isMovieFilterChanged(initialMovieFilterKeysArr)}
             onClick={
-              () => setInitialMovieFilter(movieFilter) // to disable search button again
+              () => {
+                getFilteredData(movieFilter);
+                setInitialMovieFilter(movieFilter);
+              } // to disable search button again
             }
           >
             Search
