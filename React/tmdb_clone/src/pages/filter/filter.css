@@ -256,7 +256,7 @@
   color: rgba(94, 94, 94, 0.5);
 }
 .movie_content_wrapper .movie_content .movie_detail .movie_detail_right {
-  width: 1051px;
+  max-width: 1051px;
   padding-left: 30px;
 }
 .movie_content_wrapper .movie_content .movie_detail .movie_detail_right .load_button_wrapper {
@@ -284,4 +284,17 @@
 }
 .react-datepicker-wrapper .react-datepicker__input-container .react-datepicker-ignore-onclickoutside {
   outline: none;
+}
+
+@media screen and (max-width: 749px) {
+  .movie_content_wrapper .movie_content .movie_detail {
+    flex-direction: column;
+  }
+  .movie_content_wrapper .movie_content .movie_detail .movie_detail_left {
+    width: 100%;
+  }
+  .movie_content_wrapper .movie_content .movie_detail .movie_detail_right {
+    padding-top: 30px;
+    padding-left: 0px;
+  }
 }/*# sourceMappingURL=filter.css.map */

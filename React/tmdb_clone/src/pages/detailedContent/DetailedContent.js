@@ -42,8 +42,6 @@ const DetailedContent = () => {
     return `${hour}h ${min}m`;
   }
 
-  console.log("Poster", movieDetail?.poster_path);
-
   return (
     <div className="movie_detail">
       <div
@@ -192,7 +190,7 @@ const DetailedContent = () => {
           </div>
         </div>
       </div>
-      <div className="movie_content_wrapper wrapper">
+      <div className="wrapper">
         <LeftPanel movieDetail={movieDetail} />
         <RightPanel movieDetail={movieDetail} />
       </div>

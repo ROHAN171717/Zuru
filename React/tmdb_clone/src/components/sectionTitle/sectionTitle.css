@@ -41,4 +41,23 @@
   -webkit-background-clip: text;
           background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.section_header .vertical_selector {
+  display: none;
+}
+
+@media screen and (max-width: 540px) {
+  .section_header .selector {
+    display: none;
+  }
+  .section_header .vertical_selector {
+    width: 150px;
+    display: block;
+  }
+}
+@media screen and (max-width: 500px) {
+  .section_header {
+    padding: 0 20px;
+    padding-top: 30px;
+  }
 }/*# sourceMappingURL=sectionTitle.css.map */

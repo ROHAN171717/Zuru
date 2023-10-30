@@ -1,10 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import "./Header.css";
 import NavbarMenu from "../navbarMenu/NavbarMenu";
 import { Link } from "react-router-dom";
+import { useScrollTrigger } from "@mui/material";
 
 const Header = () => {
+  const [isSidebar, setIsSidebar] = useState(false);
+  console.log(isSidebar);
+
   return (
     <nav className="navbar">
       <div className="navbar_content">
@@ -26,11 +30,11 @@ const Header = () => {
               value="tv"
               menubarItem={["Popular", "Airing Today", "On TV", "Top Rated"]}
             />
-            <NavbarMenu title="People" menubarItem={["Popular People"]} />
+            {/* <NavbarMenu title="People" menubarItem={["Popular People"]} />
             <NavbarMenu
               title="More"
               menubarItem={["Discussion", "Leaderboard", "Support", "API"]}
-            />
+            /> */}
           </ul>
         </div>
         <div className="navbar_content_right">
@@ -65,6 +69,43 @@ const Header = () => {
           </ul>
         </div>
       </div>
+      <button
+        aria-label="Toggle navigation bar"
+        aria-expanded="false"
+        class="navbar__toggle"
+        type="button"
+        onClick={() => setIsSidebar(!isSidebar)}
+      >
+        <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+          <path
+            stroke="white"
+            stroke-linecap="round"
+            stroke-miterlimit="10"
+            stroke-width="2"
+            d="M4 7h22M4 15h22M4 23h22"
+          ></path>
+        </svg>
+
+        <div
+          className="sidebar"
+          style={{ display: isSidebar ? "block" : "none" }}
+        >
+          <ul className="sidebar_links">
+            <NavbarMenu
+              title="Movies"
+              value="movie"
+              menubarItem={["Popular", "Now Playing", "Upcoming", "Top Rated"]}
+            />
+            <NavbarMenu
+              title="TV Shows"
+              value="tv"
+              menubarItem={["Popular", "Airing Today", "On TV", "Top Rated"]}
+            />
+            <li className="sidebar_link">Login</li>
+            <li className="sidebar_link">JoinTMDB</li>
+          </ul>
+        </div>
+      </button>
     </nav>
   );
 };

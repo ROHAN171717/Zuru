@@ -14,7 +14,6 @@ const Filter = () => {
     infiniteRef.current.handleLoadMore(page);
     setPage((page) => page + 1);
   }
-  console.log("Is fetching", isFetching);
   return (
     <div className="movie_content_wrapper">
       <div className="movie_content">

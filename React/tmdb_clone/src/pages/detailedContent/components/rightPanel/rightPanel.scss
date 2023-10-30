@@ -1,5 +1,5 @@
 .rightPanel {
-  width: 268px;
+  max-width: 268px;
   .info_wrapper {
     margin-bottom: 30px;
     .info {
@@ -39,5 +39,18 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .rightPanel {
+    width: 20%;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .rightPanel {
+    width: 100%;
+    padding-top: 20px;
   }
 }

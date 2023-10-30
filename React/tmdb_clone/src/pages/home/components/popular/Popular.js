@@ -14,6 +14,7 @@ const arr = [
 
 const Popular = () => {
   const [id, setId] = useState(1);
+  const [selectedItem, setSelectedItem] = useState(arr[0].name);
   const [allPopular, setAllPopular] = useState([]);
   const [isCategoryChanged, setIsCategoryChanged] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -48,11 +49,20 @@ const Popular = () => {
     setTimeout(() => {
       setIsCategoryChanged(true);
     }, 500);
+
+    const selectedItem2 = arr.find((item) => item.id === id);
+    setSelectedItem(selectedItem2.name);
   }, [id]);
 
   return (
     <section className="inner_content trending popular">
-      <SectionTitle title="What's Popular" items={arr} setId={setId} />
+      <SectionTitle
+        title="What's Popular"
+        items={arr}
+        setId={setId}
+        id={id}
+        selectedItem={selectedItem}
+      />
       <Scroller
         data={allPopular}
         category={tvShowOrMovieref.current}

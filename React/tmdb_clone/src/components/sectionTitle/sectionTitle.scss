@@ -44,4 +44,29 @@
       transition: linear 0.5s;
     }
   }
+  .vertical_selector {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .section_header {
+    .selector {
+      display: none;
+    }
+    .vertical_selector {
+      width: 150px;
+      display: block;
+    }
+  }
+  .select_menu_items_wrapper {
+    // width: 150px !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .section_header {
+    padding: 0 20px;
+    padding-top: 30px;
+  }
 }

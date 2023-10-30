@@ -141,4 +141,24 @@
 }
 .leftPanel .recommendations_wrapper {
   padding-top: 30px;
+}
+
+@media screen and (max-width: 1400px) {
+  .leftPanel {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 920px) {
+  .leftPanel {
+    width: 100%;
+    padding-right: 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  .leftPanel .social_panel_wrapper .content .review_header .info .rating_wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 5px;
+  }
 }/*# sourceMappingURL=leftPanel.css.map */

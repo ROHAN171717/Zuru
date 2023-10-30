@@ -1,5 +1,5 @@
 .rightPanel {
-  width: 268px;
+  max-width: 268px;
 }
 .rightPanel .info_wrapper {
   margin-bottom: 30px;
@@ -37,4 +37,16 @@
 .rightPanel .keywords_wrapper .keywords_list .keyword:not(:last-child) {
   margin-right: 5px;
   margin-bottom: 7px;
+}
+
+@media screen and (max-width: 1400px) {
+  .rightPanel {
+    width: 20%;
+  }
+}
+@media screen and (max-width: 920px) {
+  .rightPanel {
+    width: 100%;
+    padding-top: 20px;
+  }
 }/*# sourceMappingURL=rightPanel.css.map */

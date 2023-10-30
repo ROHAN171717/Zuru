@@ -3,7 +3,7 @@ import './discover.css'
 
 const Discover = () => {
   return (
-      <section className='inner_content new_index'>
+      <section className='inner_content full_bg'>
           <div className='content_wrapper'>
               <div className='title'>
                   <h2>Welcome.</h2>

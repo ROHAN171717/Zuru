@@ -368,13 +368,16 @@ const LeftPanel = forwardRef(
         category,
         `${queryString}&page=${page}`
       );
+      console.log("Data", data);
+      
 
       const refactoredData = data.results.map((movie) => ({
         id: movie.id,
-        title: movie.title,
-        subTitle: movie.release_date,
+        title: movie.title || movie.name,
+        subTitle: movie.release_date || movie.first_air_date,
         poster: movie.poster_path,
         vote_avg: movie.vote_average,
+        overview: movie.overview
       }));
       if (page < 2) {
         setMovieData([...refactoredData]);

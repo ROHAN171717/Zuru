@@ -4,7 +4,7 @@
   margin: 0 auto;
 }
 
-.new_index {
+.full_bg {
   background-image: linear-gradient(to right, rgba(3, 37, 65, 0.8) 0%, rgba(3, 37, 65, 0) 100%), url("https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,00192f,00baff)/tfw5LKySp7uEYJ3CUuD4TKx3s8y.jpg");
   min-height: 300px;
   background-size: cover;
@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
 }
-.new_index .content_wrapper {
+.full_bg .content_wrapper {
   width: 100%;
   padding: 30px 40px;
   display: flex;
@@ -21,27 +21,29 @@
   flex-wrap: wrap;
   align-items: flex-start;
 }
-.new_index .content_wrapper .title h2 {
+.full_bg .content_wrapper .title {
+  text-align: left;
+}
+.full_bg .content_wrapper .title h2 {
   font-size: 3em;
   font-weight: 700;
   line-height: 1;
-  text-align: left;
 }
-.new_index .content_wrapper .title h3 {
+.full_bg .content_wrapper .title h3 {
   font-size: 2em;
   font-weight: 600;
   margin: 0;
 }
-.new_index .content_wrapper .search {
+.full_bg .content_wrapper .search {
   width: 100%;
 }
-.new_index .content_wrapper .search form {
+.full_bg .content_wrapper .search form {
   margin-top: 30px;
   position: relative;
   top: 0;
   left: 0;
 }
-.new_index .content_wrapper .search form input {
+.full_bg .content_wrapper .search form input {
   width: 100%;
   height: 46px;
   line-height: 46px;
@@ -53,7 +55,7 @@
   border-radius: 30px;
   padding: 10px 20px;
 }
-.new_index .content_wrapper .search form .search_btn {
+.full_bg .content_wrapper .search form .search_btn {
   height: 46px;
   padding: 10px 26px;
   border: none;
@@ -67,4 +69,23 @@
   font-family: "Source Sans Pro", Arial, sans-serif;
   font-size: 16px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+  .full_bg .content_wrapper {
+    padding: 30px 20px;
+  }
+  .full_bg .content_wrapper .search form input {
+    height: 36px;
+  }
+  .full_bg .content_wrapper .search form .search_btn {
+    height: 36px;
+    padding: 0px 10px;
+  }
+  .full_bg .content_wrapper .search form input::-moz-placeholder {
+    font-size: 16px;
+  }
+  .full_bg .content_wrapper .search form input::placeholder {
+    font-size: 16px;
+  }
 }/*# sourceMappingURL=discover.css.map */

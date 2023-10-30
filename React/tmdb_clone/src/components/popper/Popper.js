@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle, useRef } from "react";
+import React, { forwardRef, useImperativeHandle, useMemo, useRef } from "react";
 import { usePopper } from "react-popper";
 import { Portal } from "../portal/Portal";
 
@@ -7,20 +7,34 @@ const Popper = forwardRef(
     //   const referenceElement = React.useRef();
     const popperElement = React.useRef();
 
+    const modifiers = useMemo(
+      () => [
+        {
+          name: "sameWidth",
+          enabled: true,
+          fn: ({ state }) => {
+            state.styles.popper.width = `${state.rects.reference.width}px`;
+          },
+          phase: "beforeWrite",
+          requires: ["computeStyles"],
+        },
+        {
+          name: "offset",
+          enabled: true,
+          options: {
+            offset: [0, 0],
+          },
+        },
+      ],
+      []
+    );
+
     const { styles, attributes, update } = usePopper(
       referenceElement,
       popperElement.current,
       {
         placement: "bottom-start",
-        modifiers: [
-          {
-            name: "offset",
-            enabled: true,
-            options: {
-              offset: [0, 0],
-            },
-          },
-        ],
+        modifiers,
       }
     );
 
@@ -38,7 +52,9 @@ const Popper = forwardRef(
         <Portal>
           <div
             ref={popperElement}
-            className={`select_menu_items_wrapper ${className === 'popperTrailer' ? 'popperTrailer' : ''}`}
+            className={`select_menu_items_wrapper ${
+              className === "popperTrailer" ? "popperTrailer" : ""
+            }`}
             style={{
               display: isSelectMenuOpen ? "block" : "none",
               width: width,

@@ -25,6 +25,7 @@
 .scroller_wrapper .trending_scroller.full {
   flex-wrap: wrap;
   justify-content: space-between;
+  gap: 20px;
 }
 .scroller_wrapper .trending_scroller.default {
   padding-left: 40px;
@@ -41,4 +42,24 @@
 .scroller_wrapper .trending_scroller::-webkit-scrollbar-thumb {
   background-color: rgb(235, 235, 235);
   border-radius: 50px;
+}
+
+@media screen and (max-width: 500px) {
+  .scroller_wrapper .trending_scroller.default {
+    padding-left: 20px;
+  }
+}
+@media screen and (max-width: 1149px) {
+  .scroller_wrapper .trending_scroller.full {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+  }
+}
+@media screen and (max-width: 1149px) {
+  .scroller_wrapper .trending_scroller.full {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+  }
 }/*# sourceMappingURL=scroller.css.map */

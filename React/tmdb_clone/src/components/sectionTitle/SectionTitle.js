@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./sectionTitle.css";
+import SelectMenu from "../../pages/filter/components/selectMenu/SelectMenu";
+import { ALL_SORTING_ORDER } from "../../constant";
 
-const SectionTitle = ({ title, items, setId }) => {
-  const [selected, setSelected] = useState(items[0].name);
-
+const SectionTitle = ({ title, items, setId, id, selectedItem }) => {
   function handleClick(select) {
-    setSelected(select.name);
     setId(select.id);
   }
 
@@ -18,13 +17,23 @@ const SectionTitle = ({ title, items, setId }) => {
             return (
               <div
                 key={index}
-                className={`anchor ${selected === item.name ? "selected" : ""}`}
+                className={`anchor ${
+                  selectedItem === item.name ? "selected" : ""
+                }`}
                 onClick={() => handleClick(item)}
               >
                 <h3>{item.name}</h3>
               </div>
             );
           })}
+        </div>
+        <div className="vertical_selector">
+          <SelectMenu
+            items={items}
+            title="order"
+            selectedValue={id}
+            changeSelectedValue={(value) => handleClick(value)}
+          />
         </div>
       </div>
     </div>
