@@ -1,13 +1,9 @@
 import React from "react";
-import {
-  CircularProgressbar,
-  buildStyles,
-} from "react-circular-progressbar";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import './circularProgressbar.css'
+import "./circularProgressbar.css";
 
-
-const CircularProgressBar = ({percentage, variant}) => {
+const CircularProgressBar = ({ percentage, variant }) => {
   return (
     <div class={`circular_progressbar ${variant}`}>
       <CircularProgressbar
@@ -36,7 +32,7 @@ const CircularProgressBar = ({percentage, variant}) => {
 };
 
 CircularProgressBar.defaultProps = {
-  variant: 'default',
+  variant: "default",
 };
 
 export default CircularProgressBar;

@@ -8,6 +8,7 @@
   background-size: cover;
   margin: 0 auto;
   background-position: calc((45.0000045vw - 20px) / 1.5 / 2) 0;
+  margin-top: 64px;
 }
 .movie_detail .movie_header_wrapper .background_gradiant {
   background: linear-gradient(to right, rgb(167, 166, 166) 150px, rgba(104, 103, 103, 0.84) 100%);

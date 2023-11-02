@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./scroller.css";
 import MovieCard from "../movieCard/MovieCard";
 import RecommendationCard from "../recommendationCard/RecommendationCard";
@@ -12,43 +12,30 @@ const Scroller = ({
   category,
   isCategoryChanged = true,
   isLoading = false,
-  handleScroll
+  number,
 }) => {
-  // const trendingScroller = document.querySelectorAll(".trending_scroller");
-  // const scrollerWrapper = document.querySelector(".scroller_wrapper");
-  // var prevScrollpos = trendingScroller && trendingScroller.scrollLeft;
-  // function handleScroll() {
-  //   var currentScrollPos = trendingScroller.scrollLeft;
-  //   console.log(
-  //     prevScrollpos,
-  //     currentScrollPos,
-  //     currentScrollPos - prevScrollpos
-  //   );
-
-  //   console.log(window.getComputedStyle(scrollerWrapper, "::after").content);
-  //   if (currentScrollPos > prevScrollpos && currentScrollPos > 25) {
-  //     console.log("Inside If");
-  //     document
-  //       .querySelector(".scroller_wrapper")
-  //       .style.setProperty("--content", " ");
-  //   } else if (currentScrollPos === 0) {
-  //     document
-  //       .querySelector(".scroller_wrapper")
-  //       .style.setProperty("--content", "");
-  //   }
-
-  //   prevScrollpos = currentScrollPos;
-  // }
+  const scrollerWrapperRef = useRef();
+  const trendingScrollerRef = useRef();
+  function handleScroller() {
+    var currentScrollPos = trendingScrollerRef.current.scrollLeft;
+    if (currentScrollPos > 25) {
+      scrollerWrapperRef.current.style.setProperty("--opacity", 0);
+    } else if (currentScrollPos === 0) {
+      scrollerWrapperRef.current.style.setProperty("--opacity", 1);
+    }
+  }
 
   return (
     <div
       className={`scroller_wrapper ${variant} ${
         isCategoryChanged === true ? "scroller_transition" : ""
       }`}
+      ref={scrollerWrapperRef}
     >
       <div
         className={`trending_scroller ${variant}`}
-        onScroll={() => handleScroll()}
+        ref={trendingScrollerRef}
+        onScroll={() => handleScroller()}
       >
         {isLoading === true ? (
           <>

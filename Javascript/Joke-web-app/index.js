@@ -1,7 +1,6 @@
 function changeJoke() {
 //   const res = await fetch("https://official-joke-api.appspot.com/random_joke");
 //   const joke = await res.json();
-//   console.log(joke);
 
 //   document.getElementById("joke-que").innerHTML = joke.setup;
 //   document.getElementById("joke-ans").innerHTML = joke.punchline;

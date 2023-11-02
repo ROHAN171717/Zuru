@@ -3,7 +3,6 @@ import style from "./style.module.css";
 
 const App = () => {
   const [x, setX] = useState(true);
-console.log(x);
 
   if (x) {
     return (

@@ -4,7 +4,7 @@ import { getPopularMovies } from "../../../../components/api/api";
 import MovieCard from "../../../../components/movieCard/MovieCard";
 import SectionTitle from "../../../../components/sectionTitle/SectionTitle";
 import Scroller from "../../../../components/scroller/Scroller";
-import { formateDateString, handleScroller } from "../../../../helper";
+import { formateDateString } from "../../../../helper";
 
 const arr = [
   { id: 1, name: "Movie", type: "movie", value: "popular" },
@@ -68,7 +68,8 @@ const Popular = () => {
         category={tvShowOrMovieref.current}
         isCategoryChanged={isCategoryChanged}
         isLoading={isLoading}
-        handleScroll={() => handleScroller(1)}
+        // handleScroll={() => handleScroller(1)}
+        number={1}
       />
     </section>
   );

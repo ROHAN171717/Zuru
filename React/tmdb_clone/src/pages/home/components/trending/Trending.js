@@ -4,7 +4,7 @@ import "./trending.css";
 import MovieCard from "../../../../components/movieCard/MovieCard";
 import { getTrendingMovies } from "../../../../components/api/api";
 import Scroller from "../../../../components/scroller/Scroller";
-import { formateDateString, handleScroller } from "../../../../helper";
+import { formateDateString } from "../../../../helper";
 
 const arr = [
   { id: 1, name: "Today", value: "day" },
@@ -63,9 +63,10 @@ const Trending = () => {
         category="movie"
         isCategoryChanged={isCategoryChanged}
         isLoading={isLoading}
-        handleScroll={() =>
-          handleScroller(0)
-        }
+        // handleScroll={() =>
+        //   handleScroller(0)
+        // }
+        number={0}
       />
     </section>
   );

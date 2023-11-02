@@ -104,25 +104,29 @@ const LeftPanel = forwardRef(
   ({ movieData, setMovieData, setIsFetching }, ref) => {
     const popperRef = useRef();
     const infiniteScrollRef = useRef();
+
     const { category, subCategory } = useParams();
+
     const [referenceElement, setReferenceElement] = useState();
+    const [genres, setgenres] = useState([]);
+    const [isSearchSelectMenuOpen, setIsSearchSelectMenuOpen] = useState(false);
     const [initialMovieFilter, setInitialMovieFilter] = useState({
       ...initialCommonFilter,
     });
     const [movieFilter, setMovieFilter] = useState(
       JSON.parse(JSON.stringify(initialMovieFilter))
     );
-    const filterRef = useRef(initialMovieFilter);
-
-    const [genres, setgenres] = useState([]);
     const [APIData, setAPIData] = useState({
       countryData: [],
-      // filteredData: [],
       languages: [],
       watchProviderData: [],
       keywordResult: [],
     });
-    const [isSearchSelectMenuOpen, setIsSearchSelectMenuOpen] = useState(false);
+
+    const filterRef = useRef(initialMovieFilter);
+
+    const initialMovieFilterKeysArr = Object.keys(initialMovieFilter);
+
     const selectMenuItems = document.querySelector(
       ".select_menu_items_wrapper"
     );
@@ -138,7 +142,6 @@ const LeftPanel = forwardRef(
         APIData.keywordResult.length > 0 || movieFilter.searchString !== ""
       );
     }, [APIData.keywordResult.length, movieFilter.searchString]);
-    console.log("Clicked", isSearchSelectMenuOpen);
 
     useEffect(() => {
       if (!isSearchSelectMenuOpen) {
@@ -151,8 +154,6 @@ const LeftPanel = forwardRef(
         });
       }
     }, [isSearchSelectMenuOpen]);
-
-    const initialMovieFilterKeysArr = Object.keys(initialMovieFilter);
 
     useEffect(() => {
       if (category === "movie" && subCategory === "popular") {
@@ -507,17 +508,6 @@ const LeftPanel = forwardRef(
       setMovieFilter({ ...movieFilter, [key]: value });
     }
 
-    // function handleFilter(value) {
-    //   const newArr = APIData.countryData.filter(
-    //     (item) =>
-    //       item.name
-    //         .toLowerCase()
-    //         .replace(" ", "")
-    //         .indexOf(value.toLowerCase().replace(" ", "")) > -1
-    //   );
-    //   setAPIData({ ...APIData, filteredData: newArr });
-    // }
-
     function handleKeywordChange(e) {
       clearTimeout(timeout);
       timeout = setTimeout(async () => {
@@ -550,10 +540,6 @@ const LeftPanel = forwardRef(
       }
       return `${year}-${month}-${day}`;
     }
-
-    console.log(isMovieFilterChanged(initialMovieFilterKeysArr));
-    console.log("inital", initialMovieFilter);
-    console.log("movie", movieFilter);
 
     return (
       <div className="movie_detail_left" ref={infiniteScrollRef}>
@@ -601,9 +587,7 @@ const LeftPanel = forwardRef(
               menuWidth={300}
               selectedValue={movieFilter.watch_region?.id}
               changeSelectedValue={(value) => {
-                console.log("Value: ", value);
                 handleMovieFilterChange("watch_region", value);
-                // handleMovieFilterChange("with_watch_providers", []);
                 getWatchProviderData(value.id);
               }}
             />

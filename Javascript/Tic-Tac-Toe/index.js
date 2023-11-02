@@ -94,7 +94,6 @@ const userAction = (item, index) => {
     item.innerText = currentPlayer;
     item.classList.add(`player${currentPlayer}`);
     updateBoard(index);
-    console.log(board);
     handleResultValidation(index);
     changePlayer();
   }

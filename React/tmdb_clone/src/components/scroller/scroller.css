@@ -5,11 +5,9 @@
 }
 .scroller_wrapper.scroller_transition {
   opacity: 1;
-  transition: ease-in 0.5s;
 }
 .scroller_wrapper.default, .scroller_wrapper.medium {
   --opacity: 1;
-  transition: linear 0.5s;
 }
 .scroller_wrapper.default::after, .scroller_wrapper.medium::after {
   content: "";
@@ -20,6 +18,7 @@
   top: 0;
   right: 0;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0, white 100%);
+  transition: 0.3s linear;
 }
 .scroller_wrapper .trending_scroller {
   width: 100%;

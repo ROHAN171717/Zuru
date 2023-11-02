@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-top: 64px;
 }
 .movie_content_wrapper .movie_content {
   width: 100%;

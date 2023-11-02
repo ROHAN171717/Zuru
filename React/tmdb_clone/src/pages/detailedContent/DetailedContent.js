@@ -1,7 +1,6 @@
 import React, { forwardRef, useEffect, useRef, useState } from "react";
 import "./detailedContent.css";
 import CircularProgressBar from "../../components/circularProgressBar/CircularProgressBar";
-import { Tooltip, useScrollTrigger } from "@mui/material";
 import IconToolTip from "./components/iconTooltip/IconToolTip";
 import LeftPanel from "./components/leftPanel/LeftPanel";
 import RightPanel from "./components/rightPanel/RightPanel";

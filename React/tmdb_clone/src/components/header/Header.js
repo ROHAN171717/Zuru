@@ -11,12 +11,8 @@ const Header = () => {
   var prevScrollpos = window.scrollY;
   window.onscroll = function () {
     var currentScrollPos = window.scrollY;
-    console.log(prevScrollpos, currentScrollPos);
-
     if (currentScrollPos > 64) {
       if (prevScrollpos > currentScrollPos) {
-        console.log("Inside If");
-
         document.querySelector(".navbar").style.top = "0";
       } else {
         document.querySelector(".navbar").style.top = "-64px";
@@ -88,16 +84,19 @@ const Header = () => {
       <button
         aria-label="Toggle navigation bar"
         aria-expanded="false"
-        class="navbar__toggle"
+        className="navbar__toggle"
         type="button"
         onClick={() => setIsSidebar(!isSidebar)}
       >
         <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
           <path
             stroke="white"
-            stroke-linecap="round"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            // stroke-linecap="round"
+            // stroke-miterlimit="10"
+            // stroke-width="2"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="2"
             d="M4 7h22M4 15h22M4 23h22"
           ></path>
         </svg>

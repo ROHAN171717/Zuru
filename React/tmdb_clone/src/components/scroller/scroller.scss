@@ -4,17 +4,15 @@
   opacity: 0;
   &.scroller_transition {
     opacity: 1;
-    transition: ease-in 0.5s;
+    // transition: ease-in 0.5s;
   }
 
   &.default,
   &.medium {
-    // --content: "";
     --opacity: 1;
-    transition: linear 0.5s;
     &::after {
       content: "";
-      opacity:  var(--opacity);
+      opacity: var(--opacity);
       width: 60px;
       height: 100%;
       position: absolute;
@@ -25,6 +23,7 @@
         rgba(255, 255, 255, 0) 0,
         white 100%
       );
+      transition: 0.3s linear;
     }
   }
   .trending_scroller {
