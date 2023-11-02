@@ -7,8 +7,13 @@
   opacity: 1;
   transition: ease-in 0.5s;
 }
+.scroller_wrapper.default, .scroller_wrapper.medium {
+  --opacity: 1;
+  transition: linear 0.5s;
+}
 .scroller_wrapper.default::after, .scroller_wrapper.medium::after {
   content: "";
+  opacity: var(--opacity);
   width: 60px;
   height: 100%;
   position: absolute;
@@ -29,6 +34,7 @@
 }
 .scroller_wrapper .trending_scroller.default {
   padding-left: 40px;
+  padding-right: 20px;
 }
 .scroller_wrapper .trending_scroller.medium {
   padding-bottom: 20px;

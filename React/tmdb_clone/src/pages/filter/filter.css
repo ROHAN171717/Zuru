@@ -297,4 +297,9 @@
     padding-top: 30px;
     padding-left: 0px;
   }
+}
+@media screen and (max-width: 749px) {
+  .movie_content_wrapper .movie_content .movie_detail .movie_detail_right .load_button_wrapper .load_button {
+    font-size: 1.3rem;
+  }
 }/*# sourceMappingURL=filter.css.map */

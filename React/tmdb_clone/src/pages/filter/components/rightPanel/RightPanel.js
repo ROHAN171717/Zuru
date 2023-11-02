@@ -57,7 +57,7 @@ const RightPanel = ({ movieData, handleClick, isFetching }) => {
           // isLoading={isFetching}
         />
 
-        {movieData.length >= 20 && (
+        {movieData.length === 20 && (
           <div className="load_button_wrapper">
             <button className="load_button" onClick={handleClick}>
               Load More

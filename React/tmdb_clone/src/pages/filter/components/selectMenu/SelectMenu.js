@@ -1,6 +1,7 @@
 import * as React from "react";
 import "./selectMenu.css";
 import Popper from "../../../../components/popper/Popper";
+import useCloseSelectMenu from "../../../../hooks/useCloseSelectMenu";
 
 export default function SelectMenu({
   items,
@@ -15,25 +16,46 @@ export default function SelectMenu({
   const [searchText, setSearchText] = React.useState("");
   const selectedItem = items.find((item) => item.id === selectedValue);
   const [filteredData, setFilteredData] = React.useState([]);
-  console.log("Filtered data: ", filteredData, items);
-  
-  console.log("Selected Item: ", selectedItem, title, selectedValue, items, isSelectMenuOpen, filteredData);
 
   React.useEffect(() => {
-    setFilteredData(items)
-  },[items])
+    setFilteredData(items);
+  }, [items]);
+
+  const selectMenuItems = document.querySelector(".select_menu_items_wrapper");
+  const selectMenu = document.querySelector(".select_menu");
+  useCloseSelectMenu([selectMenu, selectMenuItems], isSelectMenuOpen, () => setIsSelectMenuOpen(!isSelectMenuOpen));
+
+  // const closeSelectMenu = React.useCallback(
+  //   (e) => {
+  //     const selectMenuItems = document.querySelector(
+  //       ".select_menu_items_wrapper"
+  //     );
+  //     const selectMenu = document.querySelector(".select_menu");
+
+  //     if (
+  //       isSelectMenuOpen &&
+  //       e.target !== selectMenu &&
+  //       !selectMenu.contains(e.target) &&
+  //       e.target !== selectMenuItems &&
+  //       !selectMenuItems.contains(e.target)
+  //     ) {
+  //       setIsSelectMenuOpen(!isSelectMenuOpen);
+  //     }
+  //   },
+  //   [isSelectMenuOpen]
+  // );
 
   function handleFilter(value) {
     const newArr = items?.filter(
       (item) =>
         item?.name
+          .trim()
           .toLowerCase()
           .replace(" ", "")
-          .indexOf(value.toLowerCase().replace(" ", "")) > -1
+          .indexOf(value.trim().toLowerCase().replace(" ", "")) > -1
     );
     setFilteredData(newArr);
   }
-  
 
   return (
     <div className="select_menu">
@@ -102,7 +124,7 @@ export default function SelectMenu({
                   <img
                     src={`https://flagcdn.com/w20/${item?.id.toLowerCase()}.png`}
                     alt="country_flag"
-                    style={{ marginRight: "10px" }}
+                    style={{ marginRight: "10px", maxWidth: '20px', maxHeight: '18px' }}
                   />
                 )}
                 {item.name}

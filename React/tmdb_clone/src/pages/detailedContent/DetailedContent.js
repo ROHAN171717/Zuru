@@ -16,6 +16,7 @@ import TrailerModel from "./components/trailerModel/TrailerModel";
 import Popper from "../../components/popper/Popper";
 
 const DetailedContent = () => {
+
   const [movieDetail, setMovieDetail] = useState({});
   const [isOpen, setIsOpen] = useState(false);
   const params = useParams();
@@ -55,20 +56,38 @@ const DetailedContent = () => {
         <div className="background_gradiant">
           <div className="movie_header wrapper">
             <div
-              className={`movie_poster_wrapper ${
-                movieDetail?.poster_path === undefined || null ? "no_img" : ""
-              }`}
-              ref={setReferenceElement}
+              style={{
+                backgroundImage: `url(
+                  https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${movieDetail?.backdrop_path}
+                    )`,
+              }}
+              className="movie_poster_bg"
             >
-              <img
-                src={
-                  movieDetail?.poster_path !== undefined || null
-                    ? `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${movieDetail?.poster_path}`
-                    : "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg"
-                }
-                className="movie_poster"
-                alt="movie_poster"
-              />
+              <div className="movie_poster_bg_gradiant">
+                <div
+                  className={`movie_poster_wrapper ${
+                    movieDetail?.poster_path === undefined || null
+                      ? "no_img"
+                      : ""
+                  }`}
+                  ref={setReferenceElement}
+                  // style={{
+                  //   backgroundImage: `url(
+                  // https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${movieDetail?.backdrop_path}
+                  //   )`,
+                  // }}
+                >
+                  <img
+                    src={
+                      movieDetail?.poster_path !== undefined || null
+                        ? `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${movieDetail?.poster_path}`
+                        : "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg"
+                    }
+                    className="movie_poster"
+                    alt="movie_poster"
+                  />
+                </div>
+              </div>
             </div>
             <div className="movie_header_detail">
               <div className="header_title">

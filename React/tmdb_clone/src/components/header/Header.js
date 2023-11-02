@@ -7,7 +7,23 @@ import { useScrollTrigger } from "@mui/material";
 
 const Header = () => {
   const [isSidebar, setIsSidebar] = useState(false);
-  console.log(isSidebar);
+
+  var prevScrollpos = window.scrollY;
+  window.onscroll = function () {
+    var currentScrollPos = window.scrollY;
+    console.log(prevScrollpos, currentScrollPos);
+
+    if (currentScrollPos > 64) {
+      if (prevScrollpos > currentScrollPos) {
+        console.log("Inside If");
+
+        document.querySelector(".navbar").style.top = "0";
+      } else {
+        document.querySelector(".navbar").style.top = "-64px";
+      }
+    }
+    prevScrollpos = currentScrollPos;
+  };
 
   return (
     <nav className="navbar">

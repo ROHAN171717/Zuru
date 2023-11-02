@@ -27,3 +27,18 @@ export function formateDateString(date) {
   const arr = dateObj.toDateString().split(" ");
   return ` ${arr[1]} ${arr[2]}, ${arr[3]}`;
 }
+
+export function handleScroller(number = 0) {
+  var currentScrollPos =
+    document.querySelectorAll(".trending_scroller")[number].scrollLeft;
+  if (currentScrollPos > 25) {
+    console.log("Inside If");
+    document
+      .querySelectorAll(".scroller_wrapper")
+      [number].style.setProperty("--opacity", 0);
+  } else if (currentScrollPos === 0) {
+    document
+      .querySelectorAll(".scroller_wrapper")
+      [number].style.setProperty("--opacity", 1);
+  }
+}

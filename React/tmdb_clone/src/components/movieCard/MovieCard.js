@@ -5,7 +5,6 @@ import CircularProgressBar from "../circularProgressBar/CircularProgressBar";
 import { Link } from "react-router-dom";
 
 const MovieCard = ({ movie, variant, category }) => {
-  console.log("Movie", movie, category);
 
   const percentage = Math.round(movie?.vote_avg * 10);
   return (

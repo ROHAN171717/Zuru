@@ -1,15 +1,16 @@
 .trailer_model {
-  width: 1287px;
-  height: 786px;
+  width: 75%;
+  height: 40vw;
+  min-height: 300px;
   position: fixed;
+  overflow: hidden;
 }
 .trailer_model .trailer_model_action {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: black;
+  background: rgb(77, 77, 77);
   color: white;
-  width: 100%;
   padding: 10px;
 }
 .trailer_model .trailer_model_action .img_wrapper {
@@ -29,7 +30,7 @@
 }
 .trailer_model iframe {
   width: 100%;
-  height: calc(100% - 51px);
+  height: calc(100% - 53px);
   border: none;
 }
 
@@ -39,6 +40,7 @@
   position: fixed !important;
   top: 0;
   background: linear-gradient(to right, rgb(167, 166, 166) 150px, rgba(104, 103, 103, 0.84) 100%);
+  border: none;
   display: flex !important;
   justify-content: center;
   align-items: center;

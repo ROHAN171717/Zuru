@@ -29,6 +29,7 @@
   background: white;
   border: 1px solid rgb(230, 230, 230);
   border-radius: 5px;
+  overflow: hidden;
 }
 .select_menu_items_wrapper .searchbar {
   margin: 16px;

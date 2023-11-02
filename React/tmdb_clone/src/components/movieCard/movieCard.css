@@ -115,6 +115,7 @@
   }
   .movie_card .movie_card_image .poster.full {
     min-width: 94px;
+    max-width: 94px;
     min-height: 141px;
   }
 }/*# sourceMappingURL=movieCard.css.map */

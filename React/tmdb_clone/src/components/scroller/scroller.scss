@@ -9,8 +9,12 @@
 
   &.default,
   &.medium {
+    // --content: "";
+    --opacity: 1;
+    transition: linear 0.5s;
     &::after {
       content: "";
+      opacity:  var(--opacity);
       width: 60px;
       height: 100%;
       position: absolute;
@@ -38,6 +42,7 @@
 
     &.default {
       padding-left: 40px;
+      padding-right: 20px;
     }
 
     &.medium {

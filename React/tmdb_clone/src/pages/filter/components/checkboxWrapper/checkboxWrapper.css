@@ -21,4 +21,7 @@
 .availability input.availability_checkbox:checked {
   border-color: #01b4e4;
   background-color: #01b4e4;
+}
+.availability .availability_desc {
+  cursor: pointer;
 }/*# sourceMappingURL=checkboxWrapper.css.map */

@@ -11,14 +11,14 @@ const TrailerModel = ({ setIsOpen }) => {
 
   useEffect(() => {
     async function getData() {
-      const datax = await getVideosById(params.category, params.id);
-      console.log("data", datax.results);
+      const data = await getVideosById(params.category, params.id);
+      console.log("data", data.results);
 
-      const r = datax.results?.filter((t) => {
-        console.log(t.name, t.name.includes("Official Trailer"));
-        return t.name.includes("Official Trailer");
+      const trailerData = data.results?.filter((item) => {
+        // console.log(item.name, item.name.includes("Official Trailer"));
+        return item.name.includes("Official Trailer");
       });
-      setTrailer(r);
+      setTrailer(trailerData);
     }
     getData();
   }, []);

@@ -3,7 +3,6 @@ import "./watchProvider.css";
 import toggleItemInArray from "../../helper";
 
 const WatchProvider = ({ data, selectedItems, setSelectedItems }) => {
-  console.log("data" , data);
   
   return (
     <div className="ott_wrapper">
@@ -15,6 +14,7 @@ const WatchProvider = ({ data, selectedItems, setSelectedItems }) => {
           onClick={() =>
             setSelectedItems(toggleItemInArray(selectedItems, item))
           }
+          key={item.id}
         >
           <img
             className="item_logo"

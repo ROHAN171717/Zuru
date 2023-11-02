@@ -30,6 +30,7 @@ import {
   RELEASE_TYPE,
 } from "../../../../constant";
 import { useParams } from "react-router-dom";
+import useCloseSelectMenu from "../../../../hooks/useCloseSelectMenu";
 
 let timeout;
 
@@ -111,6 +112,8 @@ const LeftPanel = forwardRef(
     const [movieFilter, setMovieFilter] = useState(
       JSON.parse(JSON.stringify(initialMovieFilter))
     );
+    const filterRef = useRef(initialMovieFilter);
+
     const [genres, setgenres] = useState([]);
     const [APIData, setAPIData] = useState({
       countryData: [],
@@ -119,6 +122,35 @@ const LeftPanel = forwardRef(
       watchProviderData: [],
       keywordResult: [],
     });
+    const [isSearchSelectMenuOpen, setIsSearchSelectMenuOpen] = useState(false);
+    const selectMenuItems = document.querySelector(
+      ".select_menu_items_wrapper"
+    );
+    const selectMenu = document.querySelector(".select_menu");
+    useCloseSelectMenu(
+      [selectMenu, selectMenuItems],
+      isSearchSelectMenuOpen,
+      () => setIsSearchSelectMenuOpen(!isSearchSelectMenuOpen)
+    );
+
+    useEffect(() => {
+      setIsSearchSelectMenuOpen(
+        APIData.keywordResult.length > 0 || movieFilter.searchString !== ""
+      );
+    }, [APIData.keywordResult.length, movieFilter.searchString]);
+    console.log("Clicked", isSearchSelectMenuOpen);
+
+    useEffect(() => {
+      if (!isSearchSelectMenuOpen) {
+        if (APIData.keywordResult.length > 0) {
+          setAPIData({ ...APIData, keywordResult: [] });
+        }
+        setMovieFilter({
+          ...movieFilter,
+          searchString: "",
+        });
+      }
+    }, [isSearchSelectMenuOpen]);
 
     const initialMovieFilterKeysArr = Object.keys(initialMovieFilter);
 
@@ -135,6 +167,7 @@ const LeftPanel = forwardRef(
         setInitialMovieFilter(obj);
         setMovieFilter(obj);
         getFilteredData(1, obj);
+        filterRef.current = obj;
       } else if (category === "movie" && subCategory === "now_playing") {
         const obj = {
           ...initialCommonFilter,
@@ -150,6 +183,7 @@ const LeftPanel = forwardRef(
         setInitialMovieFilter(obj);
         setMovieFilter(obj);
         getFilteredData(1, obj);
+        filterRef.current = obj;
       } else if (category === "movie" && subCategory === "upcoming") {
         const obj = {
           ...initialCommonFilter,
@@ -165,6 +199,7 @@ const LeftPanel = forwardRef(
         setInitialMovieFilter(obj);
         setMovieFilter(obj);
         getFilteredData(1, obj);
+        filterRef.current = obj;
       } else if (category === "movie" && subCategory === "top_rated") {
         const obj = {
           ...initialCommonFilter,
@@ -177,6 +212,7 @@ const LeftPanel = forwardRef(
         setInitialMovieFilter(obj);
         setMovieFilter(obj);
         getFilteredData(1, obj);
+        filterRef.current = obj;
       } else if (category === "tv" && subCategory === "popular") {
         const obj = {
           ...initialCommonFilter,
@@ -189,6 +225,7 @@ const LeftPanel = forwardRef(
         setInitialMovieFilter(obj);
         setMovieFilter(obj);
         getFilteredData(1, obj);
+        filterRef.current = obj;
       } else if (category === "tv" && subCategory === "airing_today") {
         const obj = {
           ...initialCommonFilter,
@@ -200,6 +237,7 @@ const LeftPanel = forwardRef(
         setInitialMovieFilter(obj);
         setMovieFilter(obj);
         getFilteredData(1, obj);
+        filterRef.current = obj;
       } else if (category === "tv" && subCategory === "on_tv") {
         const obj = {
           ...initialCommonFilter,
@@ -211,6 +249,7 @@ const LeftPanel = forwardRef(
         setInitialMovieFilter(obj);
         setMovieFilter(obj);
         getFilteredData(1, obj);
+        filterRef.current = obj;
       } else if (category === "tv" && subCategory === "top_rated") {
         const obj = {
           ...initialCommonFilter,
@@ -223,6 +262,7 @@ const LeftPanel = forwardRef(
         setInitialMovieFilter(obj);
         setMovieFilter(obj);
         getFilteredData(1, obj);
+        filterRef.current = obj;
       }
     }, [category, subCategory]);
 
@@ -264,6 +304,12 @@ const LeftPanel = forwardRef(
     }, []);
 
     useEffect(() => {
+      if (movieFilter.with_watch_providers.length > 0) {
+        handleMovieFilterChange("with_watch_providers", []);
+      }
+    }, [movieFilter.watch_region]);
+
+    useEffect(() => {
       async function getData() {
         const movieGenresData = await getMovieGenres(category);
         const refactoredMovieGenresData = movieGenresData.genres?.map(
@@ -285,6 +331,7 @@ const LeftPanel = forwardRef(
       keyArr.forEach((key) => {
         if (
           typeof obj[key] === "object" &&
+          obj[key] !== null &&
           Object.keys(obj[key]).length !== 0
         ) {
           // Object
@@ -304,8 +351,6 @@ const LeftPanel = forwardRef(
               queryString += `&with_runtime_lte=${obj[key][1]}`;
             } else if (typeof obj[key][0] === "object") {
               // Array of Object
-              console.log(key, obj[key], "Key");
-
               queryString += `&${key}=${obj[key]
                 .map((item) => item.id)
                 .join("%7c")}`;
@@ -359,17 +404,15 @@ const LeftPanel = forwardRef(
 
     async function getFilteredData(page, obj = null) {
       setIsFetching(true);
-      console.log("API Call", obj);
 
-      const queryString = generateQueryString(obj === null ? movieFilter : obj);
-      console.log("Query String", queryString);
+      const queryString = generateQueryString(
+        obj === null ? filterRef.current : obj
+      );
 
       const data = await discoverMovies(
         category,
         `${queryString}&page=${page}`
       );
-      console.log("Data", data);
-      
 
       const refactoredData = data.results.map((movie) => ({
         id: movie.id,
@@ -377,7 +420,7 @@ const LeftPanel = forwardRef(
         subTitle: movie.release_date || movie.first_air_date,
         poster: movie.poster_path,
         vote_avg: movie.vote_average,
-        overview: movie.overview
+        overview: movie.overview,
       }));
       if (page < 2) {
         setMovieData([...refactoredData]);
@@ -446,9 +489,10 @@ const LeftPanel = forwardRef(
           "[object Date]"
         ) {
           // date object
-          return (
-            initialMovieFilter[key]?.getDate() !== movieFilter[key]?.getDate()
-          );
+          return typeof movieFilter[key] === "string"
+            ? true
+            : initialMovieFilter[key]?.getDate() !==
+                movieFilter[key]?.getDate();
         } else if (typeof initialMovieFilter[key] === "object") {
           // object
           return !objectCompare(initialMovieFilter[key], movieFilter[key]);
@@ -477,11 +521,14 @@ const LeftPanel = forwardRef(
     function handleKeywordChange(e) {
       clearTimeout(timeout);
       timeout = setTimeout(async () => {
-        const data = await getKeywords(e.target.value);
-        const newArr = data.results.filter(
-          (item) => !movieFilter.with_keywords.includes(item.name)
-        );
-        setAPIData({ ...APIData, keywordResult: newArr });
+        if (e.target.value.trim().length > 0) {
+          const data = await getKeywords(e.target.value.trim());
+
+          const newArr = data.results.filter(
+            (item) => !movieFilter.with_keywords.includes(item.name)
+          );
+          setAPIData({ ...APIData, keywordResult: newArr });
+        }
       }, 1000);
     }
 
@@ -503,6 +550,7 @@ const LeftPanel = forwardRef(
       }
       return `${year}-${month}-${day}`;
     }
+
     console.log(isMovieFilterChanged(initialMovieFilterKeysArr));
     console.log("inital", initialMovieFilter);
     console.log("movie", movieFilter);
@@ -553,7 +601,9 @@ const LeftPanel = forwardRef(
               menuWidth={300}
               selectedValue={movieFilter.watch_region?.id}
               changeSelectedValue={(value) => {
+                console.log("Value: ", value);
                 handleMovieFilterChange("watch_region", value);
+                // handleMovieFilterChange("with_watch_providers", []);
                 getWatchProviderData(value.id);
               }}
             />
@@ -618,7 +668,6 @@ const LeftPanel = forwardRef(
                   id="availability"
                   className="availability_checkbox"
                   onChange={(e) => {
-                    e.stopPropagation();
                     setMovieFilter({
                       ...movieFilter,
                       isSearchAllAvailabilities: e.target.checked,
@@ -654,10 +703,9 @@ const LeftPanel = forwardRef(
                   <div className="availability">
                     <input
                       type="checkbox"
-                      id="availability"
+                      id="release"
                       className="availability_checkbox"
-                      onClick={(e) => {
-                        e.stopPropagation();
+                      onChange={(e) => {
                         setMovieFilter({
                           ...movieFilter,
                           isSearchAllReleases: e.target.checked,
@@ -665,7 +713,7 @@ const LeftPanel = forwardRef(
                       }}
                       checked={movieFilter.isSearchAllReleases}
                     />
-                    <label for="availability" className="availability_desc">
+                    <label for="release" className="availability_desc">
                       Search all release?
                     </label>
                   </div>
@@ -675,10 +723,9 @@ const LeftPanel = forwardRef(
                       <div className="availability">
                         <input
                           type="checkbox"
-                          id="availability"
+                          id="countries"
                           className="availability_checkbox"
                           onChange={(e) => {
-                            e.stopPropagation();
                             setMovieFilter({
                               ...movieFilter,
                               isSearchAllCountries: e.target.checked,
@@ -686,7 +733,7 @@ const LeftPanel = forwardRef(
                           }}
                           checked={movieFilter.isSearchAllCountries}
                         />
-                        <label for="availability" className="availability_desc">
+                        <label for="countries" className="availability_desc">
                           Search all countries?
                         </label>
                       </div>
@@ -720,7 +767,7 @@ const LeftPanel = forwardRef(
                           onChange={(date) => {
                             setMovieFilter({
                               ...movieFilter,
-                              release_date_gte: date,
+                              release_date_gte: date !== null ? date : "",
                             });
                           }}
                         />
@@ -734,7 +781,7 @@ const LeftPanel = forwardRef(
                           onChange={(date) => {
                             setMovieFilter({
                               ...movieFilter,
-                              release_date_lte: date,
+                              release_date_lte: date !== null ? date : "",
                             });
                           }}
                         />
@@ -807,10 +854,12 @@ const LeftPanel = forwardRef(
                           onChange={(date) => {
                             setMovieFilter({
                               ...movieFilter,
-                              air_date_gte: date,
+                              air_date_gte: date !== null ? date : "",
                               first_air_date_gte:
                                 movieFilter.isSearchAllEpisodes === false
-                                  ? date
+                                  ? date !== null
+                                    ? date
+                                    : ""
                                   : "",
                             });
                           }}
@@ -825,10 +874,12 @@ const LeftPanel = forwardRef(
                           onChange={(date) => {
                             setMovieFilter({
                               ...movieFilter,
-                              air_date_lte: date,
+                              air_date_lte: date !== null ? date : "",
                               first_air_date_lte:
                                 movieFilter.isSearchAllEpisodes === false
-                                  ? date
+                                  ? date !== null
+                                    ? date
+                                    : ""
                                   : "",
                             });
                           }}
@@ -998,6 +1049,7 @@ const LeftPanel = forwardRef(
                         src={removeIcon}
                         alt="remove_icon"
                         onClick={() => removeKeyword(keyword)}
+                        style={{ cursor: "pointer" }}
                       />
                     </span>
                   ))}
@@ -1015,14 +1067,20 @@ const LeftPanel = forwardRef(
                   });
                   handleKeywordChange(e);
                 }}
-                ref={setReferenceElement}
+                // onClick={() => {
+                //   if (APIData.keywordResult.length > 0) {
+                //     setAPIData({ ...APIData, keywordResult: [] });
+                //   }
+                //   setMovieFilter({
+                //     ...movieFilter,
+                //     searchString: "",
+                //   });
+                // }}
               />
             </div>
             <Popper
               referenceElement={referenceElement}
-              isSelectMenuOpen={
-                APIData.keywordResult.length || movieFilter.searchString !== ""
-              }
+              isSelectMenuOpen={isSearchSelectMenuOpen}
               ref={popperRef}
             >
               {APIData.keywordResult.length !== 0 ? (
@@ -1063,7 +1121,8 @@ const LeftPanel = forwardRef(
             disabled={!isMovieFilterChanged(initialMovieFilterKeysArr)}
             onClick={
               () => {
-                getFilteredData(movieFilter);
+                filterRef.current = movieFilter;
+                getFilteredData(1, movieFilter);
                 setInitialMovieFilter(movieFilter);
               } // to disable search button again
             }
@@ -1075,5 +1134,4 @@ const LeftPanel = forwardRef(
     );
   }
 );
-
 export default LeftPanel;

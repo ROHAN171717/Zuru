@@ -21,6 +21,7 @@
   color: white;
   display: flex;
   align-items: center;
+  margin-top: 64px;
 
   .content_wrapper {
     width: 100%;
@@ -91,6 +92,22 @@
   }
 }
 
+@media screen and (max-width: 1000px) {
+  .full_bg .content_wrapper .title h3 {
+    line-height: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .full_bg .content_wrapper .title h2 {
+    font-size: 2.5em;
+  }
+  .full_bg .content_wrapper .title h3 {
+    font-size: 1.6em;
+    line-height: 1.5rem;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .full_bg .content_wrapper {
     padding: 30px 20px;
@@ -106,7 +123,12 @@
 
   .full_bg .content_wrapper .search form input::placeholder {
     font-size: 16px;
-    // overflow: hidden;
-    // text-overflow: ellipsis !important;
+  }
+  .full_bg .content_wrapper .title h2 {
+    font-size: 2.2em;
+  }
+  .full_bg .content_wrapper .title h3 {
+    font-size: 1.4em;
+    line-height: 1.3rem;
   }
 }
