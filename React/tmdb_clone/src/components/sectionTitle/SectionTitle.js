@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./sectionTitle.css";
-import SelectMenu from "../../pages/filter/components/selectMenu/SelectMenu";
-import { ALL_SORTING_ORDER } from "../../constant";
+import SelectMenu from "../selectMenu/SelectMenu";
 
 const SectionTitle = ({ title, items, setId, id, selectedItem }) => {
   function handleClick(select) {

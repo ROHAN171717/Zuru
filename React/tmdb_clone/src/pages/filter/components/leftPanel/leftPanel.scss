@@ -1,0 +1,277 @@
+.movie_detail_left {
+  min-width: 260px;
+  width: 260px;
+  .dropdown_wrapper {
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    &:not(:first-child) {
+      margin-top: 12px;
+    }
+    .name {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 14px 16px;
+
+      h2 {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.1em;
+        padding-right: 10px;
+        font-weight: 600;
+
+        span {
+          background-color: rgba(0, 0, 0, 0.08);
+          border-radius: 8px;
+          display: inline-flex;
+          align-items: center;
+          padding: 0 10px;
+          font-family: "Roboto Mono", monospace;
+          font-size: 0.8em;
+          font-weight: 300;
+        }
+      }
+
+      .dropdown_icon {
+        background-image: url("https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-224-chevron-right-d1f88a6c15e68190c3b47e1ee4f39fe47f4b69f4966ca7c250c2e14cfa689a04.svg");
+        width: 16px;
+        height: 16px;
+      }
+    }
+    .filter {
+      width: 100%;
+      border-top: 1px solid #eee;
+      padding: 14px 16px 16px;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      h3 {
+        font-size: 1em;
+        font-weight: 300;
+        margin-bottom: 10px;
+        align-self: flex-start;
+        width: 100%;
+        display: flex;
+        align-items: center;
+      }
+
+      .question_icon {
+        display: block;
+        background-image: url("https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-635-circle-question-58cc1ee10fd7a11546f8e97b1b5590b2d6e0c883acaea64a5f4c2c5b60f9f364.svg");
+        background-repeat: no-repeat;
+        width: 20px;
+        height: 20px;
+        margin-left: 6px;
+        opacity: 0.4;
+      }
+
+      .checkbox_wrraper {
+        display: inline-flex;
+        align-items: flex-start;
+
+        input.service_checkbox {
+          appearance: none;
+          width: 16px;
+          height: 16px;
+          position: relative;
+          top: 3px;
+          border: 1px solid gray;
+          border-radius: 3px;
+          cursor: pointer;
+        }
+
+        .service_checkbox:disabled {
+          background-color: #e9ecef;
+          opacity: 0.65;
+        }
+
+        .service_checkbox:disabled + .service_desc {
+          opacity: 0.65;
+        }
+
+        .service_desc {
+          flex: 1;
+          text-align: left;
+          margin-left: 5px;
+        }
+      }
+
+      .show_me_wrapper {
+        .show_me {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          margin-bottom: 5px;
+
+          input.show_me_radioButton {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background-color: #e9ecef;
+            border: 1px solid #adb5bd;
+            border-radius: 50%;
+            box-sizing: border-box;
+
+            &:checked {
+              background-color: white;
+              border: 4px solid #01b4e4;
+            }
+
+            &:disabled {
+              opacity: 0.5;
+            }
+
+            &:disabled + .show_me_desc {
+              opacity: 0.65;
+            }
+          }
+        }
+      }
+
+      .release_date_wrapper {
+        .date_picker {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          row-gap: 10px;
+          margin-top: 15px;
+
+          .date_select {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #a4a4a4;
+            font-size: 0.9em;
+
+            span {
+              width: 150px;
+            }
+          }
+        }
+      }
+
+      .filter_by_keywords {
+        display: flex;
+        flex-wrap: wrap;
+
+        border: 1px solid #ced4da;
+        // border: 2px solid red;
+        color: #495057;
+        border-radius: 0.25rem;
+        align-items: center;
+        padding: 5px;
+
+        .selected_keyword_list {
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        .selected_keyword {
+          margin-right: 5px;
+          margin-bottom: 5px;
+          padding: 2px;
+          border-color: #e4e7eb;
+          color: #212529;
+          background-color: #e4e7eb;
+          border-radius: 0.25rem;
+          padding: 0.375rem 0.75rem;
+          font-size: 14.4px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          transition: 0.2s ease-in-out;
+          cursor: context-menu;
+
+          &:hover {
+            border-color: #c7cdd5;
+            color: #212529;
+            background-color: #ced3db;
+          }
+
+          img {
+            width: 15px;
+            height: 15px;
+            opacity: 0.5;
+            transition: 0.2s ease-in-out;
+
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+        .keyword_search {
+          flex: 1;
+          width: 100%;
+          min-width: 120px;
+          border: 1px solid #ced4da;
+          border: none;
+          color: #495057;
+          border-radius: 0.25rem;
+          outline: none;
+          font-size: 0.9em;
+          font-family: "Source Sans Pro", Arial, sans-serif;
+          line-height: 1.5;
+          padding: 5px 10px;
+          transition: 0.2s ease-in-out;
+
+          &:focus::placeholder {
+            color: transparent;
+          }
+
+          &:focus {
+            border-color: #01b4e4;
+          }
+        }
+
+        &:focus-within {
+          border-color: #01b4e4;
+        }
+      }
+    }
+  }
+
+  .search_btn {
+    width: 100%;
+    margin-top: 20px;
+    height: 44px;
+    border-radius: 20px;
+    background-color: #01b4e4;
+    color: white;
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-size: 1.2em;
+    line-height: 1;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+
+    &:disabled {
+      background-color: rgba(228, 228, 228, 0.7);
+      color: rgba(94, 94, 94, 0.5);
+    }
+  }
+}
+
+.react-datepicker-wrapper {
+  .react-datepicker__input-container {
+    input {
+      outline: none;
+      padding: 5px;
+      width: 100%;
+    }
+
+    .react-datepicker-ignore-onclickoutside {
+      outline: none;
+    }
+  }
+}

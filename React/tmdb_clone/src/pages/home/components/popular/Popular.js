@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./popular.css";
 import { getPopularMovies } from "../../../../components/api/api";
-import MovieCard from "../../../../components/movieCard/MovieCard";
 import SectionTitle from "../../../../components/sectionTitle/SectionTitle";
 import Scroller from "../../../../components/scroller/Scroller";
 import { formateDateString } from "../../../../helper";
@@ -13,12 +12,12 @@ const arr = [
 ];
 
 const Popular = () => {
+  const tvShowOrMovieref = useRef("movie");
   const [id, setId] = useState(1);
   const [selectedItem, setSelectedItem] = useState(arr[0].name);
   const [allPopular, setAllPopular] = useState([]);
   const [isCategoryChanged, setIsCategoryChanged] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const tvShowOrMovieref = useRef("movie");
 
   useEffect(() => {
     let category = "popular";
@@ -27,13 +26,13 @@ const Popular = () => {
       if (id === item.id) {
         category = item.value;
         tvShowOrMovieref.current = item.type;
+        setSelectedItem(item.name);
       }
     });
 
     async function getData() {
       setIsLoading(true);
       const data = await getPopularMovies(category, tvShowOrMovieref.current);
-      // getPopularMovies(category, tvShowOrMovie).then((res) => setAllTrendingMovies(res.results));
       const refactoredData = data.results?.map((cast) => ({
         id: cast.id,
         title: cast.title || cast.name,
@@ -49,9 +48,6 @@ const Popular = () => {
     setTimeout(() => {
       setIsCategoryChanged(true);
     }, 500);
-
-    const selectedItem2 = arr.find((item) => item.id === id);
-    setSelectedItem(selectedItem2.name);
   }, [id]);
 
   return (
@@ -68,8 +64,6 @@ const Popular = () => {
         category={tvShowOrMovieref.current}
         isCategoryChanged={isCategoryChanged}
         isLoading={isLoading}
-        // handleScroll={() => handleScroller(1)}
-        number={1}
       />
     </section>
   );

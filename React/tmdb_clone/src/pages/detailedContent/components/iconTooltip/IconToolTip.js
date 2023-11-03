@@ -1,5 +1,5 @@
 import { Tooltip } from "@mui/material";
-import './iconToolTIp.css';
+import "./iconToolTIp.css";
 import React from "react";
 
 const IconToolTip = ({ title, icon }) => {

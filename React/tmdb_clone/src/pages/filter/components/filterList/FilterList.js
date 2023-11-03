@@ -3,7 +3,6 @@ import "./filterList.css";
 import toggleItemInArray from "../../../../helper";
 
 const FilterList = ({ items, selectedItems, setSelectedItems }) => {
-
   return (
     <div className="filter_list">
       {items.map((item) => (
@@ -11,7 +10,9 @@ const FilterList = ({ items, selectedItems, setSelectedItems }) => {
           className={`filter_list_item ${
             selectedItems.includes(item) ? "selected" : ""
           }`}
-          onClick={() => setSelectedItems(toggleItemInArray(selectedItems, item))}
+          onClick={() =>
+            setSelectedItems(toggleItemInArray(selectedItems, item))
+          }
         >
           {item.name || item}
         </div>

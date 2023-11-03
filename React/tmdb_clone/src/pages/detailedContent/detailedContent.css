@@ -260,14 +260,16 @@
   .wrapper {
     flex-direction: column;
   }
-  .movie_detail .movie_header_wrapper .background_gradiant .movie_header {
-    align-items: inherit;
+  .movie_detail .movie_header_wrapper {
+    background-image: none !important;
+    height: inherit;
   }
   .movie_detail .movie_header_wrapper .background_gradiant {
     background: none;
   }
-  .movie_detail .movie_header_wrapper {
-    background-image: none !important;
+  .movie_detail .movie_header_wrapper .background_gradiant .movie_header {
+    align-items: inherit;
+    padding: 0;
   }
   .movie_detail .movie_header_wrapper .background_gradiant .movie_header .movie_poster_wrapper {
     width: 100%;
@@ -283,15 +285,6 @@
     min-width: auto;
     height: 35vw;
   }
-  .movie_header {
-    padding: 0;
-  }
-  .movie_detail .movie_header_wrapper {
-    height: inherit;
-  }
-  .movie_poster_bg_gradiant {
-    background: linear-gradient(to right, rgb(167, 166, 166) 150px, rgba(104, 103, 103, 0.84) 100%);
-  }
   .movie_detail .movie_header_wrapper .background_gradiant .movie_header .movie_header_detail {
     background: linear-gradient(to right, rgb(167, 166, 166) 150px, rgba(104, 103, 103, 0.84) 100%);
     padding-top: 20px;
@@ -299,6 +292,9 @@
   }
   .movie_detail .movie_header_wrapper .background_gradiant .movie_header .movie_header_detail .header_info .overview {
     -webkit-line-clamp: 5;
+  }
+  .movie_poster_bg_gradiant {
+    background: linear-gradient(to right, rgb(167, 166, 166) 150px, rgba(104, 103, 103, 0.84) 100%);
   }
 }
 @media screen and (max-width: 700px) {
@@ -314,11 +310,6 @@
   }
 }
 @media screen and (max-width: 578px) {
-  .movie_detail .movie_header_wrapper .background_gradiant .movie_header .movie_header_detail .action {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
   .movie_detail .movie_header_wrapper .background_gradiant .movie_header .movie_header_detail .header_title .facts {
     flex-direction: column;
     align-items: flex-start;
@@ -332,6 +323,11 @@
   .movie_detail .movie_header_wrapper .background_gradiant .movie_header .movie_header_detail .header_title .facts .runtime::before {
     content: "";
   }
+  .movie_detail .movie_header_wrapper .background_gradiant .movie_header .movie_header_detail .action {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
 }
 @media screen and (max-width: 500px) {
   .wrapper {
@@ -340,7 +336,10 @@
   .movie_header {
     padding: 0;
   }
-  .movie_detail .movie_header_wrapper .background_gradiant .movie_header .movie_header_detail {
+  .movie_detail .movie_header_wrapper .background_gradiant .movie_header {
+    padding: 0;
+  }
+  .movie_detail .movie_header_wrapper .background_gradiant .movie_header .movie_poster_wrapper {
     padding-left: 20px;
     padding-right: 20px;
   }

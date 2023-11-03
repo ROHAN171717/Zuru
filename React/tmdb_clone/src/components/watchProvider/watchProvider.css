@@ -1,8 +1,10 @@
 .ott_wrapper {
   margin-top: 14px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  -moz-column-gap: 6px;
+       column-gap: 6px;
+  row-gap: 10px;
 }
 .ott_wrapper .ott_item {
   list-style: none;

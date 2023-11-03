@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import "./scroller.css";
 import MovieCard from "../movieCard/MovieCard";
 import RecommendationCard from "../recommendationCard/RecommendationCard";
@@ -12,7 +12,6 @@ const Scroller = ({
   category,
   isCategoryChanged = true,
   isLoading = false,
-  number,
 }) => {
   const scrollerWrapperRef = useRef();
   const trendingScrollerRef = useRef();

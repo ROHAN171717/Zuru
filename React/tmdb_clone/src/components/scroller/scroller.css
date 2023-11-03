@@ -5,6 +5,7 @@
 }
 .scroller_wrapper.scroller_transition {
   opacity: 1;
+  transition: ease-in 0.5s;
 }
 .scroller_wrapper.default, .scroller_wrapper.medium {
   --opacity: 1;
@@ -49,22 +50,15 @@
   border-radius: 50px;
 }
 
+@media screen and (max-width: 1149px) {
+  .scroller_wrapper .trending_scroller.full {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+  }
+}
 @media screen and (max-width: 500px) {
   .scroller_wrapper .trending_scroller.default {
     padding-left: 20px;
-  }
-}
-@media screen and (max-width: 1149px) {
-  .scroller_wrapper .trending_scroller.full {
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
-  }
-}
-@media screen and (max-width: 1149px) {
-  .scroller_wrapper .trending_scroller.full {
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
   }
 }/*# sourceMappingURL=scroller.css.map */

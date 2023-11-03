@@ -4,11 +4,8 @@ import {
   getCastData,
   getRecommendations,
   getReviews,
-  getTrendingMovies,
 } from "../../../../components/api/api";
-import MovieCard from "../../../../components/movieCard/MovieCard";
 import Scroller from "../../../../components/scroller/Scroller";
-import RecommendationCard from "../../../../components/recommendationCard/RecommendationCard";
 import { useParams } from "react-router-dom";
 import { formateDateString } from "../../../../helper";
 import { Avatar } from "@mui/material";
@@ -63,8 +60,6 @@ const LeftPanel = ({ movieDetail }) => {
           variant="medium"
           movieCardVariant="small"
           isLoading={isLoading}
-          // handleScroll={() => handleScroller(0)}
-          number={0}
         />
       </div>
       {params.category === "tv" && (

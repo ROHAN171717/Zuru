@@ -1,11 +1,16 @@
-import React, { forwardRef, useEffect, useImperativeHandle, useMemo, useRef } from "react";
+import React, {
+  forwardRef,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+} from "react";
 import { usePopper } from "react-popper";
 import { Portal } from "../portal/Portal";
 
 const Popper = forwardRef(
   ({ children, referenceElement, isSelectMenuOpen, width, className }, ref) => {
     const popperElement = useRef();
-    
+
     const modifiers = useMemo(
       () => [
         {

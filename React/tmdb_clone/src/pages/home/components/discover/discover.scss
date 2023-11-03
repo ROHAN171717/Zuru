@@ -1,10 +1,6 @@
 .inner_content {
   max-width: 1400px;
   width: 100%;
-  // display: flex;
-  // justify-content: center;
-  // flex-wrap: wrap;
-  // align-items: flex-start;
   margin: 0 auto;
 }
 
@@ -99,36 +95,40 @@
 }
 
 @media screen and (max-width: 700px) {
-  .full_bg .content_wrapper .title h2 {
-    font-size: 2.5em;
-  }
-  .full_bg .content_wrapper .title h3 {
-    font-size: 1.6em;
-    line-height: 1.5rem;
+  .full_bg .content_wrapper .title {
+    h2 {
+      font-size: 2.5em;
+    }
+    h3 {
+      font-size: 1.6em;
+      line-height: 1.5rem;
+    }
   }
 }
 
 @media screen and (max-width: 500px) {
   .full_bg .content_wrapper {
     padding: 30px 20px;
-  }
-  .full_bg .content_wrapper .search form input {
-    height: 36px;
-  }
-
-  .full_bg .content_wrapper .search form .search_btn {
-    height: 36px;
-    padding: 0px 10px;
-  }
-
-  .full_bg .content_wrapper .search form input::placeholder {
-    font-size: 16px;
-  }
-  .full_bg .content_wrapper .title h2 {
-    font-size: 2.2em;
-  }
-  .full_bg .content_wrapper .title h3 {
-    font-size: 1.4em;
-    line-height: 1.3rem;
+    .search form {
+      input {
+        height: 36px;
+      }
+      .search_btn {
+        height: 36px;
+        padding: 0px 10px;
+      }
+      input::placeholder {
+        font-size: 16px;
+      }
+    }
+    .title {
+      h2 {
+        font-size: 2.2em;
+      }
+      h3 {
+        font-size: 1.4em;
+        line-height: 1.3rem;
+      }
+    }
   }
 }

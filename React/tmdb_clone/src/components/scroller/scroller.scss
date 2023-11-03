@@ -4,7 +4,7 @@
   opacity: 0;
   &.scroller_transition {
     opacity: 1;
-    // transition: ease-in 0.5s;
+    transition: ease-in 0.5s;
   }
 
   &.default,
@@ -28,7 +28,6 @@
   }
   .trending_scroller {
     width: 100%;
-    // padding: 20px 0px;
     display: flex;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -57,30 +56,20 @@
     &::-webkit-scrollbar-thumb {
       background-color: rgb(235, 235, 235);
       border-radius: 50px;
-      // padding-top: 50px;
     }
+  }
+}
+
+@media screen and (max-width: 1149px) {
+  .scroller_wrapper .trending_scroller.full {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
   }
 }
 
 @media screen and (max-width: 500px) {
   .scroller_wrapper .trending_scroller.default {
     padding-left: 20px;
-  }
-}
-
-@media screen and (max-width: 1149px) {
-  .scroller_wrapper .trending_scroller.full {
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
-  }
-}
-
-@media screen and (max-width: 1149px) {
-  .scroller_wrapper .trending_scroller.full {
-    // flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
   }
 }

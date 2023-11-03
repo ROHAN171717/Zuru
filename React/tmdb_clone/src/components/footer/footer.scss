@@ -94,18 +94,14 @@
 }
 
 @media screen and (max-width: 700px) {
-  .footer .footer_content .footer_column .column_title {
-    font-size: 1em;
-    font-weight: 600;
-  }
-
-  .footer
-    .footer_content
-    .footer_column
-    .column_items
-    .column_item
-    .column_link {
-    font-size: 15px;
+  .footer .footer_content .footer_column {
+    .column_title {
+      font-size: 1em;
+      font-weight: 600;
+    }
+    .column_items .column_item .column_link {
+      font-size: 15px;
+    }
   }
 }
 

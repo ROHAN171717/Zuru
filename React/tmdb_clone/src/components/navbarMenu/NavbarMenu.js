@@ -13,7 +13,10 @@ const NavbarMenu = ({ title, value, menubarItem }) => {
         <ul className="menu_items">
           {menubarItem.map((item) => (
             <li className="menu_item" key={item}>
-              <Link to={`/${value}/${item.replaceAll(" ", "_").toLowerCase()}`} className="menu_link">
+              <Link
+                to={`/${value}/${item.replaceAll(" ", "_").toLowerCase()}`}
+                className="menu_link"
+              >
                 {item}
               </Link>
             </li>

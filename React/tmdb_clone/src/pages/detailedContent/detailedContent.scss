@@ -240,53 +240,33 @@
     height: calc(100vw / 2.22222);
     .background_gradiant {
       height: 100%;
+      .movie_header {
+        height: 100%;
+        .movie_poster_wrapper .movie_poster {
+          width: auto;
+          min-width: auto;
+          height: 35vw;
+          border-radius: 8px;
+        }
+        .movie_header_detail .header_info .overview {
+          -webkit-line-clamp: 2;
+        }
+      }
     }
-  }
-  .movie_detail .movie_header_wrapper .background_gradiant .movie_header {
-    height: 100%;
-  }
-
-  .movie_detail
-    .movie_header_wrapper
-    .background_gradiant
-    .movie_header
-    .movie_poster_wrapper
-    .movie_poster {
-    width: auto;
-    min-width: auto;
-    height: 35vw;
-    border-radius: 8px;
-  }
-
-  .movie_detail
-    .movie_header_wrapper
-    .background_gradiant
-    .movie_header
-    .movie_header_detail
-    .header_info
-    .overview {
-    -webkit-line-clamp: 2;
   }
 }
 
 @media screen and (min-width: 920px) and (max-width: 1214px) {
-  .movie_detail
-    .movie_header_wrapper
-    .background_gradiant
-    .movie_header
+  .movie_detail .movie_header_wrapper .background_gradiant .movie_header {
     .movie_poster_wrapper {
-    min-width: inherit;
-    width: inherit;
-    height: inherit;
-    flex: 0.8;
-  }
-
-  .movie_detail
-    .movie_header_wrapper
-    .background_gradiant
-    .movie_header
+      min-width: inherit;
+      width: inherit;
+      height: inherit;
+      flex: 0.8;
+    }
     .movie_header_detail {
-    flex: 2;
+      flex: 2;
+    }
   }
 }
 
@@ -308,44 +288,48 @@
   .wrapper {
     flex-direction: column;
   }
-  .movie_detail .movie_header_wrapper .background_gradiant .movie_header {
-    align-items: inherit;
-  }
-  .movie_detail .movie_header_wrapper .background_gradiant {
-    background: none;
-  }
 
   .movie_detail .movie_header_wrapper {
     background-image: none !important;
-  }
-
-  .movie_detail
-    .movie_header_wrapper
-    .background_gradiant
-    .movie_header
-    .movie_poster_wrapper {
-    width: 100%;
-    height: calc(100vw / 2.22222);
-    padding: 20px 40px;
-    display: flex;
-    border-radius: 0px;
-    .movie_poster {
-      overflow: hidden;
-      border-radius: 8px;
-      width: auto;
-      min-width: auto;
-      height: 35vw;
-    }
-  }
-
-  .movie_header {
-    // padding-left: 0px;
-    // padding-right: 0px;
-    padding: 0;
-  }
-
-  .movie_detail .movie_header_wrapper {
     height: inherit;
+
+    .background_gradiant {
+      background: none;
+
+      .movie_header {
+        align-items: inherit;
+        padding: 0;
+
+        .movie_poster_wrapper {
+          width: 100%;
+          height: calc(100vw / 2.22222);
+          padding: 20px 40px;
+          display: flex;
+          border-radius: 0px;
+          .movie_poster {
+            overflow: hidden;
+            border-radius: 8px;
+            width: auto;
+            min-width: auto;
+            height: 35vw;
+          }
+        }
+
+        .movie_header_detail {
+          background: linear-gradient(
+            to right,
+            rgb(167, 166, 166) 150px,
+            rgba(104, 103, 103, 0.84) 100%
+          );
+          padding-top: 20px;
+          padding-bottom: 20px;
+
+          .header_info .overview {
+            -webkit-line-clamp: 5;
+          }
+        }
+      }
+    }
   }
 
   .movie_poster_bg_gradiant {
@@ -354,30 +338,6 @@
       rgb(167, 166, 166) 150px,
       rgba(104, 103, 103, 0.84) 100%
     );
-  }
-
-  .movie_detail
-    .movie_header_wrapper
-    .background_gradiant
-    .movie_header
-    .movie_header_detail {
-    background: linear-gradient(
-      to right,
-      rgb(167, 166, 166) 150px,
-      rgba(104, 103, 103, 0.84) 100%
-    );
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  .movie_detail
-    .movie_header_wrapper
-    .background_gradiant
-    .movie_header
-    .movie_header_detail
-    .header_info
-    .overview {
-    -webkit-line-clamp: 5;
   }
 }
 
@@ -410,45 +370,25 @@
     .movie_header_wrapper
     .background_gradiant
     .movie_header
-    .movie_header_detail
+    .movie_header_detail {
+    .header_title .facts {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+      .genres,
+      .runtime {
+        padding-left: 0px;
+
+        &::before {
+          content: "";
+        }
+      }
+    }
+
     .action {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-
-  .movie_detail
-    .movie_header_wrapper
-    .background_gradiant
-    .movie_header
-    .movie_header_detail
-    .header_title
-    .facts {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-  }
-
-  .movie_detail
-    .movie_header_wrapper
-    .background_gradiant
-    .movie_header
-    .movie_header_detail
-    .header_title
-    .facts
-    .genres,
-  .movie_detail
-    .movie_header_wrapper
-    .background_gradiant
-    .movie_header
-    .movie_header_detail
-    .header_title
-    .facts
-    .runtime {
-    padding-left: 0px;
-
-    &::before {
-      content: "";
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
     }
   }
 }
@@ -457,17 +397,18 @@
   .wrapper {
     padding: 30px 20px;
   }
+
   .movie_header {
     padding: 0;
   }
 
-  .movie_detail
-    .movie_header_wrapper
-    .background_gradiant
-    .movie_header
-    .movie_header_detail {
-    padding-left: 20px;
-    padding-right: 20px;
+  .movie_detail .movie_header_wrapper .background_gradiant .movie_header {
+    padding: 0;
+
+    .movie_poster_wrapper {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
 
   .movie_detail
@@ -480,40 +421,3 @@
   }
 }
 
-// @media screen and (max-width: 360px) {
-//   .movie_detail
-//     .movie_header_wrapper
-//     .background_gradiant
-//     .movie_header
-//     .movie_header_detail
-//     .header_title
-//     .facts {
-//     margin-top: 20px;
-//     flex-direction: column;
-//     align-items: flex-start;
-//     gap: 10px;
-//   }
-
-//   .movie_detail
-//     .movie_header_wrapper
-//     .background_gradiant
-//     .movie_header
-//     .movie_header_detail
-//     .header_title
-//     .facts
-//     .genres,
-//   .movie_detail
-//     .movie_header_wrapper
-//     .background_gradiant
-//     .movie_header
-//     .movie_header_detail
-//     .header_title
-//     .facts
-//     .runtime {
-//     padding-left: 0px;
-
-//     &::before {
-//       content: "";
-//     }
-//   }
-// }

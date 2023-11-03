@@ -1,21 +1,16 @@
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./detailedContent.css";
 import CircularProgressBar from "../../components/circularProgressBar/CircularProgressBar";
 import IconToolTip from "./components/iconTooltip/IconToolTip";
 import LeftPanel from "./components/leftPanel/LeftPanel";
 import RightPanel from "./components/rightPanel/RightPanel";
-import {
-  getCastData,
-  getMovieDetailById,
-  getVideosById,
-} from "../../components/api/api";
+import { getMovieDetailById } from "../../components/api/api";
 import { useParams } from "react-router-dom";
 import { dateFormatter } from "../../helper";
 import TrailerModel from "./components/trailerModel/TrailerModel";
 import Popper from "../../components/popper/Popper";
 
 const DetailedContent = () => {
-
   const [movieDetail, setMovieDetail] = useState({});
   const [isOpen, setIsOpen] = useState(false);
   const params = useParams();
@@ -70,11 +65,6 @@ const DetailedContent = () => {
                       : ""
                   }`}
                   ref={setReferenceElement}
-                  // style={{
-                  //   backgroundImage: `url(
-                  // https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${movieDetail?.backdrop_path}
-                  //   )`,
-                  // }}
                 >
                   <img
                     src={
@@ -159,7 +149,6 @@ const DetailedContent = () => {
                     className="play_btn"
                     onClick={() => {
                       setIsOpen(true);
-                      // popperRef.current.update();
                     }}
                   >
                     <img

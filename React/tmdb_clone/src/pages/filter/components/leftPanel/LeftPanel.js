@@ -6,8 +6,9 @@ import React, {
   useRef,
   useState,
 } from "react";
+import './leftPanel.css'
 import Accordion from "../../../../components/accordion/Accordion";
-import SelectMenu from "../selectMenu/SelectMenu";
+import SelectMenu from "../../../../components/selectMenu/SelectMenu";
 import WatchProvider from "../../../../components/watchProvider/WatchProvider";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -390,7 +391,7 @@ const LeftPanel = forwardRef(
       async (page) => {
         getFilteredData(page);
       },
-      [setIsFetching, getFilteredData]
+      [getFilteredData]
     );
 
     useImperativeHandle(
@@ -1053,15 +1054,6 @@ const LeftPanel = forwardRef(
                   });
                   handleKeywordChange(e);
                 }}
-                // onClick={() => {
-                //   if (APIData.keywordResult.length > 0) {
-                //     setAPIData({ ...APIData, keywordResult: [] });
-                //   }
-                //   setMovieFilter({
-                //     ...movieFilter,
-                //     searchString: "",
-                //   });
-                // }}
               />
             </div>
             <Popper

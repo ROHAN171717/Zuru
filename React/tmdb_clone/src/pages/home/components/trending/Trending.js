@@ -23,6 +23,7 @@ const Trending = () => {
     arr.forEach((item) => {
       if (id === item.id) {
         category = item.value;
+        setSelectedItem(item.name);
       }
     });
 
@@ -44,9 +45,6 @@ const Trending = () => {
     setTimeout(() => {
       setIsCategoryChanged(true);
     }, 500);
-
-    const selectedItem2 = arr.find((item) => item.id === id);
-    setSelectedItem(selectedItem2.name);
   }, [id]);
 
   return (
@@ -63,10 +61,6 @@ const Trending = () => {
         category="movie"
         isCategoryChanged={isCategoryChanged}
         isLoading={isLoading}
-        // handleScroll={() =>
-        //   handleScroller(0)
-        // }
-        number={0}
       />
     </section>
   );

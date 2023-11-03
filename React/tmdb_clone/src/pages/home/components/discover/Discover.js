@@ -5,18 +5,14 @@ const Discover = () => {
   const [placeholder, setPlaceholder] = useState("");
 
   useEffect(() => {
-    console.log("Mounted", window.innerWidth);
     changePlaceHolder();
-
     window.addEventListener("resize", changePlaceHolder);
-
     return () => {
       window.removeEventListener("resize", changePlaceHolder);
     };
   }, []);
 
   function changePlaceHolder() {
-    console.log("Hello");
     setPlaceholder(
       window.innerWidth < 520
         ? "Search..."

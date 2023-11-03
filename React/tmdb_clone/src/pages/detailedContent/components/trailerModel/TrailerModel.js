@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getVideosById } from "../../../../components/api/api";
 import { useParams } from "react-router-dom";
-import Popper from "../../../../components/popper/Popper";
 import remove_icon from "../../../../Images/remove_icon.png";
 import "./trailerModel.css";
 
@@ -33,11 +32,17 @@ const TrailerModel = ({ setIsOpen }) => {
           />
         </div>
       </div>
-      <iframe
-        src={`https://www.youtube.com/embed/${trailer?.[0]?.key}`}
-        title="YouTube video player"
-        style={{ margin: "0 auto" }}
-      ></iframe>
+      {trailer?.[0]?.key !== null ? (
+        <iframe
+          src={`https://www.youtube.com/embed/${trailer?.[0]?.key}`}
+          title="YouTube video player"
+          style={{ margin: "0 auto" }}
+        ></iframe>
+      ) : (
+        <div className="trailer_not_found">
+          <h1>Official Trailer Not Available</h1>
+        </div>
+      )}
     </div>
   );
 };

@@ -68,6 +68,7 @@ const Header = () => {
               <div className="nav_link search">
                 <img
                   src="https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-371-plus-white-0bac34f16124808a12ea863b4d9cc6e599dee7c0a80658cfe9ead26939e64517.svg"
+                  alt="plus_icon"
                   width="23px"
                   height="23px"
                 />
@@ -86,6 +87,7 @@ const Header = () => {
               <div className="nav_link search" href="#">
                 <img
                   src="https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-28-search-blue-177462d06db81ff2a02aa022c1c0be5ba4200d7bd3f51091ed9298980e3a26a1.svg"
+                  alt="search_icon"
                   width="30px"
                   height="30px"
                 />
@@ -104,9 +106,6 @@ const Header = () => {
         <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
           <path
             stroke="white"
-            // stroke-linecap="round"
-            // stroke-miterlimit="10"
-            // stroke-width="2"
             strokeLinecap="round"
             strokeMiterlimit="10"
             strokeWidth="2"

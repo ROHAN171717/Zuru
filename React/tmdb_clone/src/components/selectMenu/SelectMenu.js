@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./selectMenu.css";
-import Popper from "../../../../components/popper/Popper";
-import useCloseSelectMenu from "../../../../hooks/useCloseSelectMenu";
+import Popper from "../popper/Popper";
+import useCloseSelectMenu from "../../hooks/useCloseSelectMenu";
 
 export default function SelectMenu({
   items,
@@ -25,31 +25,14 @@ export default function SelectMenu({
   const selectMenuItemsWrapper = document.querySelector(
     ".select_menu_items_wrapper"
   );
+  const selectMenu = document.querySelector(
+    ".select_menu"
+  );
   useCloseSelectMenu(
-    [selectMenuRef.current, selectMenuItemsWrapper],
+    [selectMenu, selectMenuItemsWrapper],
     isSelectMenuOpen,
     () => setIsSelectMenuOpen(!isSelectMenuOpen)
   );
-
-  // const closeSelectMenu = React.useCallback(
-  //   (e) => {
-  //     const selectMenuItems = document.querySelector(
-  //       ".select_menu_items_wrapper"
-  //     );
-  //     const selectMenu = document.querySelector(".select_menu");
-
-  //     if (
-  //       isSelectMenuOpen &&
-  //       e.target !== selectMenu &&
-  //       !selectMenu.contains(e.target) &&
-  //       e.target !== selectMenuItems &&
-  //       !selectMenuItems.contains(e.target)
-  //     ) {
-  //       setIsSelectMenuOpen(!isSelectMenuOpen);
-  //     }
-  //   },
-  //   [isSelectMenuOpen]
-  // );
 
   function handleFilter(value) {
     const newArr = items?.filter(
@@ -68,8 +51,7 @@ export default function SelectMenu({
       <div className="select_menu_inner" ref={referenceElement}>
         <p
           className="selected"
-          onClick={(e) => {
-            // e.stopPropagation();
+          onClick={() => {
             setIsSelectMenuOpen(!isSelectMenuOpen);
           }}
         >

@@ -7,8 +7,6 @@ import Slider from "@mui/material/Slider";
 // }
 
 const RangeSlider = ({ values }) => {
-  
-  const [value, setValue] = React.useState(values.val);
 
   const handleChange = (event, newValue) => {
     values.setValue(newValue);
@@ -26,7 +24,6 @@ const RangeSlider = ({ values }) => {
         value={values.val}
         onChange={handleChange}
         valueLabelDisplay="auto"
-        // getAriaValueText={valuetext}
         valueLabelFormat={values.valueLabelFormate(values.val)}
         marks={values.marks}
         min={values.min}

@@ -10,6 +10,7 @@
     align-items: center;
     background: rgb(77, 77, 77);
     color: white;
+    border-bottom: 1px solid gray;
     padding: 10px;
 
     .img_wrapper {
@@ -33,6 +34,18 @@
     height: calc(100% - 53px);
     border: none;
   }
+
+  .trailer_not_found {
+    background: rgb(77, 77, 77);
+    height: calc(100% - 53px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    h1 {
+      color: white;
+    }
+  }
 }
 
 .popperTrailer {
@@ -49,4 +62,16 @@
   display: flex !important;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 750px) {
+  .trailer_model .trailer_not_found h1 {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .trailer_model .trailer_not_found h1 {
+    font-size: 20px;
+  }
 }
