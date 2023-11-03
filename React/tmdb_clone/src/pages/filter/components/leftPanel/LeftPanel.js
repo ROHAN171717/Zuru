@@ -563,20 +563,22 @@ const LeftPanel = forwardRef(
           isAccordianOpen={false}
         >
           <div className="filter">
-            <h3>
-              My Services <span className="question_icon"></span>
-            </h3>
-            <label className="checkbox_wrraper">
-              <input
-                type="checkbox"
-                id="my_services"
-                className="service_checkbox"
-                disabled
-              />
-              <label for="my_services" className="service_desc">
-                Restrict searches to my subscribed services?
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <h3>
+                My Services <span className="question_icon"></span>
+              </h3>
+              <label className="checkbox_wrraper">
+                <input
+                  type="checkbox"
+                  id="my_services"
+                  className="service_checkbox"
+                  disabled
+                />
+                <label for="my_services" className="service_desc">
+                  Restrict searches to my subscribed services?
+                </label>
               </label>
-            </label>
+            </div>
           </div>
 
           <div className="filter">

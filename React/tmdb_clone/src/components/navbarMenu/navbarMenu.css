@@ -44,4 +44,31 @@
 }
 .nav_item .menu_items_container .menu_items .menu_item:hover {
   background-color: #f8f9fa;
+}
+
+@media screen and (max-width: 872px) {
+  .nav_item {
+    display: block;
+    padding: 8px 0px;
+  }
+  .nav_item .nav_link {
+    padding: 0;
+    font-weight: 700;
+  }
+  .nav_item .menu_items_container {
+    width: 100%;
+    top: 30px;
+  }
+  .nav_item .menu_items_container .menu_items {
+    width: 100%;
+  }
+  .nav_item .menu_items_container .menu_items .menu_item:not(:last-child) {
+    padding-bottom: 5px;
+  }
+  .nav_item .menu_items_container .menu_items .menu_item .menu_link {
+    width: 100%;
+  }
+  .nav_item:not(:last-child) {
+    margin-right: 0px;
+  }
 }/*# sourceMappingURL=navbarMenu.css.map */

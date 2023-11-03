@@ -138,24 +138,6 @@
   font-weight: 700;
   margin-left: 6px;
 }
-.movie_detail .movie_header_wrapper .background_gradiant .movie_header .movie_header_detail .action .tooltip {
-  display: flex;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
-}
-.movie_detail .movie_header_wrapper .background_gradiant .movie_header .movie_header_detail .action .tooltip a {
-  width: 46px;
-  height: 46px;
-  background-color: #032541;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.movie_detail .movie_header_wrapper .background_gradiant .movie_header .movie_header_detail .action .tooltip a img {
-  width: 16px;
-  height: 16px;
-}
 .movie_detail .movie_header_wrapper .background_gradiant .movie_header .movie_header_detail .action .play_btn {
   text-decoration: none;
   display: flex;

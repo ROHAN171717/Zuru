@@ -1,4 +1,5 @@
 import { Tooltip } from "@mui/material";
+import './iconToolTIp.css';
 import React from "react";
 
 const IconToolTip = ({ title, icon }) => {
@@ -18,9 +19,9 @@ const IconToolTip = ({ title, icon }) => {
         },
       }}
     >
-      <a href="/xyz">
+      <span className="img_wrapper">
         <img src={icon} alt="thumbnails_list" />
-      </a>
+      </span>
     </Tooltip>
   );
 };

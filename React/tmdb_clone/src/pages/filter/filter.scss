@@ -353,3 +353,9 @@
     font-size: 1.3rem;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .movie_content_wrapper .movie_content {
+    padding: 30px 20px;
+  }
+}

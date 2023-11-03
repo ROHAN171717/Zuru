@@ -118,39 +118,9 @@
     .sidebar_links {
       list-style: none;
       .sidebar_link {
-        // padding: 0px 20px;
-        &:not(:last-child) {
-          margin-bottom: 15px;
-        }
+        padding: 8px 0px;
       }
     }
-  }
-
-  .nav_item {
-    display: block !important;
-    // padding: 0px 20px;
-    margin-bottom: 15px;
-
-    .nav_link {
-      padding: 0 !important;
-      font-weight: 700;
-    }
-
-    .menu_items_container {
-      top: 15px !important;
-
-      .menu_items {
-        .menu_item {
-          padding: 5px 0px;
-          .menu_link {
-            width: 100%;
-          }
-        }
-      }
-    }
-  }
-  .nav_item:not(:last-child) {
-    margin-right: 0px !important;
   }
 }
 

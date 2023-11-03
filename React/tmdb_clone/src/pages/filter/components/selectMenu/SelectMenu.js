@@ -12,6 +12,7 @@ export default function SelectMenu({
 }) {
   const referenceElement = React.useRef();
   const inputRef = React.useRef();
+  const selectMenuRef = React.useRef();
   const [isSelectMenuOpen, setIsSelectMenuOpen] = React.useState(false);
   const [searchText, setSearchText] = React.useState("");
   const selectedItem = items.find((item) => item.id === selectedValue);
@@ -21,9 +22,14 @@ export default function SelectMenu({
     setFilteredData(items);
   }, [items]);
 
-  const selectMenuItems = document.querySelector(".select_menu_items_wrapper");
-  const selectMenu = document.querySelector(".select_menu");
-  useCloseSelectMenu([selectMenu, selectMenuItems], isSelectMenuOpen, () => setIsSelectMenuOpen(!isSelectMenuOpen));
+  const selectMenuItemsWrapper = document.querySelector(
+    ".select_menu_items_wrapper"
+  );
+  useCloseSelectMenu(
+    [selectMenuRef.current, selectMenuItemsWrapper],
+    isSelectMenuOpen,
+    () => setIsSelectMenuOpen(!isSelectMenuOpen)
+  );
 
   // const closeSelectMenu = React.useCallback(
   //   (e) => {
@@ -58,7 +64,7 @@ export default function SelectMenu({
   }
 
   return (
-    <div className="select_menu">
+    <div className="select_menu" ref={selectMenuRef}>
       <div className="select_menu_inner" ref={referenceElement}>
         <p
           className="selected"
@@ -124,7 +130,11 @@ export default function SelectMenu({
                   <img
                     src={`https://flagcdn.com/w20/${item?.id.toLowerCase()}.png`}
                     alt="country_flag"
-                    style={{ marginRight: "10px", maxWidth: '20px', maxHeight: '18px' }}
+                    style={{
+                      marginRight: "10px",
+                      maxWidth: "20px",
+                      maxHeight: "18px",
+                    }}
                   />
                 )}
                 {item.name}

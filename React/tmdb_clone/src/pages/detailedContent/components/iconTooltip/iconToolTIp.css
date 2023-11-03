@@ -1,0 +1,18 @@
+.tooltip {
+  display: flex;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+.tooltip .img_wrapper {
+  width: 46px;
+  height: 46px;
+  background-color: #032541;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tooltip .img_wrapper img {
+  width: 16px;
+  height: 16px;
+}/*# sourceMappingURL=iconToolTIp.css.map */

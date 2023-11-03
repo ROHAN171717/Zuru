@@ -137,23 +137,6 @@
                 margin-left: 6px;
               }
             }
-            .tooltip {
-              display: flex;
-              column-gap: 20px;
-              a {
-                width: 46px;
-                height: 46px;
-                background-color: rgba(rgb(3, 37, 65), 1);
-                border-radius: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                img {
-                  width: 16px;
-                  height: 16px;
-                }
-              }
-            }
             .play_btn {
               text-decoration: none;
               display: flex;

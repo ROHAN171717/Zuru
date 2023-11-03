@@ -32,7 +32,7 @@
       width: 180px;
       border: none;
       border-radius: 0.25rem;
-      border: 1px solid rgba(0,0,0,.15);
+      border: 1px solid rgba(0, 0, 0, 0.15);
 
       .menu_item {
         width: 100%;
@@ -52,5 +52,37 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 872px) {
+  .nav_item {
+    display: block;
+    padding: 8px 0px;
+
+    .nav_link {
+      padding: 0;
+      font-weight: 700;
+    }
+
+    .menu_items_container {
+      width: 100%;
+      top: 30px;
+
+      .menu_items {
+        width: 100%;
+        .menu_item {
+          &:not(:last-child) {
+            padding-bottom: 5px;
+          }
+          .menu_link {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  .nav_item:not(:last-child) {
+    margin-right: 0px;
   }
 }

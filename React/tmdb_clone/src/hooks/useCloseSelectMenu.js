@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import { useCallback, useEffect } from "react";
 
 const useCloseSelectMenu = (elementArr, isSelectMenuOpen, cb) => {
   const closeSelectMenu = useCallback(
@@ -12,12 +12,12 @@ const useCloseSelectMenu = (elementArr, isSelectMenuOpen, cb) => {
     [isSelectMenuOpen]
   );
 
-  useEffect(() => {
-    window.addEventListener("click", closeSelectMenu);
-    return () => {
-      window.removeEventListener("click", closeSelectMenu);
-    };
-  }, [closeSelectMenu]);
+  // useEffect(() => {
+  //   window.addEventListener("click", closeSelectMenu);
+  //   return () => {
+  //     window.removeEventListener("click", closeSelectMenu);
+  //   };
+  // }, [closeSelectMenu]);
 };
 
 export default useCloseSelectMenu;

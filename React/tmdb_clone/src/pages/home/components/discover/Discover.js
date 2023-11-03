@@ -5,20 +5,25 @@ const Discover = () => {
   const [placeholder, setPlaceholder] = useState("");
 
   useEffect(() => {
-    setPlaceholder(
-      window.innerWidth < 520
-        ? "Search..."
-        : "Search for a movie, tv show, person......"
-    );
+    console.log("Mounted", window.innerWidth);
+    changePlaceHolder();
+
+    window.addEventListener("resize", changePlaceHolder);
+
+    return () => {
+      window.removeEventListener("resize", changePlaceHolder);
+    };
   }, []);
 
-  window.onresize = function () {
+  function changePlaceHolder() {
+    console.log("Hello");
     setPlaceholder(
       window.innerWidth < 520
         ? "Search..."
         : "Search for a movie, tv show, person......"
     );
-  };
+  }
+
   return (
     <section className="inner_content full_bg">
       <div className="content_wrapper">

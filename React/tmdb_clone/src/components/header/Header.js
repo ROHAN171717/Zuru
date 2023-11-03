@@ -1,15 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
 import "./Header.css";
 import NavbarMenu from "../navbarMenu/NavbarMenu";
 import { Link } from "react-router-dom";
-import { useScrollTrigger } from "@mui/material";
 
 const Header = () => {
-  const [isSidebar, setIsSidebar] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   var prevScrollpos = window.scrollY;
-  window.onscroll = function () {
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+    window.removeEventListener("scroll", handleScroll);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isSidebarOpen]);
+
+  function handleScroll() {
     var currentScrollPos = window.scrollY;
     if (currentScrollPos > 64) {
       if (prevScrollpos > currentScrollPos) {
@@ -19,7 +32,7 @@ const Header = () => {
       }
     }
     prevScrollpos = currentScrollPos;
-  };
+  }
 
   return (
     <nav className="navbar">
@@ -86,7 +99,7 @@ const Header = () => {
         aria-expanded="false"
         className="navbar__toggle"
         type="button"
-        onClick={() => setIsSidebar(!isSidebar)}
+        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
       >
         <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
           <path
@@ -103,7 +116,7 @@ const Header = () => {
 
         <div
           className="sidebar"
-          style={{ display: isSidebar ? "block" : "none" }}
+          style={{ display: isSidebarOpen ? "block" : "none" }}
         >
           <ul className="sidebar_links">
             <NavbarMenu

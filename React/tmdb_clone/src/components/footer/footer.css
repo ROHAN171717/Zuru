@@ -32,6 +32,7 @@
   border-radius: 5px;
   padding: 8px 16px;
   text-decoration: none;
+  cursor: pointer;
 }
 .footer .footer_content .footer_column {
   display: flex;
@@ -63,9 +64,14 @@
   color: white;
 }
 
-@media screen and (max-width: 968px) {
+@media screen and (max-width: 1050px) {
   .footer .footer_content {
+    flex-direction: column;
+    gap: 20px;
     padding: 40px;
+  }
+  .footer .footer_content .footer_column:not(:last-child) {
+    margin-right: 0px;
   }
   .footer .footer_content .join {
     top: 0;
