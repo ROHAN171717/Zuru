@@ -64,7 +64,7 @@ const DetailedContent = () => {
                       ? "no_img"
                       : ""
                   }`}
-                  ref={setReferenceElement}
+                  // ref={setReferenceElement}
                 >
                   <img
                     src={

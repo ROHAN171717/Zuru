@@ -2,14 +2,25 @@ import React, {
   forwardRef,
   useImperativeHandle,
   useMemo,
-  useRef,
+  useState,
 } from "react";
 import { usePopper } from "react-popper";
 import { Portal } from "../portal/Portal";
+import useCloseSelectMenu from "../../hooks/useCloseSelectMenu";
 
 const Popper = forwardRef(
-  ({ children, referenceElement, isSelectMenuOpen, width, className }, ref) => {
-    const popperElement = useRef();
+  (
+    {
+      children,
+      referenceElement,
+      isSelectMenuOpen,
+      setIsSelectMenuOpen = () => {},
+      width,
+      className,
+    },
+    ref
+  ) => {
+    const [popperElement, setPopperElement] = useState(null);
 
     const modifiers = useMemo(
       () => [
@@ -17,7 +28,11 @@ const Popper = forwardRef(
           name: "sameWidth",
           enabled: true,
           fn: ({ state }) => {
-            state.styles.popper.width = `${state.rects.reference.width}px`;
+            if (width) {
+              state.styles.popper.width = "300px";
+            } else {
+              state.styles.popper.width = `${state.rects.reference.width}px`;
+            }
           },
           phase: "beforeWrite",
           requires: ["computeStyles"],
@@ -30,12 +45,12 @@ const Popper = forwardRef(
           },
         },
       ],
-      []
+      [width]
     );
 
     const { styles, attributes, update } = usePopper(
       referenceElement,
-      popperElement.current,
+      popperElement,
       {
         placement: "bottom-start",
         modifiers,
@@ -51,11 +66,18 @@ const Popper = forwardRef(
       },
       [update]
     );
+
+    useCloseSelectMenu(
+      [referenceElement, popperElement],
+      isSelectMenuOpen,
+      () => setIsSelectMenuOpen(!isSelectMenuOpen)
+    );
+
     return (
       <div>
         <Portal>
           <div
-            ref={popperElement}
+            ref={setPopperElement}
             className={`select_menu_items_wrapper ${
               className === "popperTrailer" ? "popperTrailer" : ""
             }`}

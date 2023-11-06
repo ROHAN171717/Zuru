@@ -5,7 +5,7 @@ import "./circularProgressbar.css";
 
 const CircularProgressBar = ({ percentage, variant }) => {
   return (
-    <div class={`circular_progressbar ${variant}`}>
+    <div className={`circular_progressbar ${variant}`}>
       <CircularProgressbar
         value={percentage}
         text={`${percentage}%`}

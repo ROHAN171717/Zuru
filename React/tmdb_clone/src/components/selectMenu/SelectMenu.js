@@ -1,7 +1,6 @@
 import * as React from "react";
 import "./selectMenu.css";
 import Popper from "../popper/Popper";
-import useCloseSelectMenu from "../../hooks/useCloseSelectMenu";
 
 export default function SelectMenu({
   items,
@@ -22,18 +21,6 @@ export default function SelectMenu({
     setFilteredData(items);
   }, [items]);
 
-  const selectMenuItemsWrapper = document.querySelector(
-    ".select_menu_items_wrapper"
-  );
-  const selectMenu = document.querySelector(
-    ".select_menu"
-  );
-  useCloseSelectMenu(
-    [selectMenu, selectMenuItemsWrapper],
-    isSelectMenuOpen,
-    () => setIsSelectMenuOpen(!isSelectMenuOpen)
-  );
-
   function handleFilter(value) {
     const newArr = items?.filter(
       (item) =>
@@ -45,6 +32,7 @@ export default function SelectMenu({
     );
     setFilteredData(newArr);
   }
+  
 
   return (
     <div className="select_menu" ref={selectMenuRef}>
@@ -74,10 +62,11 @@ export default function SelectMenu({
         </p>
       </div>
 
-      <Popper
+      { isSelectMenuOpen && <Popper
         referenceElement={referenceElement.current}
         isSelectMenuOpen={isSelectMenuOpen}
         width={menuWidth}
+        setIsSelectMenuOpen={setIsSelectMenuOpen}
       >
         {title === "country" && (
           <div className="searchbar">
@@ -124,7 +113,7 @@ export default function SelectMenu({
             );
           })}
         </ul>
-      </Popper>
+      </Popper>}
     </div>
   );
 }

@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import './leftPanel.css'
+import "./leftPanel.css";
 import Accordion from "../../../../components/accordion/Accordion";
 import SelectMenu from "../../../../components/selectMenu/SelectMenu";
 import WatchProvider from "../../../../components/watchProvider/WatchProvider";
@@ -31,7 +31,6 @@ import {
   RELEASE_TYPE,
 } from "../../../../constant";
 import { useParams } from "react-router-dom";
-import useCloseSelectMenu from "../../../../hooks/useCloseSelectMenu";
 
 let timeout;
 
@@ -46,7 +45,6 @@ const initialCommonFilter = {
   vote_average: [0, 10],
   vote_count_gte: 0,
   with_runtime: [0, 400],
-  searchString: "",
   with_keywords: [],
   with_genres: [],
   certification: [],
@@ -117,6 +115,9 @@ const LeftPanel = forwardRef(
     const [movieFilter, setMovieFilter] = useState(
       JSON.parse(JSON.stringify(initialMovieFilter))
     );
+    const [keywordSearchString, setKeywordSearchString] = useState("Hello");
+    console.log("Keyword Search: ", keywordSearchString);
+
     const [APIData, setAPIData] = useState({
       countryData: [],
       languages: [],
@@ -125,34 +126,20 @@ const LeftPanel = forwardRef(
     });
 
     const filterRef = useRef(initialMovieFilter);
-
     const initialMovieFilterKeysArr = Object.keys(initialMovieFilter);
-
-    const selectMenuItems = document.querySelector(
-      ".select_menu_items_wrapper"
-    );
-    const selectMenu = document.querySelector(".select_menu");
-    useCloseSelectMenu(
-      [selectMenu, selectMenuItems],
-      isSearchSelectMenuOpen,
-      () => setIsSearchSelectMenuOpen(!isSearchSelectMenuOpen)
-    );
 
     useEffect(() => {
       setIsSearchSelectMenuOpen(
-        APIData.keywordResult.length > 0 || movieFilter.searchString !== ""
+        APIData.keywordResult.length > 0 || keywordSearchString !== ""
       );
-    }, [APIData.keywordResult.length, movieFilter.searchString]);
+    }, [APIData.keywordResult.length, keywordSearchString]);
 
     useEffect(() => {
       if (!isSearchSelectMenuOpen) {
         if (APIData.keywordResult.length > 0) {
           setAPIData({ ...APIData, keywordResult: [] });
         }
-        setMovieFilter({
-          ...movieFilter,
-          searchString: "",
-        });
+        setKeywordSearchString("");
       }
     }, [isSearchSelectMenuOpen]);
 
@@ -575,7 +562,7 @@ const LeftPanel = forwardRef(
                   className="service_checkbox"
                   disabled
                 />
-                <label for="my_services" className="service_desc">
+                <label htmlFor="my_services" className="service_desc">
                   Restrict searches to my subscribed services?
                 </label>
               </label>
@@ -617,7 +604,7 @@ const LeftPanel = forwardRef(
                   id="show_me"
                   checked
                 />
-                <label for="show_me" className="show_me_desc">
+                <label htmlFor="show_me" className="show_me_desc">
                   Everything
                 </label>
               </div>
@@ -628,7 +615,7 @@ const LeftPanel = forwardRef(
                   id="show_me"
                   disabled
                 />
-                <label for="show_me" className="show_me_desc">
+                <label htmlFor="show_me" className="show_me_desc">
                   Movies | Haven't Seen
                 </label>
               </div>
@@ -639,7 +626,7 @@ const LeftPanel = forwardRef(
                   id="show_me"
                   disabled
                 />
-                <label for="show_me" className="show_me_desc">
+                <label htmlFor="show_me" className="show_me_desc">
                   Movies | Have Seen
                 </label>
               </div>
@@ -662,7 +649,7 @@ const LeftPanel = forwardRef(
                   }}
                   checked={movieFilter.isSearchAllAvailabilities}
                 />
-                <label for="availability" className="availability_desc">
+                <label htmlFor="availability" className="availability_desc">
                   Search all availabilities?
                 </label>
               </div>
@@ -700,7 +687,7 @@ const LeftPanel = forwardRef(
                       }}
                       checked={movieFilter.isSearchAllReleases}
                     />
-                    <label for="release" className="availability_desc">
+                    <label htmlFor="release" className="availability_desc">
                       Search all release?
                     </label>
                   </div>
@@ -720,7 +707,10 @@ const LeftPanel = forwardRef(
                           }}
                           checked={movieFilter.isSearchAllCountries}
                         />
-                        <label for="countries" className="availability_desc">
+                        <label
+                          htmlFor="countries"
+                          className="availability_desc"
+                        >
                           Search all countries?
                         </label>
                       </div>
@@ -807,7 +797,7 @@ const LeftPanel = forwardRef(
                       }}
                       checked={movieFilter.isSearchAllEpisodes}
                     />
-                    <label for="availability" className="availability_desc">
+                    <label htmlFor="availability" className="availability_desc">
                       Search all episodes?
                     </label>
                   </div>
@@ -826,7 +816,10 @@ const LeftPanel = forwardRef(
                         }}
                         checked={movieFilter.isSearchFirstAirDate}
                       />
-                      <label for="availability" className="availability_desc">
+                      <label
+                        htmlFor="availability"
+                        className="availability_desc"
+                      >
                         Search first air date?
                       </label>
                     </div>
@@ -1044,52 +1037,61 @@ const LeftPanel = forwardRef(
               )}
               <input
                 type="text"
-                value={movieFilter.searchString}
+                value={keywordSearchString}
                 placeholder="Filter by keywords..."
                 className="keyword_search"
                 onChange={(e) => {
-                  setMovieFilter({
-                    ...movieFilter,
-                    searchString: e.target.value,
+                  setKeywordSearchString((prev) => {
+                    console.log(prev, keywordSearchString);
+
+                    if (keywordSearchString.trim() !== e.target.value.trim()) {
+                    handleKeywordChange(e);
+                    }
+                    return e.target.value;
                   });
-                  handleKeywordChange(e);
                 }}
               />
             </div>
-            <Popper
-              referenceElement={referenceElement}
-              isSelectMenuOpen={isSearchSelectMenuOpen}
-              ref={popperRef}
-            >
-              {APIData.keywordResult.length !== 0 ? (
-                <ul className="select_menu_items">
-                  {APIData.keywordResult.map((item) => {
-                    return (
-                      <li
-                        className={`select_menu_item`}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setMovieFilter({
-                            ...movieFilter,
-                            with_keywords: [...movieFilter.with_keywords, item],
-                            searchString: "",
-                          });
-                          setAPIData({ ...APIData, keywordResult: [] });
-                          popperRef.current.update();
-                        }}
-                        key={item.id}
-                      >
-                        {item.name}
-                      </li>
-                    );
-                  })}
-                </ul>
-              ) : (
-                <div className="no_data_wrapper">
-                  <p>No Data Found</p>
-                </div>
-              )}
-            </Popper>
+            {isSearchSelectMenuOpen && keywordSearchString?.trim() !== "" && (
+              <Popper
+                referenceElement={referenceElement}
+                isSelectMenuOpen={isSearchSelectMenuOpen}
+                setIsSelectMenuOpen={setIsSearchSelectMenuOpen}
+                ref={popperRef}
+              >
+                {APIData.keywordResult.length !== 0 ? (
+                  <ul className="select_menu_items">
+                    {APIData.keywordResult.map((item) => {
+                      return (
+                        <li
+                          className={`select_menu_item`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setMovieFilter({
+                              ...movieFilter,
+                              with_keywords: [
+                                ...movieFilter.with_keywords,
+                                item,
+                              ],
+                            });
+                            setKeywordSearchString("");
+                            setAPIData({ ...APIData, keywordResult: [] });
+                            popperRef.current.update();
+                          }}
+                          key={item.id}
+                        >
+                          {item.name}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                ) : (
+                  <div className="no_data_wrapper">
+                    <p>No Data Found</p>
+                  </div>
+                )}
+              </Popper>
+            )}
           </div>
         </Accordion>
 

@@ -7,6 +7,7 @@ const FilterList = ({ items, selectedItems, setSelectedItems }) => {
     <div className="filter_list">
       {items.map((item) => (
         <div
+          key={item.name || item}
           className={`filter_list_item ${
             selectedItems.includes(item) ? "selected" : ""
           }`}

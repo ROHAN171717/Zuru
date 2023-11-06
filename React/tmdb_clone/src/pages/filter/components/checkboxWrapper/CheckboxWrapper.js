@@ -6,7 +6,7 @@ const CheckboxWrapper = ({ items, selectedItems, setSelectedItems }) => {
   return (
     <ul>
       {items.map((item) => (
-        <div className="availability">
+        <div className="availability" key={item.id}>
           <input
             type="checkbox"
             id={item.name}
@@ -16,7 +16,7 @@ const CheckboxWrapper = ({ items, selectedItems, setSelectedItems }) => {
             }
             checked={selectedItems?.includes(item)}
           />
-          <label for={item.name} className="availability_desc">
+          <label htmlFor={item.name} className="availability_desc">
             {item.name}
           </label>
         </div>

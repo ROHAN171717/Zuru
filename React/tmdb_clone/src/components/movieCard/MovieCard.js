@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const MovieCard = ({ movie, variant, category }) => {
   const percentage = Math.round(movie?.vote_avg * 10);
   return (
-    <div className={`movie_card ${variant}`}>
+    <div className={`movie_card ${variant}`} key={movie.id}>
       <div className="movie_card_image">
         {variant === "small" ? (
           <img

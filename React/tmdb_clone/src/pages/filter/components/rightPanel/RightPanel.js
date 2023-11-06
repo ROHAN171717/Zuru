@@ -31,7 +31,7 @@ const RightPanel = ({ movieData, handleClick, isFetching }) => {
       loader={
         isFetching && (
           <>
-            {[...Array(20)].map(() => (
+            {[...Array(20)].map((i) => (
               <ShimmerCardEffect variant="full" />
             ))}
           </>

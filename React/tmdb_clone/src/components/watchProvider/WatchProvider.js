@@ -4,14 +4,13 @@ import toggleItemInArray from "../../helper";
 import { Tooltip } from "@mui/material";
 
 const WatchProvider = ({ data, selectedItems, setSelectedItems }) => {
-  console.log("data", data);
-
   return (
     <div className="ott_wrapper">
       {data?.map((item) => (
         <Tooltip
-        title={item?.name}
-        placement="top"
+          key={item.id}
+          title={item?.name}
+          placement="top"
           arrow
           componentsProps={{
             tooltip: {
@@ -33,7 +32,6 @@ const WatchProvider = ({ data, selectedItems, setSelectedItems }) => {
             onClick={() =>
               setSelectedItems(toggleItemInArray(selectedItems, item))
             }
-            key={item.id}
           >
             <img
               className="item_logo"

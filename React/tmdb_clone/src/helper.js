@@ -1,4 +1,6 @@
 export default function toggleItemInArray(array, item) {
+  console.log(array);
+  
   if (!array.includes(item)) {
     const newArr = [...array, item];
     return newArr;
