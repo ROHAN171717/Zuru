@@ -4,20 +4,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import './circularProgressbar.css';
 
 function CircularProgressBar({ percentage, variant }) {
-  // let color;
-  // if (percentage <= 25) {
-  //   color = '#388E3C';
-  // } else {
-  //   if (percentage <= 50) {
-  //     color = '#66BB6A';
-  //   } else {
-  //     if (percentage <= 75) {
-  //       color = '#8BC34A';
-  //     } else {
-  //       color = '#FFF176';
-  //     }
-  //   }
-  // }
+
   return (
     <div className={`circular_progressbar ${variant}`}>
       <CircularProgressbar
@@ -29,7 +16,6 @@ function CircularProgressBar({ percentage, variant }) {
         styles={buildStyles({
           backgroundColor: '#081c22',
           textColor: '#fff',
-          // pathColor: "#498C4C",
           pathColor:
             percentage <= 25
               ? '#388E3C'
@@ -38,7 +24,6 @@ function CircularProgressBar({ percentage, variant }) {
                 : percentage <= 75
                   ? '#8BC34A'
                   : '#FFF176',
-          // pathColor: {color},
           trailColor: '#6F6F6F',
         })}
       />
