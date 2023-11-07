@@ -1,5 +1,5 @@
-import { createPortal } from "react-dom";
+import { createPortal } from 'react-dom';
 
-export const Portal = ({ children }) => {
-    return createPortal(children, document.body);
-}
+const Portal = ({ children }) => createPortal(children, document.body);
+
+export default Portal;

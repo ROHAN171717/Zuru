@@ -1,33 +1,28 @@
 export default function toggleItemInArray(array, item) {
-  console.log(array);
-  
   if (!array.includes(item)) {
     const newArr = [...array, item];
     return newArr;
-  } else {
-    const newArr = array.filter((arrayItem) => arrayItem !== item);
-    return newArr;
   }
+  const newArr = array.filter((arrayItem) => arrayItem !== item);
+  return newArr;
 }
 
 export function dateFormatter(dateObject) {
   let day = dateObject.getDate();
   let month = dateObject.getMonth() + 1;
-  let year = dateObject.getFullYear();
+  const year = dateObject.getFullYear();
 
   if (day < 10) {
-    day = "0" + day;
+    day = `0${day}`;
   }
   if (month < 10) {
-    month = "0" + month;
+    month = `0${month}`;
   }
   return `${month}/${day}/${year}`;
 }
 
 export function formateDateString(date) {
   const dateObj = new Date(date);
-  const arr = dateObj.toDateString().split(" ");
+  const arr = dateObj.toDateString().split(' ');
   return ` ${arr[1]} ${arr[2]}, ${arr[3]}`;
 }
-
-
