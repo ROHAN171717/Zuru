@@ -116,6 +116,7 @@ const LeftPanel = forwardRef(
       JSON.parse(JSON.stringify(initialMovieFilter)),
     );
     const [keywordSearchString, setKeywordSearchString] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const [APIData, setAPIData] = useState({
       countryData: [],
@@ -507,8 +508,9 @@ const LeftPanel = forwardRef(
       clearTimeout(timeout);
       timeout = setTimeout(async () => {
         if (e.target.value.trim().length > 0) {
+          setIsLoading(true);
           const data = await getKeywords(e.target.value.trim());
-
+          setIsLoading(false);
           const newArr = data.results.filter(
             (item) => !movieFilter.with_keywords.includes(item.name),
           );
@@ -1028,6 +1030,7 @@ const LeftPanel = forwardRef(
                     }
                     return e.target.value;
                   });
+                  // setAPIData({ ...APIData, keywordResult: [] });
                 }}
               />
             </div>
@@ -1064,7 +1067,7 @@ const LeftPanel = forwardRef(
                   </ul>
                 ) : (
                   <div className="no_data_wrapper">
-                    <p>No Data Found</p>
+                    {isLoading === true ? <p>Loading</p> : <p>No data found</p>}
                   </div>
                 )}
               </Popper>

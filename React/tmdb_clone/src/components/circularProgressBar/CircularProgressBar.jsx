@@ -4,7 +4,6 @@ import 'react-circular-progressbar/dist/styles.css';
 import './circularProgressbar.css';
 
 function CircularProgressBar({ percentage, variant }) {
-
   return (
     <div className={`circular_progressbar ${variant}`}>
       <CircularProgressbar
