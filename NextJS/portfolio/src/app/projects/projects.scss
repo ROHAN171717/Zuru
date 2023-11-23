@@ -1,0 +1,147 @@
+.projects {
+  position: relative;
+  .projects_content {
+    ul.projects_list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      @media screen and (max-width: 900px) {
+        grid-template-columns: 1fr;
+      }
+      li.project_wrapper {
+        opacity: 0;
+        padding: 20px;
+        background-color: var(--black-4);
+        border-radius: 15px;
+        position: relative;
+        top: 0;
+        @media screen and (max-width: 1050px) {
+          padding: 20px 15px;
+        }
+        .project_header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .link_icon_wrapper {
+            display: flex;
+            gap: 5px;
+            .link_icon {
+              text-decoration: none;
+              display: flex;
+            }
+          }
+        }
+        .project_content {
+          margin-top: 20px;
+          .project_title {
+            font-size: 25px;
+            font-weight: 500;
+            position: relative;
+            width: fit-content;
+            // height: 45px;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            @media screen and (max-width: 1050px) {
+              font-size: 20px;
+              margin-bottom: 10px;
+            }
+            &::before {
+              content: "";
+              position: absolute;
+              top: 15px;
+              height: 8px;
+              width: 8px;
+              left: 0;
+              background: linear-gradient(
+                to right,
+                rgb(255, 219, 112),
+                rgb(255, 187, 92)
+              );
+              border-radius: 50%;
+              box-shadow: 0 0 5px 4px gray;
+              @media screen and (max-width: 1050px) {
+                top: 12px;
+              }
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 5px;
+              background: linear-gradient(
+                to right,
+                rgb(255, 219, 112),
+                rgb(255, 187, 92)
+              );
+              border-radius: 3px;
+            }
+          }
+          .project_description {
+            font-size: 15px;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            @media screen and (max-width: 480px) {
+              font-size: 13px;
+            }
+          }
+          ul.technology_list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            justify-content: space-between;
+            padding-left: 20px;
+
+            @media screen and (max-width: 1024px) {
+              grid-template-columns: 1fr 1fr;
+            }
+
+            @media screen and (max-width: 900px) {
+              grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            }
+            @media screen and (max-width: 800px) {
+              grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+            @media screen and (max-width: 700px) {
+              grid-template-columns: 1fr 1fr 1fr;
+            }
+            @media screen and (max-width: 600px) {
+              grid-template-columns: 1fr 1fr;
+            }
+            @media screen and (max-width: 400px) {
+              grid-template-columns: 1fr;
+            }
+            li.technology {
+              font-size: 15px;
+              position: relative;
+              @media screen and (max-width: 480px) {
+                font-size: 13px;
+              }
+              &::before {
+                content: "";
+                position: absolute;
+                top: 8px;
+                height: 8px;
+                width: 8px;
+                left: -15px;
+                background: linear-gradient(
+                  to right,
+                  rgb(255, 219, 112),
+                  rgb(255, 187, 92)
+                );
+                border-radius: 50%;
+              }
+            }
+          }
+        }
+        &:hover {
+          transition: all 0.2s ease-out;
+          top: -4px;
+        }
+      }
+    }
+  }
+}

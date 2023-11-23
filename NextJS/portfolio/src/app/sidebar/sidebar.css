@@ -1,0 +1,264 @@
+.sidebar {
+  width: 275px;
+  max-width: 275px;
+  height: 100%;
+  max-height: -moz-max-content;
+  max-height: max-content;
+  padding: 60px 30px 30px;
+  position: sticky;
+  top: 60px;
+  background: var(--black-1);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  border: 1px solid var(--black-3);
+  margin-top: 60px;
+  overflow: hidden;
+  transition: all 0.5s ease-out;
+}
+@media screen and (max-width: 1250px) {
+  .sidebar {
+    position: relative;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 30px;
+  }
+  .sidebar.active .sidebar_info_more {
+    display: block;
+  }
+}
+.sidebar .contact_btn {
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 12px;
+  color: var(--yellow-1);
+  background: linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50%);
+  box-shadow: 0 16px 30px hsla(0, 0%, 0%, 0.25);
+  padding: 10px 15px;
+  border-radius: 0 15px;
+  border: none;
+  font-family: var(--font-poppins);
+  transition: all 0.5s ease-out;
+}
+.sidebar .contact_btn span {
+  display: block;
+}
+@media screen and (max-width: 600px) {
+  .sidebar .contact_btn span {
+    display: none;
+  }
+}
+.sidebar .contact_btn .down_arrow {
+  display: none;
+  animation-delay: 0s;
+}
+@media screen and (max-width: 600px) {
+  .sidebar .contact_btn .down_arrow {
+    display: block;
+    opacity: 0;
+  }
+}
+@media screen and (max-width: 1250px) {
+  .sidebar .contact_btn {
+    display: block;
+  }
+}
+.sidebar .sidebar_info {
+  width: -moz-max-content;
+  width: max-content;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+@media screen and (max-width: 1250px) {
+  .sidebar .sidebar_info {
+    flex-direction: row;
+  }
+}
+@media screen and (max-width: 480px) {
+  .sidebar .sidebar_info {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 350px) {
+  .sidebar .sidebar_info {
+    gap: 10px;
+  }
+}
+.sidebar .sidebar_info .profilePic {
+  width: 150px;
+  height: auto;
+  background: linear-gradient(to bottom right, rgb(63, 63, 64) 3%, rgb(48, 48, 48) 97%);
+  border-radius: 30px;
+  transition: all 0.5s ease-in;
+}
+@media screen and (max-width: 350px) {
+  .sidebar .sidebar_info .profilePic {
+    width: 100px;
+  }
+}
+.sidebar .sidebar_info .info_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media screen and (max-width: 1250px) and (min-width: 480px) {
+  .sidebar .sidebar_info .info_content {
+    align-items: flex-start;
+  }
+}
+.sidebar .sidebar_info .info_content .name {
+  color: var(--white-1);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.25px;
+  margin-bottom: 15px;
+}
+@media screen and (max-width: 350px) {
+  .sidebar .sidebar_info .info_content .name {
+    font-size: 20px;
+  }
+}
+.sidebar .sidebar_info .info_content .title {
+  width: -moz-max-content;
+  width: max-content;
+  padding: 5px 18px;
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--white-1);
+  background: var(--black-4);
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+.sidebar .sidebar_info .info_content .resume_btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: -moz-max-content;
+  width: max-content;
+  font-size: 15px;
+  padding: 5px 18px;
+  color: var(--yellow-1);
+  background: linear-gradient(to bottom right, rgb(64, 64, 64) 0%, rgba(64, 64, 64, 0) 50%);
+  box-shadow: 1px 1px 5px rgb(88, 88, 88);
+  border-radius: 8px;
+  transition: all 1s ease-out;
+}
+.sidebar .sidebar_info .info_content .resume_btn:hover {
+  background: var(--black-3);
+}
+.sidebar .sidebar_info .info_content .resume_btn .document_icon {
+  width: 20px;
+  height: 20px;
+}
+@media screen and (max-width: 350px) {
+  .sidebar .sidebar_info .info_content .resume_btn .document_icon {
+    width: 15px;
+    height: 15px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .sidebar .sidebar_info .info_content .resume_btn {
+    font-size: 12px;
+  }
+}
+.sidebar .sidebar_info_more {
+  opacity: 0;
+  animation-delay: 0s;
+}
+@media screen and (max-width: 1250px) {
+  .sidebar .sidebar_info_more {
+    display: none;
+  }
+}
+.sidebar .sidebar_info_more .separator {
+  margin: 32px 0;
+  width: 100%;
+  height: 1px;
+  background: var(--black-3);
+}
+.sidebar .sidebar_info_more .separator:last-of-type {
+  margin: 15px 0;
+  opacity: 0;
+}
+@media screen and (max-width: 1250px) {
+  .sidebar .sidebar_info_more .separator:last-of-type {
+    margin: 32px 0;
+    opacity: 1;
+  }
+}
+.sidebar .sidebar_info_more .contacts_list {
+  display: grid;
+  list-style: none;
+  gap: 30px 15px;
+  grid-template-columns: 1fr;
+}
+.sidebar .sidebar_info_more .contacts_list .contact_item {
+  display: flex;
+  gap: 16px;
+  overflow: hidden;
+}
+.sidebar .sidebar_info_more .contacts_list .contact_item .contact_info {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+.sidebar .sidebar_info_more .contacts_list .contact_item .contact_info .contact_title {
+  color: var(--light-gray-1);
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.sidebar .sidebar_info_more .contacts_list .contact_item .contact_info .contact_link,
+.sidebar .sidebar_info_more .contacts_list .contact_item .contact_info address {
+  font-size: 14px;
+  font-weight: 300;
+  text-decoration: none;
+  font-style: normal;
+  color: var(--white-2);
+}
+.sidebar .sidebar_info_more .social_list {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 1250px) {
+  .sidebar .sidebar_info_more .social_list {
+    justify-content: flex-start;
+  }
+}
+.sidebar .sidebar_info_more .social_list .social_item .social_link {
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+.sidebar .sidebar_info_more .social_list .social_item .social_link:hover {
+  opacity: 1;
+}
+
+.icon_box {
+  width: 48px;
+  min-width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  font-size: 18px;
+  position: relative;
+  background: linear-gradient(to bottom right, rgb(64, 64, 64) 0%, rgba(64, 64, 64, 0) 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=sidebar.css.map */
